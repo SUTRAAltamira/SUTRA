@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Delegación de Presidencia | Apoyo a rehabilitación del Salón SUTRA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --guinda: #6b1b2b;
+      --guinda-claro: #8c2438;
+      --verde-sutra: #3a6b3a;
+      --fondo: #f5f1ec;
+      --texto: #222222;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #fff, var(--fondo));
+      color: var(--texto);
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(135deg, var(--guinda), #000000);
+      color: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      margin-bottom: 2rem;
+    }
+
+    header img {
+      width: 90px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
+    }
+
+    .head-text h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .head-text p {
+      margin: 0.25rem 0 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: #ffffff;
+      color: var(--guinda);
+      font-weight: 700;
+    }
+
+    main {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    section {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.25rem 1.3rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.07);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+      color: var(--guinda);
+    }
+
+    section p {
+      margin: 0.45rem 0;
+      line-height: 1.5;
+      font-size: 0.96rem;
+    }
+
+    .highlight {
+      border-left: 4px solid var(--verde-sutra);
+      padding-left: 0.75rem;
+      margin: 0.4rem 0 0.8rem;
+      font-size: 0.94rem;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .detail-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .detail-item strong {
+      display: block;
+      color: var(--guinda);
+      margin-bottom: 5px;
+      font-size: 1.02em;
+    }
+
+    .menu-list {
+      background-color: #fff3cd;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin-top: 0.5rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid rgba(133, 100, 4, 0.4);
+    }
+
+    .menu-list h3 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      color: #856404;
+      text-align: center;
+      font-size: 1.02rem;
+    }
+
+    .menu-list ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.94rem;
+    }
+
+    .menu-list li {
+      margin: 0.18rem 0;
+      text-align: center;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      background: rgba(107, 27, 43, 0.05);
+      border-radius: 0.75rem;
+      padding: 0.7rem 0.8rem;
+      margin-top: 0.6rem;
+      border: 1px dashed rgba(107, 27, 43, 0.25);
+    }
+
+    .thanks {
+      font-weight: 600;
+      color: var(--guinda-claro);
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer strong {
+      color: var(--guinda);
+    }
+
+    footer p {
+      margin: 0.25rem 0;
+    }
+
+    @media (min-width: 720px) {
+      main {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <!-- Logo oficial SUTRA en GitHub -->
+      <img
+        src="https://raw.githubusercontent.com/migueltobias/SUTRA/refs/heads/main/LOGO_SUTRA_.png"
+        alt="Logo SUTRA"
+      />
+      <div class="head-text">
+        <div class="badge">Delegación de Presidencia</div>
+        <h1>Apoyo a la rehabilitación del techo del Salón SUTRA</h1>
+        <p>
+          Presentación informativa sobre la primera etapa de apoyo alimentario
+          organizado desde el Departamento de Presidencia.
+        </p>
+        <div class="pill">
+          🧱 Trabajo solidario · 🤝 Tradición sindical · 🧡 Orgullosamente SUTRA
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Bloque 1: Contexto y objetivo -->
+      <section>
+        <h2>Contexto y objetivo</h2>
+        <p>
+          De parte de la <strong>Delegación de Presidencia</strong> se extiende
+          una cordial invitación a todas y todos los integrantes de este
+          departamento para sumarse al apoyo de los trabajos de
+          <strong>rehabilitación del techo de nuestro Salón SUTRA</strong>.
+        </p>
+        <p class="highlight">
+          Siguiendo nuestras tradiciones sindicales, apoyamos con
+          <strong>alimentación</strong> a las y los trabajadores que participan
+          directamente en la obra, como una forma de reconocimiento, acompañamiento
+          y solidaridad.
+        </p>
+        <p>
+          Esta primera etapa de organización nos permite contar con los insumos
+          necesarios y tener claridad de cuántas personas serán atendidas en el
+          acto de ofrecimiento de alimentos.
+        </p>
+      </section>
+
+      <!-- Bloque 2: Detalles del evento y menú -->
+      <section>
+        <h2>Detalles del apoyo y menú preparado</h2>
+
+        <div class="details-grid">
+          <div class="detail-item">
+            <strong>📅 Fecha</strong>
+            Sábado 29 de noviembre de 2025
+          </div>
+          <div class="detail-item">
+            <strong>⏰ Hora</strong>
+            12:00 p.m. (medio día)
+          </div>
+          <div class="detail-item">
+            <strong>👥 Personas beneficiadas</strong>
+            40 compañeros y compañeras
+          </div>
+          <div class="detail-item">
+            <strong>📍 Lugar</strong>
+            Salón SUTRA – Acto de ofrecimiento de alimentos
+          </div>
+        </div>
+
+        <div class="menu-list">
+          <h3>🍲 Menú previsto para 40 personas</h3>
+          <ul>
+            <li>🐟 20 kg de pescado crudo, limpio y listo para preparar</li>
+            <li>🍚 Arroz preparado como guarnición</li>
+            <li>🥗 Ensalada de lechuga y tomate</li>
+            <li>🍅 Salsa</li>
+            <li>🧅🌶️ Cebolla y chiles para torear</li>
+            <li>🥤 Refrescos</li>
+            <li>🫓 Tortillas</li>
+            <li>🧴 Aceite para la preparación</li>
+          </ul>
+        </div>
+
+        <div class="note">
+          ⚠️ <strong>Importante:</strong><br />
+          El Departamento de Presidencia participa únicamente en el
+          <strong>acto protocolario de ofrecimiento</strong> de los alimentos.
+          No está configurado como área de consumo, por lo que la convivencia
+          directa y el consumo se limitan a la entrega y atención a quienes
+          trabajan en la remodelación del techo.
+        </div>
+      </section>
+
+      <!-- Bloque 3: Agradecimiento y mensaje al grupo -->
+      <section>
+        <h2>Mensaje a las y los compañeros de Presidencia</h2>
+        <p>
+          A todas y todos los miembros activos de este departamento, se les
+          agradece la participación y la disposición mostrada en esta primera
+          etapa. Cada aportación, por pequeña que parezca, suma de manera
+          importante al logro de esta actividad.
+        </p>
+        <p class="thanks">
+          Tengan firme la idea de que, cuando se solicite información sobre la
+          participación de Presidencia, una acción como ésta es de
+          <strong>gran trascendencia</strong> para la historia y el prestigio de
+          nuestro departamento dentro del SUTRA.
+        </p>
+        <p>
+          Seguiremos informando de los avances y reiteramos la invitación a
+          acompañarnos el día sábado, en punto del medio día, durante el acto
+          de ofrecimiento de alimentos en el Salón SUTRA.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Con aprecio,<br />
+        <strong>Delegación de Presidencia – SUTRA Altamira</strong>
+      </p>
+      <p>
+        Quedamos a sus órdenes para cualquier duda o comentario sobre esta
+        actividad.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

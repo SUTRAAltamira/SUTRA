@@ -1,296 +1,3458 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rifa · 30 Aniversario SUTRA (v24)</title>
-<style>
-  :root{--apple:#8BC34A;--emerald:#50C878;--gold:#D4AF37;--ink:#102a43;--paper:#f9fafb;}
-  *{box-sizing:border-box} 
-  body{margin:0;font-family:Segoe UI,system-ui,-apple-system,Roboto,Arial,sans-serif;
-  color:var(--ink);background:linear-gradient(120deg,#eef7ea,#f7fff2);min-height:100vh;display:flex}
-  .wrap{flex:1;display:grid;grid-template-columns:1fr 360px;gap:16px;padding:16px;min-height:0}
-  header.brand{grid-column:1/-1;display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--apple),var(--emerald));
-  color:#fff;padding:12px 20px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.08),inset 0 0 0 2px rgba(255,255,255,.2)}
-  .medal{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff8,#0000 40%),linear-gradient(135deg,#f6e27a,var(--gold));
-  display:grid;place-items:center;font-weight:800;box-shadow:0 6px 16px rgba(0,0,0,.15),inset 0 0 0 2px rgba(255,255,255,.35)}
-  .brand h1{margin:0;font-size:clamp(1.1rem,2.2vw,1.6rem);font-weight:800}
-  .panel{background:var(--paper);border:1px solid #e6e6e6;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.06);display:flex;flex-direction:column;min-height:0}
-  .main{padding:18px;padding-bottom:120px;display:flex;flex-direction:column;gap:12px;min-height:0}
-  .namebox{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:6px;overflow:hidden; justify-content: center;}
-  .bigname{transition:transform .25s ease, filter .25s ease;font-size:clamp(2rem,6vw,4.8rem);font-weight:900;text-align:center;padding:16px 22px;border-radius:22px;background:linear-gradient(135deg,#fff,#f5fff0);
-  border:1px solid #e5eddc;min-height:3.5em;max-height:40vh;overflow:auto;display:grid;place-items:center;word-break:break-word}
-  .meta{font-size:1.1rem;opacity:.85;text-align:center;font-weight:600;color:#2c5e31}
-  .statsbar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:2px 0;font-size:.9rem;}
-  .btnrow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px;}
-  .chip{background:linear-gradient(135deg,#fff,#eef8e9);border:1px solid #e1eada;border-radius:999px;padding:6px 10px;font-weight:600}
-  .controls{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;justify-content:center;text-align:center;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.92);border:1px solid #e6e6e6;box-shadow:0 14px 30px rgba(0,0,0,.15);pointer-events:auto;backdrop-filter:blur(10px);}
-  button{padding:12px 18px;border:none;border-radius:12px;font-weight:800;cursor:pointer;letter-spacing:.3px;font-size:1rem; transition:transform 0.1s}
-  button:active{transform:scale(0.96)}
-  button:disabled{opacity:0.5;cursor:not-allowed}
-  .primary{background:linear-gradient(135deg,var(--apple),var(--emerald));color:#fff;box-shadow:0 8px 18px rgba(80,200,120,.35)}
-  .secondary{background:linear-gradient(135deg,#fff,#f7efe3);color:#5b4636;border:1px solid #ecd4a1}
-  .danger{background:linear-gradient(135deg,#fff,#ffefef);color:#7b3b3b;border:1px solid #f0c7c7}
-  .side{background:#fff;border:1px solid #e6e6e6;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.06);display:flex;flex-direction:column;min-height:0}
-  .side header{padding:14px 16px;background:linear-gradient(135deg,#f4fff0,#ffffff);border-bottom:1px solid #e6f0e2;display:flex;align-items:center;justify-content:space-between;gap:8px}
-  .badge{padding:4px 8px;border-radius:999px;background:linear-gradient(135deg,#fff9e6,#fff3c4);border:1px solid #f0dfaa;font-size:.75rem;color:#6b4d18;font-weight:800}
-  .stor{flex:1 1 auto;min-height:0;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
-  .stor-item{padding:10px 12px;border-radius:10px;border:1px solid #e8eddc;background:#ffffff;font-weight:700;display:flex;align-items:center;gap:8px;justify-content:space-between; animation:fadeIn 0.3s ease}
-  @keyframes fadeIn { from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)} }
-  @media (max-width:960px){.wrap{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rifadora de Despensas | Gobierno Municipal de Altamira</title>
+  <style>
+    :root {
+      --vino: #7a1234;
+      --vino-2: #5b0d28;
+      --vino-3: #3b0619;
+      --dorado: #c79a2c;
+      --dorado-2: #f0d486;
+      --dorado-3: #8d6415;
+      --blanco: #ffffff;
+      --hueso: #fbf7ee;
+      --gris: #3f3f46;
+      --gris-suave: #f3f4f6;
+      --verde: #1f8f5f;
+      --sombra: 0 20px 52px rgba(58, 6, 25, .22);
+      --sombra-fuerte: 0 28px 70px rgba(58, 6, 25, .30);
+      --borde: rgba(122, 18, 52, .18);
+      --borde-dorado: rgba(199, 154, 44, .55);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Montserrat, "Segoe UI", Arial, sans-serif;
+      background: var(--blanco);
+      color: var(--vino-3);
+    }
+
+    body {
+      position: relative;
+      background:
+        radial-gradient(circle at 49% 43%, rgba(240, 212, 134, .35), transparent 30%),
+        radial-gradient(circle at 8% 10%, rgba(122, 18, 52, .10), transparent 20%),
+        radial-gradient(circle at 92% 14%, rgba(199, 154, 44, .18), transparent 18%),
+        linear-gradient(180deg, #ffffff 0%, #fbf7ee 50%, #ffffff 100%);
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(90deg, rgba(122, 18, 52, .035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(122, 18, 52, .035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: .85;
+      mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,.56), transparent 78%);
+      z-index: 0;
+    }
+
+    .background-rings {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .background-rings::before,
+    .background-rings::after {
+      content: "";
+      position: absolute;
+      width: 55vw;
+      height: 55vw;
+      border-radius: 50%;
+      border: 34px solid rgba(122, 18, 52, .06);
+      animation: slowSpin 28s linear infinite;
+    }
+
+    .background-rings::before { left: -24vw; bottom: -12vw; }
+    .background-rings::after {
+      right: -22vw;
+      top: -24vw;
+      border-color: rgba(199, 154, 44, .14);
+      animation-direction: reverse;
+    }
+
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    #floatingSymbols, #sparklesLayer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    #floatingSymbols { z-index: 2; }
+    #sparklesLayer { z-index: 3; }
+
+    .floating-symbol {
+      position: absolute;
+      font-size: var(--size);
+      line-height: 1;
+      opacity: var(--opacity);
+      text-shadow: 0 12px 20px rgba(58, 6, 25, .16);
+      animation: drift var(--duration) linear infinite;
+      animation-delay: var(--delay);
+      will-change: transform;
+    }
+
+    @keyframes drift {
+      0% { transform: translate3d(-12vw, 105vh, 0) rotate(0deg) scale(.82); }
+      25% { transform: translate3d(20vw, 72vh, 0) rotate(100deg) scale(.96); }
+      50% { transform: translate3d(48vw, 48vh, 0) rotate(190deg) scale(1.05); }
+      75% { transform: translate3d(74vw, 18vh, 0) rotate(275deg) scale(.96); }
+      100% { transform: translate3d(112vw, -18vh, 0) rotate(360deg) scale(.86); }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199,154,44,.95), rgba(199,154,44,.26) 48%, transparent 72%);
+      animation: twinkle var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+      opacity: 0;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(.30); }
+      45% { opacity: .92; transform: scale(1); }
+      66% { opacity: .25; transform: scale(.74); }
+    }
+
+    .screen-flash {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(240,212,134,.74), rgba(255,255,255,.48), transparent 74%);
+      opacity: 0;
+    }
+
+    .flash-active { animation: flash .72s ease-out; }
+
+    @keyframes flash {
+      0% { opacity: .88; }
+      100% { opacity: 0; }
+    }
+
+    .confetti {
+      position: fixed;
+      z-index: 81;
+      pointer-events: none;
+      font-size: var(--size);
+      animation: confettiFly 1.35s ease-out forwards;
+      text-shadow: 0 8px 16px rgba(58, 6, 25, .24);
+    }
+
+    @keyframes confettiFly {
+      0% { transform: translate(-50%, -50%) scale(.18) rotate(0deg); opacity: 1; }
+      100% { transform: translate(var(--x), var(--y)) scale(1.08) rotate(340deg); opacity: 0; }
+    }
+
+    .page {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      padding: 16px 22px 20px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+    }
+
+    .top-bar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 18px;
+      min-height: 116px;
+    }
+
+    .brand-side {
+      height: 116px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.80);
+      border: 1px solid rgba(122,18,52,.12);
+      box-shadow: var(--sombra);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 22px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .brand-side::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(122,18,52,.08), transparent 45%, rgba(199,154,44,.12));
+      pointer-events: none;
+    }
+
+    .brand-side strong {
+      position: relative;
+      display: block;
+      font-size: clamp(1.05rem, 1.5vw, 1.6rem);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--vino);
+      text-align: center;
+      line-height: 1.15;
+    }
+
+    .brand-side span {
+      display: block;
+      margin-top: 6px;
+      font-size: .86rem;
+      letter-spacing: .16em;
+      color: var(--dorado-3);
+    }
+
+    .main-title {
+      min-width: min(760px, 48vw);
+      height: 116px;
+      border-radius: 32px;
+      background: linear-gradient(90deg, rgba(122,18,52,.96), rgba(90,12,41,.96)), var(--vino);
+      box-shadow: var(--sombra-fuerte);
+      border: 2px solid rgba(199,154,44,.72);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 34px;
+      color: var(--blanco);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-title::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        linear-gradient(115deg, transparent 0%, rgba(255,255,255,.14) 45%, transparent 58%),
+        radial-gradient(circle at 50% 0%, rgba(240,212,134,.30), transparent 45%);
+      animation: titleShine 5s ease-in-out infinite;
+    }
+
+    @keyframes titleShine {
+      0%, 100% { transform: translateX(-12%) rotate(0deg); }
+      50% { transform: translateX(12%) rotate(2deg); }
+    }
+
+    .main-title .eyebrow {
+      position: relative;
+      z-index: 1;
+      font-size: .86rem;
+      font-weight: 900;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      color: var(--dorado-2);
+    }
+
+    .main-title h1 {
+      position: relative;
+      z-index: 1;
+      margin: 4px 0 0;
+      font-size: clamp(1.9rem, 3.1vw, 3.45rem);
+      line-height: .96;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 8px 20px rgba(0,0,0,.24);
+    }
+
+    .main-title .sub {
+      position: relative;
+      z-index: 1;
+      margin-top: 6px;
+      font-size: .94rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.92);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .main-layout {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 340px 1fr 380px;
+      gap: 18px;
+    }
+
+    .panel {
+      border-radius: 28px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid var(--borde);
+      box-shadow: var(--sombra);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .controls-panel {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .panel-title {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--vino);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stat {
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fff, #fff8e6);
+      border: 1px solid rgba(199,154,44,.42);
+      padding: 12px;
+      min-height: 72px;
+    }
+
+    .stat .label {
+      font-size: .72rem;
+      font-weight: 800;
+      color: var(--gris);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .stat .value {
+      margin-top: 6px;
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--vino);
+      line-height: 1;
+    }
+
+    .button {
+      width: 100%;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 900;
+      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .button:hover { transform: translateY(-2px) scale(1.01); filter: brightness(1.02); }
+    .button:active { transform: scale(.98); }
+
+    .spin-button {
+      min-height: 82px;
+      font-size: 1.25rem;
+      color: var(--blanco);
+      background: linear-gradient(180deg, var(--vino), var(--vino-3));
+      box-shadow: 0 18px 30px rgba(122,18,52,.28);
+      border: 2px solid var(--dorado);
+    }
+
+    .spin-button[disabled] {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .secondary-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .soft-button {
+      min-height: 52px;
+      font-size: .78rem;
+      color: var(--vino);
+      background: linear-gradient(180deg, #ffffff, #fff3d1);
+      border: 1px solid rgba(199,154,44,.50);
+    }
+
+    .danger-button {
+      color: #ffffff;
+      background: linear-gradient(180deg, #8a1d3f, #560a27);
+    }
+
+    .setting-box {
+      padding: 12px;
+      border-radius: 18px;
+      background: rgba(122,18,52,.06);
+      border: 1px dashed rgba(122,18,52,.20);
+    }
+
+    .setting-box label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: .78rem;
+      font-weight: 900;
+      color: var(--vino);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .setting-box input {
+      width: 100%;
+      border: 1px solid rgba(122,18,52,.24);
+      border-radius: 14px;
+      padding: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--vino);
+      text-align: center;
+      outline: none;
+      background: rgba(255,255,255,.88);
+    }
+
+    .hint {
+      font-size: .78rem;
+      line-height: 1.45;
+      color: rgba(75,7,31,.78);
+      font-weight: 650;
+    }
+
+    .stage-panel {
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      overflow: visible;
+    }
+
+    .roulette-stage {
+      width: min(100%, 1040px);
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 14px;
+      place-items: center;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .wheel-wrap {
+      position: relative;
+      width: min(72vh, 62vw, 710px);
+      height: min(72vh, 62vw, 710px);
+      min-width: 480px;
+      min-height: 480px;
+      display: grid;
+      place-items: center;
+    }
+
+    .wheel {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background:
+        conic-gradient(
+          from 0deg,
+          var(--vino) 0 16deg,
+          var(--dorado) 16deg 32deg,
+          #ffffff 32deg 48deg,
+          var(--vino-2) 48deg 64deg,
+          var(--dorado-2) 64deg 80deg,
+          var(--vino) 80deg 96deg,
+          var(--dorado) 96deg 112deg,
+          #ffffff 112deg 128deg,
+          var(--vino-2) 128deg 144deg,
+          var(--dorado-2) 144deg 160deg,
+          var(--vino) 160deg 176deg,
+          var(--dorado) 176deg 192deg,
+          #ffffff 192deg 208deg,
+          var(--vino-2) 208deg 224deg,
+          var(--dorado-2) 224deg 240deg,
+          var(--vino) 240deg 256deg,
+          var(--dorado) 256deg 272deg,
+          #ffffff 272deg 288deg,
+          var(--vino-2) 288deg 304deg,
+          var(--dorado-2) 304deg 320deg,
+          var(--vino) 320deg 336deg,
+          var(--dorado) 336deg 360deg
+        );
+      border: 10px solid var(--vino);
+      box-shadow:
+        var(--sombra-fuerte),
+        inset 0 0 0 10px rgba(255,255,255,.48),
+        inset 0 0 0 18px rgba(199,154,44,.55);
+      animation: wheelIdle 16s linear infinite;
+      opacity: .98;
+    }
+
+    .wheel::before {
+      content: "";
+      position: absolute;
+      inset: 52px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.94), rgba(251,247,238,.92));
+      box-shadow: inset 0 0 44px rgba(122,18,52,.11);
+      border: 2px solid rgba(199,154,44,.50);
+    }
+
+    .wheel::after {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.36), transparent 22%);
+      pointer-events: none;
+    }
+
+    @keyframes wheelIdle {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .spinning .wheel { animation: wheelSpin .52s linear infinite; }
+
+    @keyframes wheelSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .pointer {
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 24px solid transparent;
+      border-right: 24px solid transparent;
+      border-top: 56px solid var(--vino);
+      filter: drop-shadow(0 8px 12px rgba(58,6,25,.28));
+      z-index: 6;
+    }
+
+    .pointer::after {
+      content: "";
+      position: absolute;
+      left: -13px;
+      top: -51px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--dorado);
+      border: 3px solid #fff;
+    }
+
+    .winner-card {
+      position: relative;
+      z-index: 5;
+      width: min(84%, 560px);
+      min-height: 286px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 34px;
+      background: rgba(255,255,255,.92);
+      border: 3px solid var(--dorado);
+      box-shadow: 0 24px 54px rgba(58,6,25,.28);
+      padding: 24px 28px;
+      overflow: hidden;
+    }
+
+    .winner-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(122,18,52,.08), transparent 44%, rgba(199,154,44,.16)),
+        radial-gradient(circle at 50% -20%, rgba(240,212,134,.35), transparent 40%);
+      pointer-events: none;
+    }
+
+    .winner-kicker {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      background: var(--vino);
+      color: #fff;
+      border: 2px solid var(--dorado);
+      padding: 8px 16px;
+      font-size: .92rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .winner-clave {
+      position: relative;
+      z-index: 1;
+      margin-top: 14px;
+      font-size: clamp(2.8rem, 6vw, 5.6rem);
+      line-height: .92;
+      color: var(--vino);
+      font-weight: 900;
+      letter-spacing: .02em;
+      text-shadow: 0 4px 0 rgba(255,255,255,.84), 0 12px 22px rgba(58,6,25,.14);
+    }
+
+    .winner-name {
+      position: relative;
+      z-index: 1;
+      margin-top: 10px;
+      font-size: clamp(1.05rem, 2.2vw, 2.05rem);
+      line-height: 1.05;
+      font-weight: 900;
+      color: var(--vino-3);
+      text-transform: uppercase;
+    }
+
+    .winner-area {
+      position: relative;
+      z-index: 1;
+      margin-top: 10px;
+      max-width: 96%;
+      font-size: clamp(.82rem, 1.25vw, 1.08rem);
+      line-height: 1.25;
+      color: var(--gris);
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .winner-card.pulse { animation: winnerPulse .70s cubic-bezier(.175,.885,.32,1.25); }
+
+    @keyframes winnerPulse {
+      0% { transform: scale(.68) rotate(-3deg); opacity: .30; }
+      70% { transform: scale(1.06) rotate(1deg); opacity: 1; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    .reel {
+      width: min(94%, 820px);
+      height: 72px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(122,18,52,.15);
+      box-shadow: 0 12px 30px rgba(58,6,25,.12);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .reel::before,
+    .reel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .reel::before { left: 0; background: linear-gradient(90deg, #fff, transparent); }
+    .reel::after { right: 0; background: linear-gradient(270deg, #fff, transparent); }
+
+    .reel-track {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 0 18px;
+      white-space: nowrap;
+      transform: translateX(0);
+    }
+
+    .spinning .reel-track { animation: reelMove .55s linear infinite; }
+
+    @keyframes reelMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-360px); }
+    }
+
+    .reel-pill {
+      min-width: 250px;
+      max-width: 340px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border-radius: 999px;
+      padding: 12px 18px;
+      color: var(--vino);
+      background: linear-gradient(180deg, #fff, #fff4d9);
+      border: 1px solid rgba(199,154,44,.48);
+      font-weight: 900;
+      font-size: .92rem;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(58,6,25,.08);
+    }
+
+    .history-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      background: linear-gradient(180deg, var(--vino), var(--vino-3));
+      border: 1px solid rgba(199,154,44,.60);
+      color: #fff;
+    }
+
+    .history-head {
+      padding: 18px 18px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(240,212,134,.30);
+    }
+
+    .history-head h2 {
+      margin: 0;
+      font-size: 1.22rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .history-count {
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--dorado-2), var(--dorado));
+      color: var(--vino-3);
+      padding: 8px 12px;
+      font-size: .84rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .winners-list {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 14px 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(240,212,134,.75) transparent;
+    }
+
+    .winners-list::-webkit-scrollbar { width: 8px; }
+    .winners-list::-webkit-scrollbar-thumb {
+      background: rgba(240,212,134,.70);
+      border-radius: 999px;
+    }
+
+    .empty-winners {
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px 18px;
+      border-radius: 22px;
+      border: 1px dashed rgba(240,212,134,.42);
+      color: rgba(255,255,255,.86);
+      line-height: 1.5;
+      font-weight: 700;
+      background: rgba(255,255,255,.06);
+    }
+
+    .winner-item {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 12px;
+      align-items: center;
+      border-radius: 20px;
+      background: rgba(255,255,255,.94);
+      color: var(--vino-3);
+      padding: 12px;
+      border: 1px solid rgba(240,212,134,.58);
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+      animation: itemIn .32s ease-out;
+    }
+
+    @keyframes itemIn {
+      from { transform: translateY(-8px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .winner-item .emoji {
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: #fff4d6;
+      border: 1px solid rgba(199,154,44,.42);
+    }
+
+    .winner-item .meta { min-width: 0; }
+
+    .winner-item .clave {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: var(--vino);
+      color: #fff;
+      font-weight: 900;
+      font-size: .82rem;
+      letter-spacing: .05em;
+      margin-bottom: 5px;
+    }
+
+    .winner-item .name {
+      font-size: .92rem;
+      line-height: 1.12;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .winner-item .area {
+      margin-top: 4px;
+      color: var(--gris);
+      font-size: .72rem;
+      line-height: 1.22;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%) translateY(110px);
+      z-index: 90;
+      min-width: 300px;
+      max-width: 720px;
+      text-align: center;
+      border-radius: 999px;
+      padding: 14px 22px;
+      background: var(--vino);
+      color: #fff;
+      border: 2px solid var(--dorado);
+      box-shadow: var(--sombra-fuerte);
+      font-weight: 900;
+      opacity: 0;
+      transition: opacity .22s ease, transform .22s ease;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 1366px) {
+      .main-layout {
+        grid-template-columns: 300px 1fr 330px;
+        gap: 14px;
+      }
+
+      .wheel-wrap {
+        width: min(68vh, 58vw, 620px);
+        height: min(68vh, 58vw, 620px);
+        min-width: 420px;
+        min-height: 420px;
+      }
+
+      .winner-card { width: min(86%, 500px); }
+      .winner-clave { font-size: clamp(2.6rem, 5.6vw, 4.9rem); }
+    }
+
+    @media (max-width: 1100px) {
+      body { overflow: auto; }
+      html, body { height: auto; min-height: 100%; }
+      .page { min-height: 100vh; height: auto; }
+      .top-bar { grid-template-columns: 1fr; }
+      .main-title { min-width: 100%; }
+      .main-layout { grid-template-columns: 1fr; }
+      .wheel-wrap {
+        min-width: 0;
+        width: min(92vw, 620px);
+        height: min(92vw, 620px);
+      }
+      .history-panel { max-height: 460px; }
+      .reel { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="brand"><div class="medal">30</div><h1>Rifa 30° Aniversario · SUTRA</h1></header>
-    <div id="errorBox" style="display:none;margin:0 0 8px 0;padding:10px 12px;border-radius:12px;border:1px solid #f0c7c7;background:linear-gradient(135deg,#fff,#ffefef);color:#7b3b3b;font-weight:700;grid-column:1/-1"></div>
+  <div class="background-rings"></div>
+  <div id="floatingSymbols"></div>
+  <div id="sparklesLayer"></div>
+  <div class="screen-flash" id="flashOverlay"></div>
 
-    <section class="panel main">
-      <div class="namebox">
-        <div id="bigname" class="bigname">— Presiona “Sortear nombre” —</div>
-        <div id="metainfo" class="meta"></div>
+  <div class="page">
+    <header class="top-bar">
+      <div class="brand-side">
+        <strong>COMITÉ EJECUTIVO SUTRA<br><span>Cd. Altamira 2025 · 2028</span></strong>
       </div>
-      
-      <div class="controls" id="controls">
-        <div class="statsbar" id="statsbar"></div>
-        <div class="btnrow">
-          <button type="button" id="btnDraw" class="primary">🎟️ Sortear nombre</button>
-          <button type="button" id="btnUndo" class="secondary" title="Ctrl/⌘+Z">↩️ Deshacer</button>
-          <button type="button" id="btnReset" class="danger">🗑️ Reiniciar</button>
-        </div>
-      </div>
-    </section>
 
-    <aside class="side">
-      <header>
-        <h3 style="margin:0">📝 Nombres llamados</h3>
-        <div style="display:flex;align-items:center;gap:8px">
-          <button id="btnTop" class="secondary" style="padding:6px 10px" title="Ir arriba">⬆️</button>
-          <button id="btnBottom" class="secondary" style="padding:6px 10px" title="Ir abajo">⬇️</button>
-          <span class="badge" id="badgeCount">0</span>
+      <div class="main-title">
+        <div class="eyebrow">Sistema de sorteo aleatorio</div>
+        <h1>Rifadora de Despensas</h1>
+        <div class="sub">Ruleta de empleados con clave y adscripción</div>
+      </div>
+
+      <div class="brand-side">
+        <strong>La ciudad de la<br>transformación<span>Evento institucional</span></strong>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <aside class="panel controls-panel">
+        <h2 class="panel-title">Control de rifa</h2>
+
+        <button class="button spin-button" id="spinButton">🎯 Girar ruleta</button>
+
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="label">Participantes</div>
+            <div class="value" id="totalParticipants">0</div>
+          </div>
+          <div class="stat">
+            <div class="label">Disponibles</div>
+            <div class="value" id="remainingParticipants">0</div>
+          </div>
+          <div class="stat">
+            <div class="label">Ganadores</div>
+            <div class="value" id="winnerTotal">0</div>
+          </div>
+          <div class="stat">
+            <div class="label">Velocidad</div>
+            <div class="value" id="speedLabel">4.8s</div>
+          </div>
         </div>
-      </header>
-      <div id="storage" class="stor"></div>
-    </aside>
+
+        <div class="setting-box">
+          <label for="spinDuration">Duración del giro en segundos</label>
+          <input id="spinDuration" type="number" min="2" max="12" step="0.5" value="4.8">
+        </div>
+
+        <div class="secondary-actions">
+          <button class="button soft-button" id="undoButton">↩ Deshacer</button>
+          <button class="button soft-button" id="exportButton">⬇ Exportar</button>
+        </div>
+
+        <button class="button soft-button danger-button" id="resetButton">Reiniciar sorteo</button>
+
+        <div class="hint">
+          La ruleta evita que una persona ganadora vuelva a salir. El historial queda guardado en este navegador mediante almacenamiento local.
+        </div>
+      </aside>
+
+      <section class="stage-panel" id="stagePanel">
+        <div class="roulette-stage">
+          <div class="wheel-wrap" id="wheelWrap">
+            <div class="wheel"></div>
+            <div class="pointer"></div>
+
+            <div class="winner-card" id="winnerCard">
+              <div class="winner-kicker">🎁 Participante seleccionado</div>
+              <div class="winner-clave" id="displayClave">-----</div>
+              <div class="winner-name" id="displayName">Presiona “Girar ruleta”</div>
+              <div class="winner-area" id="displayArea">La ruleta elegirá un registro aleatorio de la base de datos.</div>
+            </div>
+          </div>
+
+          <div class="reel">
+            <div class="reel-track" id="reelTrack"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel history-panel">
+        <div class="history-head">
+          <h2>Ganadores</h2>
+          <div class="history-count" id="historyCount">0</div>
+        </div>
+
+        <div class="winners-list" id="winnersList">
+          <div class="empty-winners" id="emptyWinners">
+            Aquí aparecerán las personas ganadoras.<br>
+            El registro más reciente se mostrará arriba.
+          </div>
+        </div>
+      </aside>
+    </main>
   </div>
 
-<script>
-  // Base de datos (con las claves duplicadas de 00239 ya corregidas manualmente y validador activo)
-  const RAW_PEOPLE = [{"name":"Abaunza Soto Benito","clave":"00283","dept":"Obras Publicas Admvo."},{"name":"Aguilar Cruz Alfonso","clave":"00325","dept":"Topografia"},{"name":"Aguilar Flores Jorge","clave":"00103","dept":"Mecanicos"},{"name":"Aguilar Montiel Juan Jose","clave":"00377","dept":"Mecanicos"},{"name":"Aguilar Pérez  Sergio","clave":"00166","dept":"Ingresos"},{"name":"Aguilera Ferral Eduardo","clave":"00366","dept":"Electrico"},{"name":"Ahumada Gonzalez Edgar","clave":"00385","dept":"Pintura"},{"name":"Alejo Morelos Joel","clave":"00388","dept":"Ayudantes de Recolección"},{"name":"Alejo Morelos Juan Antonio","clave":"00356","dept":"Ayudantes de Recolección"},{"name":"Aleman Rodriguez Martha","clave":"00192","dept":"Servicios Generales"},{"name":"Almazan Castillo Jose Guadalupe","clave":"00394","dept":"Electrico"},{"name":"Alonso Hernández José","clave":"00226","dept":"Obras Publicas"},{"name":"Alonso Resendez Maria Guadalupe","clave":"00249","dept":"Panteon Zona Centro"},{"name":"Alvarez Lopez Jose Catarino","clave":"00246","dept":"Obras Publicas"},{"name":"Alvarez Pintor Othon","clave":"00274","dept":"Choferes de Recolección"},{"name":"Aranda Reynaga Marco Antonio","clave":"00035","dept":"Topografia"},{"name":"Aregullin Sánchez Rubén Darío","clave":"00301","dept":"Ayudantes de Recolección"},{"name":"Arrañaga Pérez Armando","clave":"00260","dept":"Obras Publicas"},{"name":"Arreaga Fernandez Juan Diego","clave":"00314","dept":"Maquinaria"},{"name":"Arredondo Izaguirre Avilene","clave":"00287","dept":"Biblioteca"},{"name":"Arredondo Izaguirre Felix","clave":"00118","dept":"Biblioteca"},{"name":"Ascencion Villareal Israel","clave":"00023","dept":"Desarrollo Urbano"},{"name":"Badillo Badillo Dominga","clave":"00139","dept":"Transito"},{"name":"Baez Ibarra Sergio","clave":"00365","dept":"Choferes de Recolección"},{"name":"Baez Perez Raul","clave":"00087","dept":"Turismo"},{"name":"Balderas Cruz Zoraida","clave":"00245","dept":"Desarrollo Urbano"},{"name":"Balderas Ochoa Cresencio","clave":"00427","dept":"Maquinaria"},{"name":"Balderas Zuñiga Francisco Rafael","clave":"00046","dept":"Electrico"},{"name":"Baldomero del  Angel Erick Arturo","clave":"00209","dept":"Maquinaria"},{"name":"Banda Ponce Alma Concepcion","clave":"00323","dept":"Desarrollo Economico"},{"name":"Bañuelos Jimenez Beatriz","clave":"00129","dept":"Ingresos"},{"name":"Barberena Gonzalez Marisol","clave":"00442","dept":"Bomberos"},{"name":"Barragan Perez Luis","clave":"00057","dept":"Catastro"},{"name":"Barrientos Vanegas Adel","clave":"00140","dept":"Obras Publicas"},{"name":"Barrios Ortega Anacleto","clave":"00241","dept":"Maquinaria"},{"name":"Barrios Ortega José Guadalupe","clave":"00271","dept":"Choferes de Recolección"},{"name":"Barrios Ortega Leopoldo","clave":"00344","dept":"Choferes de Recolección"},{"name":"Becerra Gonzalez Yair Fernando","clave":"00337","dept":"Choferes de Recolección"},{"name":"Becerra Sánchez Fernando","clave":"00213","dept":"Choferes de Recolección"},{"name":"Bolado Francisco Brenda Ivone","clave":"00437","dept":"Delegacion Zona Sur"},{"name":"Bonilla Coronado Maria Antonia","clave":"00171","dept":"Desarrollo Urbano"},{"name":"Bustamante Sanchez Oscar","clave":"00346","dept":"Choferes de Recolección"},{"name":"Caballero Obregón Ernesto","clave":"00295","dept":"Barrido de Calles"},{"name":"Cabrales Salazar Gregorio","clave":"00350","dept":"Ayudantes de Recolección"},{"name":"Cabriales Ponce Cesar Leao","clave":"00371","dept":"Servicios Publicos"},{"name":"Calles Salazar Elizabeth","clave":"00015","dept":"Catastro"},{"name":"Calles Salazar Maria del Rosario","clave":"00296","dept":"Catastro"},{"name":"Camacho Andablo Daniel","clave":"00392","dept":"Bienestar Social Brigada"},{"name":"Camacho Espriella Miguel Ángel","clave":"00289","dept":"Electrico"},{"name":"Camacho Maldonado Nicolas","clave":"00233","dept":"Choferes de Recolección"},{"name":"Cardiel Castillo Ovidio","clave":"00164","dept":"Maquinaria"},{"name":"Carrillo Vazquez Jorge Arnnol","clave":"00367","dept":"Pintura"},{"name":"Carrizales Barragan Teodoro","clave":"00303","dept":"Ayudantes de Recolección"},{"name":"Carrizalez Hernandez Javier","clave":"00398","dept":"Obras Publicas"},{"name":"Carrizales Hernandez Josue Gilberto","clave":"00424","dept":"Soldadores"},{"name":"Casanova Mar Jose Luis","clave":"00030","dept":"Obras Publicas"},{"name":"Casanova Mar Mario","clave":"00163","dept":"Obras Publicas"},{"name":"Casanova Salinas Mario Eleazar","clave":"00329","dept":"Obras Publicas Admvo."},{"name":"Castellanos Salvador Shayra Lizet","clave":"00316","dept":"Secretaria del Ayto."},{"name":"Castillo Hernández Agustin","clave":"00125","dept":"Obras Publicas"},{"name":"Castillo López Margarito","clave":"00256","dept":"Parques y Jardines"},{"name":"Castillo Perez Oscar Antonio","clave":"00422","dept":"Cultura"},{"name":"Castillo Ramirez Maria Dolores","clave":"00412","dept":"Servicios Publicos"},{"name":"Castillo Reyes J. Santos","clave":"00202","dept":"Obras Publicas"},{"name":"Castillo Suaste Felipe de Jesus","clave":"00104","dept":"Choferes de Recolección"},{"name":"Castillo Tovar Juan Antonio","clave":"00399","dept":"Obras Publicas"},{"name":"Castillo Treviño Anastacio","clave":"00175","dept":"Obras Publicas"},{"name":"Castro San Juan Rosa Isela","clave":"00124","dept":"Ecologia"},{"name":"Ceballos Pastran Juan Domingo","clave":"00304","dept":"Ayudantes de Recolección"},{"name":"Ceballos Pastrana Victor Manuel","clave":"00085","dept":"Ayudantes de Recolección"},{"name":"Cerna Ortiz Rosa Isela","clave":"00433","dept":"Delegacion Zona Sur"},{"name":"Cervantes Covarrubias Jose de Jesus","clave":"00280","dept":"Obras Publicas"},{"name":"Cervantes Maldonado Francisco","clave":"00196","dept":"Obras Publicas"},{"name":"Cervantes Villafuerte Saul Guadalupe","clave":"00438","dept":"Servicios Publicos"},{"name":"Collazo Míreles Isaías","clave":"00266","dept":"Topografia"},{"name":"Collazo Rodriguez Silverio","clave":"00036","dept":"Topografia"},{"name":"Cortez Obregon Miguel Gerardo","clave":"00430","dept":"Electrico"},{"name":"Cruz Aquino Tomas","clave":"00370","dept":"Ayudantes de Recolección"},{"name":"Cruz del Angel Teresa Guadalupe","clave":"00405","dept":"Servicios Generales"},{"name":"Cruz Jaramillo Angelica","clave":"00411","dept":"Bienestar Social Brigada"},{"name":"Cruz Jasso Rene","clave":"00406","dept":"Maquinaria"},{"name":"Cruz Ponce Martha Laura","clave":"00153","dept":"Biblioteca"},{"name":"Cruz Portales Silvia","clave":"00204","dept":"Biblioteca"},{"name":"Cruz Rubio Rufino","clave":"00093","dept":"Maquinaria"},{"name":"Cruz Solis Andrea","clave":"00006","dept":"Obras Publicas Admvo."},{"name":"Cuervo Contreras José Eduardo","clave":"00306","dept":"Choferes de Recolección"},{"name":"Del Angel Agustin Soledad","clave":"00155","dept":"Biblioteca"},{"name":"Del Angel Cabrales Luis Enrique","clave":"00381","dept":"Ayudantes de Recolección"},{"name":"Del Ángel del Ángel Ismael","clave":"00290","dept":"Choferes de Recolección"},{"name":"Del Angel del Angel Juan Jose","clave":"00383","dept":"Ayudantes de Recolección"},{"name":"Del Angel Ledezma Rigoberto","clave":"00034","dept":"Obras Publicas"},{"name":"Del Angel Rodriguez Luis Enrique","clave":"00357","dept":"Choferes de Recolección"},{"name":"Delgado Orta Myrna Guadalupe","clave":"00341","dept":"Servicios Publicos"},{"name":"Demes Barron Carlos Mauricio","clave":"00148","dept":"Soldadores"},{"name":"Demes Barron Edgar Daniel","clave":"00364","dept":"Mecanicos"},{"name":"Demes Barron Hector Hugo","clave":"00288","dept":"Mecanicos"},{"name":"Diaz Barron Araceli","clave":"00404","dept":"Serv. Pub.Zona Norte"},{"name":"Díaz Hernández Francisco","clave":"00291","dept":"Carpinteria"},{"name":"Dominguez Hernandez Karla Edith","clave":"00434","dept":"Educacion"},{"name":"Domínguez Martínez Consuelo","clave":"00174","dept":"Jefatura de Inovacion Gubernamental"},{"name":"Echevarria Caballero Issa Irasema","clave":"00279","dept":"Ecologia"},{"name":"Escobar Hernández Gregorio","clave":"00045","dept":"Maquinaria"},{"name":"Escobar Jiménez Rita","clave":"00216","dept":"Biblioteca"},{"name":"Escobedo Flores Juan Antonio","clave":"00145","dept":"Ayudantes de Recolección"},{"name":"Escobedo Perez Edgar","clave":"00117","dept":"Electrico"},{"name":"Espino Martinez Noe","clave":"00198","dept":"Mecanicos"},{"name":"Espinosa Flores Juan","clave":"00277","dept":"Obras Publicas"},{"name":"Espinosa Rosas Martín Alberto","clave":"00284","dept":"Obras Publicas"},{"name":"Espinosa Sosa Javier","clave":"00167","dept":"Electrico"},{"name":"Felix Gelacio","clave":"00362","dept":"Ayudantes de Recolección"},{"name":"Félix Villanueva German","clave":"00189","dept":"Choferes de Recolección"},{"name":"Fernandez Zuñiga Rogelio","clave":"00390","dept":"Catastro"},{"name":"Flores Garcia Sergio","clave":"00190","dept":"Desarrollo Urbano"},{"name":"Flores Hernández Efrén","clave":"00212","dept":"Obras Publicas"},{"name":"Gallegos Reyes Jose de Jesus","clave":"00378","dept":"Ayudantes de Recolección"},{"name":"Galvan Netro Jesus Israel","clave":"00391","dept":"Serv. Pub.Zona Norte"},{"name":"Gámez García  Ana Laura","clave":"00292","dept":"Parques y Jardines"},{"name":"Gamez Garduño Ricardo","clave":"00368","dept":"Choferes de Recolección"},{"name":"Gamez Morales Amelia Guadalupe","clave":"00224","dept":"Obras Publicas Admvo."},{"name":"Gamez Zuñiga Fernando","clave":"00154","dept":"Mecanicos"},{"name":"Garcia Almazan Mauro Ernesto","clave":"00324","dept":"Desarrollo Urbano"},{"name":"García González Juana","clave":"00220","dept":"Sala de Regidores"},{"name":"Garcia Guerrero Emilio","clave":"00143","dept":"Obras Publicas"},{"name":"Garcia Lemus Graciela","clave":"00318","dept":"Contraloria"},{"name":"García Morales Nohe","clave":"00261","dept":"Maquinaria"},{"name":"Garcia Perez Maria del Carmen","clave":"00181","dept":"Desarrollo Economico"},{"name":"García Rocha Maria","clave":"00276","dept":"Serv. Pub.Zona Norte"},{"name":"Garcia Vazquez Victor Manuel","clave":"00369","dept":"Parques y Jardines"},{"name":"Garrocho Reyes Juan Ángel","clave":"00307","dept":"Electrico"},{"name":"Gomez Castro David","clave":"00248","dept":"Obras Publicas"},{"name":"Gomez Castro Jose Alfredo","clave":"00247","dept":"Obras Publicas"},{"name":"Gomez Castro Lucio","clave":"00029","dept":"Topografia"},{"name":"Gomez Flores Edgar","clave":"00328","dept":"Obras Publicas Admvo."},{"name":"Gómez Lara Maria Isabel","clave":"00259","dept":"Desarrollo Economico"},{"name":"Gomez Lara Mayola","clave":"00152","dept":"Turismo"},{"name":"Gomez Loredo Cruz Adriana","clave":"00172","dept":"Servicios Publicos"},{"name":"Gomez Vazquez Juan David","clave":"00348","dept":"Ayudantes de Recolección"},{"name":"Gonzalez Arevalos Beatriz Adriana","clave":"00319","dept":"Catastro"},{"name":"Gonzalez del Angel Maria Antonia","clave":"00415","dept":"Servicios Generales"},{"name":"Gonzalez Hernández Ignacio","clave":"00182","dept":"Obras Publicas"},{"name":"Gonzalez Ortega Luis Martin","clave":"00387","dept":"Ayudantes de Recolección"},{"name":"Gonzalez Perez Maria del Rosario","clave":"00058","dept":"Servicios Generales"},{"name":"Granillo Martínez Cupertino","clave":"00234","dept":"Ayudantes de Recolección"},{"name":"Gregorio Silguero José Domingo","clave":"00235","dept":"Choferes de Recolección"},{"name":"Guadalupe Del Angel Juan","clave":"00199","dept":"Turismo"},{"name":"Guadalupe Ramirez Gaudencio","clave":"00353","dept":"Choferes de Recolección"},{"name":"Guadalupe Ramírez José Juan","clave":"00305","dept":"Choferes de Recolección"},{"name":"Gutierrez Padilla Oscar Eduardo","clave":"00429","dept":"Obras Publicas"},{"name":"Gutierrez Rivas Ambrosio","clave":"00051","dept":"Maquinaria"},{"name":"Hernández Ahumada José Luis","clave":"00208","dept":"Parques y Jardines"},{"name":"Hernández Antonio Jorge Armando","clave":"00264","dept":"Servicios Publicos"},{"name":"Hernandez Baez Emilio","clave":"00333","dept":"Desarrollo Urbano"},{"name":"Hernández Balderas Bertha","clave":"00037","dept":"Electrico"},{"name":"Hernandez Castillo Ricardo","clave":"00393","dept":"Bienestar Social Brigada"},{"name":"Hernández Castillo Sindy Yazmin","clave":"00170","dept":"Servicios Publicos"},{"name":"Hernandez Cruz Juan Carlos","clave":"00349","dept":"Ayudantes de Recolección"},{"name":"Hernández Hernández Juan Carlos","clave":"00044","dept":"Topografia"},{"name":"Hernandez Luna Martha Leticia","clave":"00409","dept":"Servicios Publicos"},{"name":"Hernández Mares Francisco Manuel","clave":"00299","dept":"Choferes de Recolección"},{"name":"Hernández Mendoza Julian","clave":"00194","dept":"Obras Publicas"},{"name":"Hernandez Pintor Julisa","clave":"00358","dept":"Parques y Jardines"},{"name":"Hernández Reyes Eleazar","clave":"00298","dept":"Transito"},{"name":"Hernandez Rodriguez Jose Antonio","clave":"00313","dept":"Ayudantes de Recolección"},{"name":"Hernandez Rodriguez Nicolas","clave":"00042","dept":"Obras Publicas Admvo."},{"name":"Hernández Yánez Servando","clave":"00262","dept":"Topografia"},{"name":"Herrera Trujillo Daniel Issai","clave":"00426","dept":"Ayudantes de Recolección"},{"name":"Jaramillo Espinoza Martin","clave":"00239-A","dept":"Ayudantes de Recolección"},{"name":"Jimenez Briceño Omar Alejandro","clave":"00418","dept":"Parques y Jardines"},{"name":"Jimenez Jimenez Isabel Cristina","clave":"00410","dept":"Parques y Jardines"},{"name":"Landa Guzman Diana Angelica","clave":"00193","dept":"Desarrollo Urbano"},{"name":"Landaverde Castillo Francisco Javier","clave":"00400","dept":"Obras Publicas Admvo."},{"name":"Lara Avilés  Norma Guadalupe","clave":"00156","dept":"Barrido de Calles"},{"name":"Lara Maldonado Sonia Catalina","clave":"00162","dept":"Contraloria"},{"name":"Leal Rivera Rosy Yeraldy","clave":"00421","dept":"Servicios Publicos"},{"name":"Leal Tavares Brayan Fernando","clave":"00376","dept":"Electrico"},{"name":"Ledezma de Leon Milagros Berenice","clave":"00440","dept":"Bienestar Social"},{"name":"Ledezma Hernandez Ruben Osmin","clave":"00432","dept":"Topografia"},{"name":"Ledezma Santiago Roberto Antonio","clave":"00231","dept":"Maquinaria"},{"name":"Ledezma Santiago Ruben","clave":"00428","dept":"Maquinaria"},{"name":"Lopez Carrera Amado","clave":"00074","dept":"Choferes de Recolección"},{"name":"Lopez Gonzalez Juan Carlos","clave":"00217","dept":"Servicios Publicos"},{"name":"Lopez Hernandez Jose Donato","clave":"00373","dept":"Delegacion Zona Sur"},{"name":"Lopez Limon Roberto Alfredo","clave":"00326","dept":"Obras Publicas Admvo."},{"name":"López Meléndez José Elías","clave":"00126","dept":"Ayudantes de Recolección"},{"name":"Lopez Zapata Juan Martin","clave":"00107","dept":"Electrico"},{"name":"Mandujano Montelongo Mayra","clave":"00278","dept":"Catastro"},{"name":"Manríquez Covarrubias Ignacio","clave":"00239-B","dept":"Delegacion Zona Sur"},{"name":"Manríquez Covarrubias Martín Leonardo","clave":"00240","dept":"Parque Acuatico"},{"name":"Marcelo Perez Felipe","clave":"00351","dept":"Choferes de Recolección"},{"name":"Marcelo Perez Martin","clave":"00389","dept":"Ayudantes de Recolección"},{"name":"Márquez Ríos  Hermelindo","clave":"00200","dept":"Parques y Jardines"},{"name":"Martinez Acosta Roel Rubin","clave":"00327","dept":"Obras Publicas Admvo."},{"name":"Martínez Blanco Juana Iliana","clave":"00218","dept":"Junta Municiapl de Reclutamiento"},{"name":"Martínez Chávez Brenda Cecilia","clave":"00269","dept":"Sala de Regidores"},{"name":"Martinez Hernandez Enemecio","clave":"00310","dept":"Servicios Publicos"},{"name":"Martinez Moctezuma J Cipriano","clave":"00122","dept":"Mecanicos"},{"name":"Martínez Pérez Gregorio Alejandro","clave":"00282","dept":"Choferes de Recolección"},{"name":"Martinez Perez Paul Antonio","clave":"00372","dept":"Choferes de Recolección"},{"name":"Martinez Rodriguez Fernando","clave":"00439","dept":"Maquinaria"},{"name":"Mata Pérez Moises","clave":"00273","dept":"Maquinaria"},{"name":"Mata Santos","clave":"00110","dept":"Obras Publicas"},{"name":"Mateos Anastacio Gabriel","clave":"00147","dept":"Ayudantes de Recolección"},{"name":"Mateos Hernandez Jesus","clave":"00386","dept":"Ayudantes de Recolección"},{"name":"Mendez Trejo Juan Angel","clave":"00352","dept":"Choferes de Recolección"},{"name":"Mendo Flores Julian","clave":"00384","dept":"Ayudantes de Recolección"},{"name":"Mendoza Banda Norma Dolores","clave":"00010","dept":"Obras Publicas Admvo."},{"name":"Mendoza Hernández Ma. de Lourdes","clave":"00244","dept":"Sala de Regidores"},{"name":"Mendoza Weber Rafael","clave":"00375","dept":"Carpinteria"},{"name":"Montes Sanchez Felipe","clave":"00020","dept":"Comunicación Social"},{"name":"Montoya Calderon Carlos","clave":"00111","dept":"Parques y Jardines"},{"name":"Morales Aguiar Pedro Emmanuel","clave":"00144","dept":"Mecanicos"},{"name":"Morales Armendariz Maria Herminia","clave":"00063","dept":"Ingresos"},{"name":"Morales Duarte Juan Carlos","clave":"00395","dept":"Bienestar Social Brigada"},{"name":"Morales Hernandez Martin","clave":"00355","dept":"Choferes de Recolección"},{"name":"Morales Rodriguez Jesus Leonel","clave":"00335","dept":"Desarrollo Urbano"},{"name":"Morales Vazquez Jose Santos","clave":"00004","dept":"Pintura"},{"name":"Moreno Aladino Guadalupe","clave":"00334","dept":"Desarrollo Urbano"},{"name":"Moreno Collazo Miguel Angel","clave":"00339","dept":"Parques y Jardines"},{"name":"Moreno Velazquez Ancelmo","clave":"00082","dept":"Carpinteria"},{"name":"Munguia Castillo José Reyes","clave":"00255","dept":"Carpinteria"},{"name":"Muñiz Badillo Ana Macrina","clave":"00225","dept":"Servicios Publicos"},{"name":"Muñiz Moncayo Margarita","clave":"00146","dept":"Junta Municiapl de Reclutamiento"},{"name":"Muñoz Pecina Julia","clave":"00254","dept":"Educacion"},{"name":"Nieto Gonzalez Rodolfo","clave":"00207","dept":"Parques y Jardines"},{"name":"Nieto Hernández Edna Paola","clave":"00285","dept":"Secretaria del Ayto."},{"name":"Nuñez Cruz Manuel","clave":"00797","dept":"Ayudantes de Recolección"},{"name":"Obregon Ceballos Maria Luisa","clave":"00039","dept":"Barrido de Calles"},{"name":"Olvera Gamboa Nestor Carlos","clave":"00425","dept":"Choferes de Recolección"},{"name":"Olvera Lara Victor Hugo","clave":"00135","dept":"Desarrollo Urbano"},{"name":"Olvera Mendez Jesus Raul","clave":"00294","dept":"Choferes de Recolección"},{"name":"Olvera Vazquez Janeth Eunice","clave":"00330","dept":"Desarrollo Urbano"},{"name":"Ordoñez Cruz Maria Berenice","clave":"00127","dept":"Biblioteca"},{"name":"Orta Herrera Margarita Alicia","clave":"00222","dept":"Contraloria"},{"name":"Orta Martinez Santa Barbarita","clave":"00401","dept":"Obras Publicas"},{"name":"Ortega Obregón  Rosa Elisa","clave":"00215","dept":"Parque Acuatico"},{"name":"Ortega Obregon Norma Alicia","clave":"00413","dept":"Educacion"},{"name":"Ortega Sanchez Jacob","clave":"00420","dept":"Maquinaria"},{"name":"Ortiz Sosa Maria Angelica","clave":"00444","dept":"Biblioteca"},{"name":"Padilla Martin Del Campo Christhian Alfonso","clave":"00417","dept":"Mecanicos"},{"name":"Padilla Mata Roberto","clave":"00423","dept":"Servicios Publicos"},{"name":"Pecero Alonso Luis Antonio","clave":"00419","dept":"Delegacion Zona Sur"},{"name":"Pecina Pecina José Luis","clave":"00180","dept":"Desarrollo Urbano"},{"name":"Perez Badillo Juana","clave":"00321","dept":"Servicios Generales"},{"name":"Perez Campos Jose Alfredo","clave":"00157","dept":"Choferes de Recolección"},{"name":"Perez Castillo Jorge Antonio","clave":"00211","dept":"Panteón Pedrera"},{"name":"Perez Gonzalez Juan Miguel","clave":"00302","dept":"Choferes de Recolección"},{"name":"Perez Hernandez Jose Alejandro","clave":"00374","dept":"Choferes de Recolección"},{"name":"Perez Jacobo Alejandrina","clave":"00112","dept":"Servicios Generales"},{"name":"Perez Mata Ricardo","clave":"00090","dept":"Servicios Publicos"},{"name":"Perez Muñiz Lorena","clave":"00315","dept":"Junta Municiapl de Reclutamiento"},{"name":"Perez Ramirez Odilon","clave":"00340","dept":"Ayudantes de Recolección"},{"name":"Puga Castro Raul","clave":"00436","dept":"Desarrollo Urbano"},{"name":"Puga Macias Raul","clave":"00038","dept":"Servicios Publicos"},{"name":"Quiroz Perez Maria Gabriela","clave":"00205","dept":"Parques y Jardines"},{"name":"Ramírez Juárez Socorro","clave":"00253","dept":"Serv. Pub.Zona Norte"},{"name":"Ramirez Martinez Fernando","clave":"00160","dept":"Maquinaria"},{"name":"Ramírez Martinez Marco Polo","clave":"00268","dept":"Maquinaria"},{"name":"Ramirez Morales Florencia","clave":"00009","dept":"Delegacion Zona Sur"},{"name":"Ramírez Rodríguez Miguel Angel","clave":"00252","dept":"Maquinaria"},{"name":"Ramirez Rodriguez Mirna Patricia","clave":"00359","dept":"Parques y Jardines"},{"name":"Ramirez Rodriguez Reyes","clave":"00011","dept":"Choferes de Recolección"},{"name":"Ramos Bautista Raymundo","clave":"00078","dept":"Choferes de Recolección"},{"name":"Ramos Jiménez Faustino","clave":"00263","dept":"Obras Publicas"},{"name":"Ramos Turrubiates Eduardo Misael","clave":"00379","dept":"Ayudantes de Recolección"},{"name":"Rangel Rodriguez Daniel","clave":"00382","dept":"Ayudantes de Recolección"},{"name":"Rangel Rodriguez Noe","clave":"00300","dept":"Choferes de Recolección"},{"name":"Rebolloso Gallegos Hilario","clave":"00343","dept":"Electrico"},{"name":"Reyes Berlaje Edna Lucia","clave":"00177","dept":"Servicios Publicos"},{"name":"Reyes Gonzalez Juan","clave":"00361","dept":"Ayudantes de Recolección"},{"name":"Reyes Mendo  Rosalía","clave":"00238","dept":"Desarrollo Economico"},{"name":"Reyes Mendo Xochilt","clave":"00308","dept":"Biblioteca"},{"name":"Reyes Reyes Esmeralda","clave":"00060","dept":"Archivo Muerto"},{"name":"Reynoso Gamez Jose Luis","clave":"00088","dept":"Choferes de Recolección"},{"name":"Rivas Medina Jorge","clave":"00229","dept":"Mecanicos"},{"name":"Rivera Castro Sugey","clave":"00397","dept":"Cultura"},{"name":"Rivera Castro Victor Manuel","clave":"00230","dept":"Mecanicos"},{"name":"Rivera Celvera Concepcion","clave":"00052","dept":"Vivero Municipal"},{"name":"Rivera Hernández Ernesto","clave":"00113","dept":"Servicios Publicos"},{"name":"Rivera Peña Ericka Janet","clave":"00331","dept":"Desarrollo Urbano"},{"name":"Rivera Rivas Albino Ricardo","clave":"00407","dept":"Maquinaria"},{"name":"Rocha Chabacano Marco Antonio","clave":"00360","dept":"Ayudantes de Recolección"},{"name":"Rocha Guzman David","clave":"00286","dept":"Electrico"},{"name":"Rodriguez  Delgado J Guadalupe","clave":"00066","dept":"Proteccion civil"},{"name":"Rodriguez Espinoza Miguel Angel","clave":"00133","dept":"Obras Publicas"},{"name":"Rodríguez Guerrero Carlos Esteban","clave":"00221","dept":"Electrico"},{"name":"Rodriguez Hernandez Francisco Javier","clave":"00345","dept":"Choferes de Recolección"},{"name":"Rodriguez Hernández Lucia","clave":"00173","dept":"Secretaria del Ayto."},{"name":"Rodriguez Jimenez Aurelio","clave":"00312","dept":"Pintura"},{"name":"Rodriguez Martinez Margarita","clave":"00151","dept":"Biblioteca"},{"name":"Rodriguez Muñoz Talhia Iliana","clave":"00435","dept":"Sala de Regidores"},{"name":"Roman Blanco Florentino","clave":"00187","dept":"Topografia"},{"name":"Rosales Castillo Enrique","clave":"00414","dept":"Maquinaria"},{"name":"Rubio Silva Dulce Ma. de Jesus","clave":"00012","dept":"Desarrollo Economico"},{"name":"Ruiz Hernández  Evarista","clave":"00237","dept":"Obras Publicas"},{"name":"Salazar Huerta Damian","clave":"00210","dept":"Ayudantes de Recolección"},{"name":"Salazar Ramírez Martha Leticia","clave":"00251","dept":"Biblioteca"},{"name":"Salvador Salvador Aurora","clave":"00165","dept":"Vivero Municipal"},{"name":"San Martin Santiago Alejandro","clave":"00108","dept":"Delegacion Zona Sur"},{"name":"Sanchez Avila Felipe de Jesus","clave":"00347","dept":"Ayudantes de Recolección"},{"name":"Sánchez Mancilla Teodulo","clave":"00168","dept":"Ayudantes de Recolección"},{"name":"Sanchez Perez Eneida Guadalupe","clave":"00227","dept":"Obras Publicas"},{"name":"Sánchez Sánchez Alma Luz","clave":"00183","dept":"Catastro"},{"name":"Santos Rosas Fabiola","clave":"00134","dept":"Biblioteca"},{"name":"Saucedo Borjas Silvia Sugey","clave":"00396","dept":"Electrico"},{"name":"Saucedo Yera Sergio Antonio","clave":"00336","dept":"Mecanicos"},{"name":"Sifuentes Leal Felix Roberto","clave":"00332","dept":"Desarrollo Urbano"},{"name":"Sosa Carrizales Martín","clave":"00179","dept":"Ayudantes de Recolección"},{"name":"Sosa Cruz  Oralia","clave":"00214","dept":"Parques y Jardines"},{"name":"Sosa Cruz Dania","clave":"00236","dept":"Servicios Publicos"},{"name":"Sosa del Angel Franco","clave":"00203","dept":"Obras Publicas"},{"name":"Tadeo Román Florinda","clave":"00309","dept":"Servicios Publicos"},{"name":"Tello Jose Juan","clave":"00185","dept":"Maquinaria"},{"name":"Tobias Martinez Miguel Angel","clave":"00443","dept":"Sistema Dif"},{"name":"Torres Amaro Eduardo","clave":"00267","dept":"Obras Publicas Admvo."},{"name":"Torres Martinez Maria del Carmen","clave":"00317","dept":"Secretaria del Ayto."},{"name":"Torres Vazquez Jose Luis","clave":"00031","dept":"Obras Publicas"},{"name":"Torres Vega Elvia Nohemí","clave":"00250","dept":"Sala de Regidores"},{"name":"Torres Yañez Ines","clave":"00114","dept":"Servicios Publicos"},{"name":"Torres Yañez Jose Manuel","clave":"00293","dept":"Transito"},{"name":"Treviño Trejo Joaquin Antonio","clave":"00195","dept":"Maquinaria"},{"name":"Valdez Cuellar Luis Ernesto","clave":"00416","dept":"Delegacion Zona Sur"},{"name":"Vargas Loredo Merced","clave":"00338","dept":"Maquinaria"},{"name":"Vargas Martinez Adrian","clave":"00176","dept":"Maquinaria"},{"name":"Vazquez Aguilar Jose Carlos","clave":"00197","dept":"Choferes de Recolección"},{"name":"Vázquez Aguilar José Luis","clave":"00272","dept":"Maquinaria"},{"name":"Vazquez Castro Ernesto","clave":"00354","dept":"Mecanicos"},{"name":"Vazquez Hernández Ma Amparo","clave":"00169","dept":"Desarrollo Economico"},{"name":"Vazquez Perez Erick Raul","clave":"00403","dept":"Pintura"},{"name":"Velazquez Castillo Arnoldo","clave":"00243","dept":"Parques y Jardines"},{"name":"Villafuerte Bedolla Maria Elena","clave":"00281","dept":"Biblioteca"},{"name":"Villafuerte Pantoja Jorge Armando","clave":"00380","dept":"Choferes de Recolección"},{"name":"Villescas de la Cruz Manuel Uber","clave":"00402","dept":"Obras Publicas"},{"name":"Vite Victor Hugo","clave":"00311","dept":"Parques y Jardines"},{"name":"Zaleta Nicasio  Ernesto","clave":"00265","dept":"Obras Publicas"},{"name":"Zepeda Demis Cynthia Adriana","clave":"00275","dept":"Sala de Regidores"},{"name":"Zuñiga Castillo Miguel Angel","clave":"00257","dept":"Obras Publicas"},{"name":"Zuñiga Cibrian Luis Miguel","clave":"00219","dept":"Soldadores"},{"name":"Zuñiga Fregoso Eder Ivan","clave":"00178","dept":"Soldadores"},{"name":"Zuñiga Hernandez Lilia Mabel","clave":"00408","dept":"Biblioteca"},{"name":"Zuñiga Martinez Ramon","clave":"00206","dept":"Choferes de Recolección"},{"name":"Zuñiga Martinez Ruben","clave":"00121","dept":"Ayudantes de Recolección"},{"name":"Zuñiga Vazquez Jose","clave":"00048","dept":"Soldadores"},{"name":"Zuñiga Villanueva Agustin","clave":"00184","dept":"Choferes de Recolección"},{"name":"Baez Amaro Miguel","clave":"00086","dept":"Pensionado"},{"name":"Baez Dominguez Miguel Angel","clave":"00040","dept":"Pensionado"},{"name":"Baron Cruz Patricio","clave":"PS015","dept":"Pensionado"},{"name":"Bartolo Alonso Juana","clave":"00019","dept":"Pensionado"},{"name":"Blanco Tavera Teresa de Jesus","clave":"PS001","dept":"Pensionado"},{"name":"Cabriales Oviedo Agustin","clave":"00008","dept":"Pensionado"},{"name":"Calderon Colorado Selzo","clave":"00055","dept":"Pensionado"},{"name":"Carreon Ramos Luz Victoria","clave":"00017","dept":"Pensionado"},{"name":"Carrizales Juarez Gilberto","clave":"00033","dept":"Pensionado"},{"name":"Carrizales Quilantan Juana Guadalupe","clave":"00065","dept":"Pensionado"},{"name":"Castellanos Torres Alfredo","clave":"PS008","dept":"Pensionado"},{"name":"Castro Morales Abundio","clave":"00081","dept":"Pensionado"},{"name":"Cervantes Cepeda Graciela","clave":"00109","dept":"Pensionado"},{"name":"Corona Fajardo Catalina","clave":"00050","dept":"Pensionado"},{"name":"Gabriel Santiago Lazaro","clave":"00089","dept":"Pensionado"},{"name":"Garcia Chavez Francisco","clave":"00056","dept":"Pensionado"},{"name":"Gómez Castro Raymundo","clave":"00191","dept":"Pensionado"},{"name":"Gutierrez Sobrevilla Carmen Lidia","clave":"PS021","dept":"Pensionado"},{"name":"Hernández Alvarez Arturo","clave":"00007","dept":"Pensionado"},{"name":"Hernández Bautista Maria Silvana","clave":"PS022","dept":"Pensionado"},{"name":"Hernández Cervantes Guadalupe","clave":"00084","dept":"Pensionado"},{"name":"Hernández Turrubiates Julian","clave":"00096","dept":"Pensionado"},{"name":"Hernández Vega Maria del Carmen","clave":"PS017","dept":"Pensionado"},{"name":"Lara Guzman Ma. Guadalupe","clave":"00106","dept":"Pensionado"},{"name":"Lara Villarreal Gloria","clave":"00064","dept":"Pensionado"},{"name":"Leal Tavares Alfredo","clave":"00186","dept":"Pensionado"},{"name":"Ledezma Jaquis Ruben","clave":"00098","dept":"Pensionado"},{"name":"Leon Larraga Agustina","clave":"00062","dept":"Pensionado"},{"name":"Marquez Garcia Jose Manuel","clave":"00095","dept":"Pensionado"},{"name":"Martinez Chavez Teresa","clave":"PS010","dept":"Pensionado"},{"name":"Martinez Garcia Heriberto","clave":"00002","dept":"Pensionado"},{"name":"Martinez Hernández Rosa Carmina","clave":"PS004","dept":"Pensionado"},{"name":"Mata Olavide Cristina","clave":"PS002","dept":"Pensionado"},{"name":"Molina Camacho Adela Diana","clave":"00071","dept":"Pensionado"},{"name":"Morales Careta Francisco Leonel","clave":"00102","dept":"Pensionado"},{"name":"Noriega Salazar Carlos","clave":"00027","dept":"Pensionado"},{"name":"Orta Balderas Gustavo Manuel","clave":"00022","dept":"Pensionado"},{"name":"Orta Pacheco Gerardo Antonio","clave":"00003","dept":"Pensionado"},{"name":"Perez Banda Federico","clave":"00100","dept":"Pensionado"},{"name":"Perez del Angel Raymundo","clave":"00059","dept":"Pensionado"},{"name":"Perez Mata Eusebia","clave":"00014","dept":"Pensionado"},{"name":"Portes Juarez Ambrosio","clave":"00141","dept":"Pensionado"},{"name":"Quintero Macias Miguel","clave":"00018","dept":"Pensionado"},{"name":"Ramirez Peña Celina","clave":"PS016","dept":"Pensionado"},{"name":"Rangel Cruz Ma. del Socorro","clave":"00053","dept":"Pensionado"},{"name":"Reyes Reyes Nora Alicia","clave":"00013","dept":"Pensionado"},{"name":"Reyes Ruiz Juan","clave":"PS025","dept":"Pensionado"},{"name":"Rodriguez Bartolo Olivia","clave":"PS018","dept":"Pensionado"},{"name":"Rodriguez Gonzalez Ignacia","clave":"PS003","dept":"Pensionado"},{"name":"Ruiz Diaz Rafael","clave":"00028","dept":"Pensionado"},{"name":"Salazar Armando","clave":"00075","dept":"Pensionado"},{"name":"Salinas Contreras Enrique","clave":"00001","dept":"Pensionado"},{"name":"Sanchez Lopez Jorge Alfredo","clave":"00047","dept":"Pensionado"},{"name":"Silva Maya Rigoberto","clave":"00016","dept":"Pensionado"},{"name":"Torres Vazquez Juan","clave":"PS014","dept":"Pensionado"},{"name":"Vargas Garces Jose Manuel","clave":"00120","dept":"Pensionado"},{"name":"Vazquez Aguilar Ernesto","clave":"00097","dept":"Pensionado"},{"name":"Vega Delgado Antonio","clave":"00061","dept":"Pensionado"},{"name":"Wbolestano Reyes Adriana","clave":"00021","dept":"Pensionado"},{"name":"Yañez Reyes Filiberto","clave":"PS005","dept":"Pensionado"},{"name":"Salazar Hernandez Guadalupe","clave":"00024","dept":"Pensionado"}];
+  <div class="toast" id="toast"></div>
 
-  // Filtro silencioso de prevención: Se asegura de que todas las claves sean únicas.
-  const PEOPLE = [];
-  const vistas = new Set();
-  RAW_PEOPLE.forEach(p => {
-    let claveFinal = p.clave;
-    let sufijo = 1;
-    while(vistas.has(claveFinal)){
-      claveFinal = p.clave + '-' + sufijo;
-      sufijo++;
+  <script>
+    const EMPLOYEES = [
+  {
+    "clave": "00001",
+    "nombre": "ENRIQUE SALINAS CONTRERAS",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00002",
+    "nombre": "HERIBERTO MARTINEZ GARCIA",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00003",
+    "nombre": "GERARDO ANTONIO ORTA PACHECO",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00004",
+    "nombre": "JOSE SANTOS MORALES VAZQUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00005",
+    "nombre": "MAXIMINO REYES GARCIA",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00006",
+    "nombre": "ANDREA CRUZ SOLIS",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00007",
+    "nombre": "ARTURO HERNANDEZ ALVAREZ",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00008",
+    "nombre": "AGUSTIN CABRIALES OVIEDO",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00009",
+    "nombre": "FLORENCIA RAMIREZ MORALES",
+    "adscripcion": "04 09 DELEGACION ZONA SUR"
+  },
+  {
+    "clave": "00010",
+    "nombre": "NORMA DOLORES MENDOZA BANDA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00011",
+    "nombre": "REYES RAMIREZ RODRIGUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00012",
+    "nombre": "DULCE MA DE JESUS RUBIO SILVA",
+    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
+  },
+  {
+    "clave": "00013",
+    "nombre": "NORA ALICIA REYES REYES",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00014",
+    "nombre": "EUSEBIA PEREZ MATA",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00015",
+    "nombre": "ELIZABETH CALLES SALAZAR",
+    "adscripcion": "06 05 DIRECCION DE CATASTRO"
+  },
+  {
+    "clave": "00016",
+    "nombre": "RIGOBERTO SILVA MAYA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00017",
+    "nombre": "LUZ VICTORIA CARREON RAMOS",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00018",
+    "nombre": "MIGUEL QUINTERO MACIAS",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00019",
+    "nombre": "JUANA BARTOLO ALONSO",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00020",
+    "nombre": "FELIPE MONTES SANCHEZ",
+    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
+  },
+  {
+    "clave": "00021",
+    "nombre": "ADRIANA WBOLESTANO REYES",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00022",
+    "nombre": "GUSTAVO MANUEL ORTA BALDERAS",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00023",
+    "nombre": "ISRAEL ASCENCION VILLARREAL",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00024",
+    "nombre": "GUADALUPE SALAZAR HERNANDEZ",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00026",
+    "nombre": "JOSE GUADALUPE LUGO DIAZ",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00027",
+    "nombre": "CARLOS NORIEGA SALAZAR",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00028",
+    "nombre": "RAFAEL RUIZ DIAZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00029",
+    "nombre": "LUCIO GOMEZ CASTRO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00030",
+    "nombre": "JOSE LUIS CASANOVA MAR",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00031",
+    "nombre": "JOSE LUIS TORRES VAZQUEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00033",
+    "nombre": "GILBERTO CARRIZALES JUAREZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00034",
+    "nombre": "RIGOBERTO DEL ANGEL LEDEZMA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00035",
+    "nombre": "MARCO ANTONIO ARANDA REYNAGA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00036",
+    "nombre": "SILVERIO COLLAZO RODRIGUEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00037",
+    "nombre": "BERTHA HERNANDEZ BALDERAS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00038",
+    "nombre": "RAUL PUGA MACIAS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00039",
+    "nombre": "MARIA LUISA OBREGON CEBALLOS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00040",
+    "nombre": "MIGUEL ANGEL BAEZ DOMINGUEZ",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00042",
+    "nombre": "NICOLAS HERNANDEZ RODRIGUEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00043",
+    "nombre": "JUAN JOSE DIAZ HERNANDEZ",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00044",
+    "nombre": "JUAN CARLOS HERNANDEZ HERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00045",
+    "nombre": "GREGORIO ESCOBAR HERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00046",
+    "nombre": "FRANCISCO RAFAEL BALDERAS ZUÑIGA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00047",
+    "nombre": "JORGE ALFREDO SANCHEZ LOPEZ",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00048",
+    "nombre": "JOSE ZUÑIGA VAZQUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00049",
+    "nombre": "GUADALUPE GAMBOA HERNANDEZ",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00050",
+    "nombre": "CATALINA CORONA FAJARDO",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00051",
+    "nombre": "AMBROSIO GUTIERREZ RIVAS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00052",
+    "nombre": "CONCEPCION RIVERA CELVERA",
+    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
+  },
+  {
+    "clave": "00053",
+    "nombre": "MA DEL SOCORRO RANGEL CRUZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00055",
+    "nombre": "SELZO CALDERON COLORADO",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00056",
+    "nombre": "FRANCISCO GARCIA CHAVEZ",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00057",
+    "nombre": "LUIS BARRAGAN PEREZ",
+    "adscripcion": "06 05 DIRECCION DE CATASTRO"
+  },
+  {
+    "clave": "00058",
+    "nombre": "MARIA DEL ROSARIO GONZALEZ PEREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00059",
+    "nombre": "RAYMUNDO PEREZ DEL ANGEL",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00060",
+    "nombre": "ESMERALDA REYES REYES",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00061",
+    "nombre": "ANTONIO VEGA DELGADO",
+    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
+  },
+  {
+    "clave": "00062",
+    "nombre": "AGUSTINA LEON LARRAGA",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00063",
+    "nombre": "MARIA HERMINIA MORALES ARMENDARIZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00064",
+    "nombre": "GLORIA LARA VILLARREAL",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00065",
+    "nombre": "JUANA GUADALUPE CARRIZALES QUILANTAN",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00066",
+    "nombre": "J GUADALUPE RODRIGUEZ DELGADO",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00067",
+    "nombre": "ANTONIO ARELLANO CERVANTES",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00069",
+    "nombre": "EUSTOLIA GARCIA ROCHA",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00070",
+    "nombre": "AMPARO HERNANDEZ VEGA",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00071",
+    "nombre": "ADELA DIANA MOLINA CAMACHO",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00074",
+    "nombre": "AMADO LOPEZ CARRERA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00075",
+    "nombre": "ARMANDO SALAZAR",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00076",
+    "nombre": "JUAN PEDRO RAMOS CORTES",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00078",
+    "nombre": "RAYMUNDO RAMOS BAUTISTA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00079",
+    "nombre": "RUBEN SALAZAR HERNANDEZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00080",
+    "nombre": "SAUL LERMA CASTRO",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00081",
+    "nombre": "ABUNDIO CASTRO MORALES",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00082",
+    "nombre": "ANCELMO MORENO VELAZQUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00084",
+    "nombre": "GUADALUPE HERNANDEZ CERVANTES",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00085",
+    "nombre": "VICTOR MANUEL CEBALLOS PASTRANA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00086",
+    "nombre": "MIGUEL BAEZ AMARO",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00087",
+    "nombre": "RAUL BAEZ PEREZ",
+    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
+  },
+  {
+    "clave": "00088",
+    "nombre": "JOSE LUIS REYNOSO GAMEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00089",
+    "nombre": "LAZARO GABRIEL SANTIAGO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00090",
+    "nombre": "RICARDO PEREZ MATA",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00092",
+    "nombre": "JESUS CASTRO POZOS",
+    "adscripcion": "SIN DEPARTAMENTO"
+  },
+  {
+    "clave": "00093",
+    "nombre": "RUFINO CRUZ RUBIO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00094",
+    "nombre": "CONRADO CASTILLO SANCHEZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00095",
+    "nombre": "JOSE MANUEL MARQUEZ GARCIA",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00096",
+    "nombre": "JULIAN HERNANDEZ TURRUBIATES",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00097",
+    "nombre": "ERNESTO VAZQUEZ AGUILAR",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00098",
+    "nombre": "RUBEN LEDEZMA JAQUIS",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00100",
+    "nombre": "FEDERICO PEREZ BANDA",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00102",
+    "nombre": "FRANCISCO LEONEL MORALES CARETA",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00103",
+    "nombre": "JORGE AGUILAR FLORES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00104",
+    "nombre": "FELIPE DE JESUS CASTILLO SUASTE",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00105",
+    "nombre": "GUILLERMO RIVADENEIRA GUERRERO",
+    "adscripcion": "SIN DEPARTAMENTO"
+  },
+  {
+    "clave": "00106",
+    "nombre": "MA GUADALUPE LARA GUZMAN",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00107",
+    "nombre": "JUAN MARTIN LOPEZ ZAPATA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00108",
+    "nombre": "ALEJANDRO SAN MARTIN SANTIAGO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00109",
+    "nombre": "GRACIELA CERVANTES CEPEDA",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00110",
+    "nombre": "SANTOS MATA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00111",
+    "nombre": "CARLOS MONTOYA CALDERON",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00112",
+    "nombre": "ALEJANDRINA PEREZ JACOBO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00113",
+    "nombre": "ERNESTO RIVERA HERNANDEZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00114",
+    "nombre": "INES TORRES YAÑEZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00117",
+    "nombre": "EDGAR ESCOBEDO PEREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00118",
+    "nombre": "FELIX ARREDONDO IZAGUIRRE",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00119",
+    "nombre": "ARTURO VILLAFUERTE BEDOLLA",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00120",
+    "nombre": "JOSE MANUEL VARGAS GARCES",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00121",
+    "nombre": "RUBEN ZUÑIGA MARTINEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00122",
+    "nombre": "J CIPRIANO MARTINEZ MOCTEZUMA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00124",
+    "nombre": "ROSA ISELA CASTRO SAN JUAN",
+    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
+  },
+  {
+    "clave": "00125",
+    "nombre": "AGUSTIN CASTILLO HERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00126",
+    "nombre": "JOSE ELIAS LOPEZ MELENDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00127",
+    "nombre": "MA BERENICE ORDOÑEZ CRUZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00129",
+    "nombre": "BEATRIZ BAÑUELOS JIMENEZ",
+    "adscripcion": "06 04 DIRECCION DE INGRESOS"
+  },
+  {
+    "clave": "00130",
+    "nombre": "RAFAEL REYES GUERRERO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00131",
+    "nombre": "JOSE GUADALUPE HERNANDEZ HERNANDEZ",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00132",
+    "nombre": "NORMA ANTONIA DAVILA RIVAS",
+    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
+  },
+  {
+    "clave": "00133",
+    "nombre": "MIGUEL ANGEL RODRIGUEZ ESPINOSA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00134",
+    "nombre": "FABIOLA SANTOS ROSAS",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00135",
+    "nombre": "VICTOR HUGO OLVERA LARA",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00136",
+    "nombre": "ESTEBAN BRIGIDO RODRIGUEZ CASTRO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00137",
+    "nombre": "J FEDERICO AGUILAR AGUILLON",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00139",
+    "nombre": "MA DOMINGA BADILLO BADILLO",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00140",
+    "nombre": "ADEL BARRIENTOS VANEGAS",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00141",
+    "nombre": "AMBROSIO PORTES JUAREZ",
+    "adscripcion": "09 02 PENSIONADOS"
+  },
+  {
+    "clave": "00143",
+    "nombre": "EMILIO GARCIA GUERRERO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00144",
+    "nombre": "PEDRO EMMANUEL MORALES AGUIAR",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00145",
+    "nombre": "JUAN ANTONIO ESCOBEDO FLORES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00146",
+    "nombre": "MARGARITA MUÑIZ MONCAYO",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00147",
+    "nombre": "GABRIEL MATEOS ANASTACIO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00148",
+    "nombre": "CARLOS MAURICIO DEMES BARRON",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00149",
+    "nombre": "TITO GONZALO ROUX POLANCO",
+    "adscripcion": "SIN DEPARTAMENTO"
+  },
+  {
+    "clave": "00150",
+    "nombre": "NOE BARBOSA RODRIGUEZ",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00151",
+    "nombre": "MARGARITA RODRIGUEZ MARTINEZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00152",
+    "nombre": "MAYOLA GOMEZ LARA",
+    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
+  },
+  {
+    "clave": "00153",
+    "nombre": "MARTHA LAURA CRUZ PONCE",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00154",
+    "nombre": "FERNANDO GAMEZ ZUÑIGA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00155",
+    "nombre": "SOLEDAD DEL ANGEL AGUSTIN",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00156",
+    "nombre": "NORMA GUADALUPE LARA AVILES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00157",
+    "nombre": "JOSE ALFREDO PEREZ CAMPOS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00160",
+    "nombre": "FERNANDO RAMIREZ MARTINEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00162",
+    "nombre": "SONIA CATALINA LARA MALDONADO",
+    "adscripcion": "07 01 CONTRALORIA MUNICIPAL"
+  },
+  {
+    "clave": "00163",
+    "nombre": "MARIO CASANOVA MAR",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00164",
+    "nombre": "OVIDIO CARDIEL CASTILLO",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00165",
+    "nombre": "AURORA SALVADOR SALVADOR",
+    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
+  },
+  {
+    "clave": "00166",
+    "nombre": "SERGIO AGUILAR PEREZ",
+    "adscripcion": "06 04 DIRECCION DE INGRESOS"
+  },
+  {
+    "clave": "00167",
+    "nombre": "JAVIER ESPINOSA SOSA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00168",
+    "nombre": "TEODULO SANCHEZ MANCILLA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00169",
+    "nombre": "MA AMPARO VAZQUEZ HERNANDEZ",
+    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
+  },
+  {
+    "clave": "00170",
+    "nombre": "SINDY YAZMIN HERNANDEZ CASTILLO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00171",
+    "nombre": "MA ANTONIA BONILLA CORONADO",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00172",
+    "nombre": "CRUZ ADRIANA GOMEZ LOREDO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00173",
+    "nombre": "LUCIA RODRIGUEZ HERNANDEZ",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00174",
+    "nombre": "CONSUELO DOMINGUEZ MARTINEZ",
+    "adscripcion": "13 01 AGENCIA DE INNOVACION E INTELIGENCIA DIGITAL"
+  },
+  {
+    "clave": "00175",
+    "nombre": "ANASTACIO CASTILLO TREVIÑO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00176",
+    "nombre": "ADRIAN VARGAS MARTINEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00177",
+    "nombre": "EDNA LUCIA REYES BERLAJE",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00178",
+    "nombre": "EDER IVAN ZUÑIGA FREGOSO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00179",
+    "nombre": "MARTIN SOSA CARRIZALES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00180",
+    "nombre": "JOSE LUIS PECINA PECINA",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00181",
+    "nombre": "MARIA DEL CARMEN GARCIA PEREZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00182",
+    "nombre": "IGNACIO GONZALEZ HERNANDEZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00183",
+    "nombre": "ALMA LUZ SANCHEZ SANCHEZ",
+    "adscripcion": "06 05 DIRECCION DE CATASTRO"
+  },
+  {
+    "clave": "00184",
+    "nombre": "AGUSTIN ZUÑIGA VILLANUEVA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00185",
+    "nombre": "J JUAN TELLO",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00187",
+    "nombre": "FLORENTINO ROMAN BLANCO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00189",
+    "nombre": "GERMAN FELIX VILLANUEVA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00190",
+    "nombre": "SERGIO FLORES GARCIA",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00191",
+    "nombre": "RAYMUNDO GOMEZ CASTRO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00192",
+    "nombre": "MARTHA ALEMAN RODRIGUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00193",
+    "nombre": "DIANA ANGELICA LANDA GUZMAN",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00194",
+    "nombre": "JULIAN HERNANDEZ MENDOZA",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00195",
+    "nombre": "JOAQUIN ANTONIO TREVIÑO TREJO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00196",
+    "nombre": "FRANCISCO CERVANTES MALDONADO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00197",
+    "nombre": "JOSE CARLOS VAZQUEZ AGUILAR",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00198",
+    "nombre": "NOE ESPINO MARTINEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00199",
+    "nombre": "JUAN GUADALUPE DEL ANGEL",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00200",
+    "nombre": "HERMELINDO MARQUEZ RIOS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00201",
+    "nombre": "SANTIAGO ORTEGA HERNANDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00202",
+    "nombre": "J SANTOS CASTILLO REYES",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00203",
+    "nombre": "FRANCO SOSA DEL ANGEL",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00204",
+    "nombre": "SILVIA CRUZ PORTALES",
+    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
+  },
+  {
+    "clave": "00205",
+    "nombre": "MARIA GABRIELA QUIROZ PEREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00206",
+    "nombre": "RAMON ZUÑIGA MARTINEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00207",
+    "nombre": "RODOLFO NIETO GONZALEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00208",
+    "nombre": "JOSE LUIS HERNANDEZ AHUMADA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00209",
+    "nombre": "ERICK ARTURO BALDOMERO DEL ANGEL",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00210",
+    "nombre": "DAMIAN SALAZAR HUERTA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00211",
+    "nombre": "JORGE ANTONIO PEREZ CASTILLO",
+    "adscripcion": "06 04 DIRECCION DE INGRESOS"
+  },
+  {
+    "clave": "00212",
+    "nombre": "EFREN FLORES HERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00213",
+    "nombre": "FERNANDO BECERRA SANCHEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00214",
+    "nombre": "ORALIA SOSA CRUZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00215",
+    "nombre": "ROSA ELISA ORTEGA OBREGON",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00216",
+    "nombre": "RITA ESCOBAR JIMENEZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00217",
+    "nombre": "JUAN CARLOS LOPEZ GONZALEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00218",
+    "nombre": "JUANA ILEANA MARTINEZ BLANCO",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00219",
+    "nombre": "LUIS MIGUEL ZUÑIGA CIBRIAN",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00220",
+    "nombre": "JUANA GARCIA GONZALEZ",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00221",
+    "nombre": "CARLOS ESTEBAN RODRIGUEZ GUERRERO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00222",
+    "nombre": "MARGARITA ALICIA ORTA HERRERA",
+    "adscripcion": "07 01 CONTRALORIA MUNICIPAL"
+  },
+  {
+    "clave": "00223",
+    "nombre": "CARLOS ALBERTO VAZQUEZ ROSAS",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00224",
+    "nombre": "AMELIA GUADALUPE GAMEZ MORALES",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00225",
+    "nombre": "ANA MACRINA MUÑIZ BADILLO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00226",
+    "nombre": "JOSE ALONSO HERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00227",
+    "nombre": "ENEIDA GUADALUPE SANCHEZ PEREZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00228",
+    "nombre": "MARTHA VIRGINIA BALDERAS REYES",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00229",
+    "nombre": "JORGE RIVAS MEDINA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00230",
+    "nombre": "VICTOR MANUEL RIVERA CASTRO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00231",
+    "nombre": "ROBERTO ANTONIO LEDEZMA SANTIAGO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00232",
+    "nombre": "MARTIN JARAMILLO ESPINOSA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00233",
+    "nombre": "NICOLAS CAMACHO MALDONADO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00234",
+    "nombre": "CUPERTINO GRANILLO MARTINEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00235",
+    "nombre": "JOSE DOMINGO GREGORIO SILGUERO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00236",
+    "nombre": "DANIA SOSA CRUZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00237",
+    "nombre": "EVARISTA RUIZ HERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00238",
+    "nombre": "ROSALIA REYES MENDO",
+    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
+  },
+  {
+    "clave": "00239",
+    "nombre": "IGNACIO MANRIQUEZ COVARRUBIAS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00240",
+    "nombre": "MARTIN LEONARDO MANRIQUES COVARRUBIAS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00241",
+    "nombre": "ANACLETO BARRIOS ORTEGA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00243",
+    "nombre": "ARNOLDO VELAZQUEZ CASTILLO",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00244",
+    "nombre": "MA DE LOURDES MENDOZA HERNANDEZ",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00245",
+    "nombre": "ZORAIDA BALDERAS CRUZ",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00246",
+    "nombre": "JOSE CATARINO ALVAREZ LOPEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00247",
+    "nombre": "JOSE ALFREDO GOMEZ CASTRO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00248",
+    "nombre": "DAVID GOMEZ CASTRO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00249",
+    "nombre": "MARIA GUADALUPE ALONSO RESENDEZ",
+    "adscripcion": "06 04 DIRECCION DE INGRESOS"
+  },
+  {
+    "clave": "00250",
+    "nombre": "ELVIA NOHEMI TORRES VEGA",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00251",
+    "nombre": "MARTHA LETICIA SALAZAR RAMIREZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00252",
+    "nombre": "MIGUEL ANGEL RAMIREZ RODRIGUEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00253",
+    "nombre": "SOCORRO RAMIREZ JUAREZ",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00254",
+    "nombre": "JULIA MUÑOZ PECINA",
+    "adscripcion": "04 04 DIRECCION DE EDUCACION"
+  },
+  {
+    "clave": "00255",
+    "nombre": "JOSE REYES MUNGUIA CASTILLO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00256",
+    "nombre": "MARGARITO CASTILLO LOPEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00257",
+    "nombre": "MIGUEL ANGEL ZUÑIGA CASTILLO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00258",
+    "nombre": "OMAR RAMON DELGADO RODRIGUEZ",
+    "adscripcion": "SIN DEPARTAMENTO"
+  },
+  {
+    "clave": "00259",
+    "nombre": "MARIA ISABEL GOMEZ LARA",
+    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
+  },
+  {
+    "clave": "00260",
+    "nombre": "ARMANDO ARRAÑAGA PEREZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00261",
+    "nombre": "NOE GARCIA MORALES",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00262",
+    "nombre": "SERVANDO HERNANDEZ YAÑEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00263",
+    "nombre": "FAUSTINO RAMOS JIMENEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00264",
+    "nombre": "JORGE ARMANDO HERNANDEZ ANTONIO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00265",
+    "nombre": "ERNESTO ZALETA NICACIO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00266",
+    "nombre": "ISAIAS COLLAZO MIRELES",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00267",
+    "nombre": "EDUARDO TORRES AMARO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00268",
+    "nombre": "MARCO POLO RAMIREZ MARTINEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00269",
+    "nombre": "BRENDA CECILIA MARTINEZ CHAVEZ",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00271",
+    "nombre": "JOSE GUADALUPE BARRIOS ORTEGA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00272",
+    "nombre": "JOSE LUIS VAZQUEZ AGUILAR",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00273",
+    "nombre": "MOISES MATA PEREZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00274",
+    "nombre": "OTHON ALVAREZ PINTOR",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00275",
+    "nombre": "CYNTHIA ADRIANA ZEPEDA DEMIS",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00276",
+    "nombre": "MARIA GARCIA ROCHA",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00277",
+    "nombre": "JUAN ESPINOSA FLORES",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00278",
+    "nombre": "MAYRA MANDUJANO MONTELONGO",
+    "adscripcion": "06 05 DIRECCION DE CATASTRO"
+  },
+  {
+    "clave": "00279",
+    "nombre": "ISSA IRASEMA ECHEVARRIA CABALLERO",
+    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
+  },
+  {
+    "clave": "00280",
+    "nombre": "JOSE DE JESUS CERVANTES COVARRUBIAS",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00281",
+    "nombre": "MARIA ELENA VILLAFUERTE BEDOLLA",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00282",
+    "nombre": "GREGORIO ALEJANDRO MARTINEZ PEREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00283",
+    "nombre": "BENITO ABAUNZA SOTO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00284",
+    "nombre": "MARTIN ALBERTO ESPINOSA ROSAS",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00285",
+    "nombre": "EDNA PAOLA NIETO HERNANDEZ",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00286",
+    "nombre": "DAVID ROCHA GUZMAN",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00287",
+    "nombre": "AVILENE ARREDONDO IZAGUIRRE",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00288",
+    "nombre": "HECTOR HUGO DEMES BARRON",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00289",
+    "nombre": "MIGUEL ANGEL CAMACHO ESPRIELLA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00290",
+    "nombre": "ISMAEL DEL ANGEL DEL ANGEL",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00291",
+    "nombre": "FRANCISCO DIAZ HERNANDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00292",
+    "nombre": "ANA LAURA GAMEZ GARCIA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00293",
+    "nombre": "JOSE MANUEL TORRES YAÑEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00294",
+    "nombre": "JESUS RAUL OLVERA MENDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00295",
+    "nombre": "ERNESTO CABALLERO OBREGON",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00296",
+    "nombre": "MARIA DEL ROSARIO CALLES SALAZAR",
+    "adscripcion": "06 05 DIRECCION DE CATASTRO"
+  },
+  {
+    "clave": "00297",
+    "nombre": "JOSE ADRIAN GOMEZ RODRIGUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00298",
+    "nombre": "ELEAZAR HERNANDEZ REYES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00299",
+    "nombre": "FRANCISCO MANUEL HERNANDEZ MARES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00300",
+    "nombre": "NOE RANGEL RODRIGUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00301",
+    "nombre": "RUBEN DARIO AREGULLIN SANCHEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00302",
+    "nombre": "JUAN MIGUEL PEREZ GONZALEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00303",
+    "nombre": "TEODORO CARRIZALES BARRAGAN",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00304",
+    "nombre": "JUAN DOMINGO CEBALLOS PASTRAN",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00305",
+    "nombre": "JOSE JUAN GUADALUPE RAMIREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00306",
+    "nombre": "JOSE EDUARDO CUERVO CONTRERAS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00307",
+    "nombre": "JUAN ANGEL GARROCHO REYES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00308",
+    "nombre": "XOCHITL REYES MENDO",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00309",
+    "nombre": "FLORINDA TADEO ROMAN",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00310",
+    "nombre": "ENEMECIO MARTINEZ HERNANDEZ",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00311",
+    "nombre": "VICTOR HUGO VITE",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00313",
+    "nombre": "JOSE ANTONIO HERNANDEZ RODRIGUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00314",
+    "nombre": "JUAN DIEGO ARREAGA FERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00315",
+    "nombre": "LORENA PEREZ MUÑIZ",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00316",
+    "nombre": "SHAYRA LIZET CASTELLANOS SALVADOR",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00317",
+    "nombre": "MARIA DEL CARMEN TORRES MARTINEZ",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00318",
+    "nombre": "GRACIELA GARCIA LEMUS",
+    "adscripcion": "07 01 CONTRALORIA MUNICIPAL"
+  },
+  {
+    "clave": "00319",
+    "nombre": "BEATRIZ ADRIANA GONZALEZ AREVALOS",
+    "adscripcion": "06 05 DIRECCION DE CATASTRO"
+  },
+  {
+    "clave": "00320",
+    "nombre": "MARIA MAGDALENA ESCALANTE PEREZ",
+    "adscripcion": "06 05 DIRECCION DE CATASTRO"
+  },
+  {
+    "clave": "00321",
+    "nombre": "JUANA PEREZ BADILLO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00322",
+    "nombre": "DENNIS ARECHIGA AVILA",
+    "adscripcion": "04 09 DELEGACION ZONA SUR"
+  },
+  {
+    "clave": "00323",
+    "nombre": "ALMA CONCEPCION BANDA PONCE",
+    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
+  },
+  {
+    "clave": "00324",
+    "nombre": "MAURO ERNESTO GARCIA ALMAZAN",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00325",
+    "nombre": "ALFONSO AGUILAR CRUZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00326",
+    "nombre": "ROBERTO ALFREDO LOPEZ LIMON",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00327",
+    "nombre": "ROEL RUBIN MARTINEZ ACOSTA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00328",
+    "nombre": "EDGAR GOMEZ FLORES",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00329",
+    "nombre": "MARIO ELEAZAR CASANOVA SALINAS",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00330",
+    "nombre": "JANETH EUNICE OLVERA VAZQUEZ",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00331",
+    "nombre": "ERIKA JANET RIVERA PEÑA",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00332",
+    "nombre": "FELIX ROBERTO SIFUENTES LEAL",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00333",
+    "nombre": "EMILIO HERNANDEZ BAEZ",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00334",
+    "nombre": "GUADALUPE MORENO ALADINO",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00335",
+    "nombre": "JESUS LEONEL MORALES RODRIGUEZ",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00336",
+    "nombre": "SERGIO ANTONIO SAUCEDO YERA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00337",
+    "nombre": "YAIR FERNANDO BECERRA GONZALEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00338",
+    "nombre": "MERCED VARGAS LOREDO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00339",
+    "nombre": "MIGUEL ANGEL MORENO COLLAZO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00340",
+    "nombre": "ODILON PEREZ RAMIREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00341",
+    "nombre": "MYRNA GUADALUPE DELGADO ORTA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00342",
+    "nombre": "SILVERIO COLLAZO REBULLOSA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00343",
+    "nombre": "HILARIO REBOLLOSO GALLEGOS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00344",
+    "nombre": "LEOPOLDO BARRIOS ORTEGA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00345",
+    "nombre": "FRANCISCO JAVIER RODRIGUEZ HERNANDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00346",
+    "nombre": "OSCAR BUSTAMANTE SANCHEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00347",
+    "nombre": "FELIPE DE JESUS SANCHEZ AVILA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00348",
+    "nombre": "JUAN DAVID GOMEZ VAZQUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00349",
+    "nombre": "JUAN CARLOS HERNANDEZ CRUZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00350",
+    "nombre": "GREGORIO CABRALES SALAZAR",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00351",
+    "nombre": "FELIPE MARCELO PEREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00352",
+    "nombre": "JUAN ANGEL MENDEZ TREJO",
+    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
+  },
+  {
+    "clave": "00353",
+    "nombre": "GAUDENCIO GUADALUPE RAMIREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00354",
+    "nombre": "ERNESTO VAZQUEZ CASTRO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00355",
+    "nombre": "MARTIN MORALES HERNANDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00356",
+    "nombre": "JUAN ANTONIO ALEJO MORELOS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00357",
+    "nombre": "LUIS ENRIQUE DEL ANGEL RODRIGUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00358",
+    "nombre": "JULISA HERNANDEZ PINTOR",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00359",
+    "nombre": "MIRNA PATRICIA RAMIREZ RODRIGUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00360",
+    "nombre": "MARCO ANTONIO ROCHA CHABACANO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00361",
+    "nombre": "JUAN REYES GONZALEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00362",
+    "nombre": "GELACIO FELIX",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00363",
+    "nombre": "MANUEL NUÑEZ CRUZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00364",
+    "nombre": "EDGAR DANIEL DEMES BARRON",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00365",
+    "nombre": "SERGIO BAEZ IBARRA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00366",
+    "nombre": "EDUARDO AGUILERA FERRAL",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00367",
+    "nombre": "JORGE ARNNOL CARRILLO VAZQUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00368",
+    "nombre": "RICARDO GAMEZ GARDUÑO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00369",
+    "nombre": "VICTOR MANUEL GARCIA VAZQUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00370",
+    "nombre": "TOMAS CRUZ AQUINO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00371",
+    "nombre": "CESAR LEAO CABRIALES PONCE",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00372",
+    "nombre": "PAUL ANTONIO MARTINEZ PEREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00373",
+    "nombre": "JOSE DONATO LOPEZ HERNANDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00374",
+    "nombre": "JOSE ALEJANDRO PEREZ HERNANDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00375",
+    "nombre": "RAFAEL MENDOZA WEBER",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00376",
+    "nombre": "BRAYAN FERNANDO LEAL TAVARES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00377",
+    "nombre": "JUAN JOSE AGUILAR MONTIEL",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00378",
+    "nombre": "JOSE DE JESUS GALLEGOS REYES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00379",
+    "nombre": "EDUARDO MISAEL RAMOS TURRUBIATES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00380",
+    "nombre": "JORGE ARMANDO VILLAFUERTE PANTOJA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00381",
+    "nombre": "LUIS ENRIQUE DEL ANGEL CABRALES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00382",
+    "nombre": "DANIEL RANGEL RODRIGUEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00383",
+    "nombre": "JUAN JOSE DEL ANGEL DEL ANGEL",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00384",
+    "nombre": "JULIAN MENDO FLORES",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00385",
+    "nombre": "EDGAR AHUMADA GONZALEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00386",
+    "nombre": "JESUS MATEOS HERNANDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00387",
+    "nombre": "LUIS MARTIN GONZALEZ ORTEGA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00388",
+    "nombre": "JOEL ALEJO MORELOS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00389",
+    "nombre": "MARTIN MARCELO PEREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00390",
+    "nombre": "ROGELIO FERNANDEZ ZUÑIGA",
+    "adscripcion": "06 05 DIRECCION DE CATASTRO"
+  },
+  {
+    "clave": "00391",
+    "nombre": "JESUS ISRAEL GALVAN NETRO",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00392",
+    "nombre": "DANIEL CAMACHO ANDABLO",
+    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
+  },
+  {
+    "clave": "00393",
+    "nombre": "RICARDO HERNANDEZ CASTILLO",
+    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
+  },
+  {
+    "clave": "00394",
+    "nombre": "JOSE GUADALUPE ALMAZAN CASTILLO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00395",
+    "nombre": "JUAN CARLOS MORALES DUARTE",
+    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
+  },
+  {
+    "clave": "00396",
+    "nombre": "SILVIA SUGEY SAUCEDO BORJAS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00397",
+    "nombre": "SUGEY RIVERA CASTRO",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00398",
+    "nombre": "JAVIER CARRIZALES HERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00399",
+    "nombre": "JUAN ANTONIO CASTILLO TOVAR",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00400",
+    "nombre": "FRANCISCO JAVIER LANDAVERDE CASTILLO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00401",
+    "nombre": "SANTA BARBARITA ORTA MARTINEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00402",
+    "nombre": "MANUEL UBER VILLESCAS DE LA CRUZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00404",
+    "nombre": "ARACELI DIAZ BARRON",
+    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+  },
+  {
+    "clave": "00405",
+    "nombre": "TERESA GUADALUPE CRUZ DEL ANGEL",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00406",
+    "nombre": "RENE CRUZ JASSO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00407",
+    "nombre": "ALBINO RICARDO RIVERA RIVAS",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00408",
+    "nombre": "LILIA MABEL ZUÑIGA HERNANDEZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00409",
+    "nombre": "MARTHA LETICIA HERNANDEZ LUNA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00410",
+    "nombre": "ISABEL CRISTINA JIMENEZ JIMENEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00411",
+    "nombre": "ANGELICA CRUZ JARAMILLO",
+    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
+  },
+  {
+    "clave": "00412",
+    "nombre": "MARIA DOLORES CASTILLO RAMIREZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00413",
+    "nombre": "NORMA ALICIA ORTEGA OBREGON",
+    "adscripcion": "04 04 DIRECCION DE EDUCACION"
+  },
+  {
+    "clave": "00414",
+    "nombre": "ENRIQUE ROSALES CASTILLO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00415",
+    "nombre": "MARIA ANTONIA GONZALEZ DEL ANGEL",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00416",
+    "nombre": "LUIS ERNESTO VALDEZ CUELLAR",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00417",
+    "nombre": "CHRISTHIAN ALFONSO PADILLA MARTIN DEL CAMPO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00418",
+    "nombre": "OMAR ALEJANDRO JIMENEZ BRICEÑO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00419",
+    "nombre": "LUIS ANTONIO PECERO ALONSO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00420",
+    "nombre": "JACOB ORTEGA SANCHEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00421",
+    "nombre": "ROSY YERALDY LEAL RIVERA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00422",
+    "nombre": "OSCAR ANTONIO CASTILLO PEREZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00423",
+    "nombre": "ROBERTO PADILLA MATA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00424",
+    "nombre": "JOSUE GILBERTO CARRIZALES HERNANDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00425",
+    "nombre": "NESTOR CARLOS OLVERA GAMBOA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00426",
+    "nombre": "DANIEL ISSAI HERRERA TRUJILLO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00427",
+    "nombre": "CRESENCIO BALDERAS OCHOA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00428",
+    "nombre": "RUBEN LEDEZMA SANTIAGO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00429",
+    "nombre": "OSCAR EDUARDO GUTIERREZ PADILLA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00430",
+    "nombre": "MIGUEL GERARDO CORTEZ OBREGON",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00431",
+    "nombre": "ALFREDO PEREZ SANCHEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00432",
+    "nombre": "RUBEN OSMIN LEDEZMA HERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00433",
+    "nombre": "ROSA ISELA CERNA ORTIZ",
+    "adscripcion": "04 09 DELEGACION ZONA SUR"
+  },
+  {
+    "clave": "00434",
+    "nombre": "KARLA EDITH DOMINGUEZ HERNANDEZ",
+    "adscripcion": "04 08 PREPARATORIA MUNICIPAL"
+  },
+  {
+    "clave": "00435",
+    "nombre": "TALHIA ILIANA RODRIGUEZ MUÑOZ",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00436",
+    "nombre": "RAUL PUGA CASTRO",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00437",
+    "nombre": "BRENDA IVONE BOLADO FRANCISCO",
+    "adscripcion": "04 09 DELEGACION ZONA SUR"
+  },
+  {
+    "clave": "00438",
+    "nombre": "SAUL GUADALUPE CERVANTES VILLAFUERTE",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00439",
+    "nombre": "FERNANDO MARTINEZ RODRIGUEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00440",
+    "nombre": "MILAGROS BERENICE LEDEZMA DE LEON",
+    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
+  },
+  {
+    "clave": "00441",
+    "nombre": "MARIA DE LOURDES ALVARADO MOJICA",
+    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
+  },
+  {
+    "clave": "00442",
+    "nombre": "MARISOL BARBERENA GONZALEZ",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00443",
+    "nombre": "MIGUEL ANGEL TOBIAS MARTINEZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00444",
+    "nombre": "MARIA ANGELICA ORTIZ SOSA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  }
+];
+
+    const symbols = ['🎁', '🛒', '⭐', '🏆', '🎯', '✨', '🍀', '🎊', '📦', '🙌'];
+    const spinButton = document.getElementById('spinButton');
+    const undoButton = document.getElementById('undoButton');
+    const exportButton = document.getElementById('exportButton');
+    const resetButton = document.getElementById('resetButton');
+    const displayClave = document.getElementById('displayClave');
+    const displayName = document.getElementById('displayName');
+    const displayArea = document.getElementById('displayArea');
+    const winnerCard = document.getElementById('winnerCard');
+    const wheelWrap = document.getElementById('wheelWrap');
+    const stagePanel = document.getElementById('stagePanel');
+    const reelTrack = document.getElementById('reelTrack');
+    const winnersList = document.getElementById('winnersList');
+    const emptyWinners = document.getElementById('emptyWinners');
+    const totalParticipants = document.getElementById('totalParticipants');
+    const remainingParticipants = document.getElementById('remainingParticipants');
+    const winnerTotal = document.getElementById('winnerTotal');
+    const historyCount = document.getElementById('historyCount');
+    const spinDuration = document.getElementById('spinDuration');
+    const speedLabel = document.getElementById('speedLabel');
+    const flashOverlay = document.getElementById('flashOverlay');
+    const floatingSymbols = document.getElementById('floatingSymbols');
+    const sparklesLayer = document.getElementById('sparklesLayer');
+    const toast = document.getElementById('toast');
+
+    const STORAGE_KEY = 'rifadora_despensas_altamira_ganadores_v1';
+    let winners = loadWinners();
+    let spinning = false;
+    let tickTimer = null;
+    let toastTimer = null;
+
+    function normalizeClave(clave) {
+      return String(clave || '').trim();
     }
-    vistas.add(claveFinal);
-    PEOPLE.push({...p, clave: claveFinal});
-  });
 
-  const errorBox = document.getElementById('errorBox');
-  function showError(msg){
-    if(!errorBox) return;
-    errorBox.style.display = 'block';
-    errorBox.textContent = '⚠️ Error: ' + msg;
-  }
-  
-  window.addEventListener('error', (e)=>{ showError(e.message || 'Error desconocido'); });
-  window.addEventListener('unhandledrejection', (e)=>{ showError((e.reason && e.reason.message) ? e.reason.message : String(e.reason || 'Promise rechazada')); });
-  
-  function safe(fn){
-    return function(...args){ try { return fn(...args); } catch(err){ console.error(err); showError(err.message || String(err)); } }
-  }
-
-  // Sintetizador de sonido (No requiere archivos externos)
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  let audioCtx;
-  
-  function playWinSound() {
-    if(!audioCtx) audioCtx = new AudioContext();
-    if(audioCtx.state === 'suspended') audioCtx.resume();
-    
-    const t = audioCtx.currentTime;
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    
-    osc.type = 'sine';
-    // Arpegio de victoria rápido (La mayor)
-    osc.frequency.setValueAtTime(880, t); // A5
-    osc.frequency.setValueAtTime(1108.73, t + 0.1); // C#6
-    osc.frequency.setValueAtTime(1318.51, t + 0.2); // E6
-    
-    gain.gain.setValueAtTime(0, t);
-    gain.gain.linearRampToValueAtTime(0.15, t + 0.05);
-    gain.gain.exponentialRampToValueAtTime(0.01, t + 0.7);
-    
-    osc.start(t);
-    osc.stop(t + 0.8);
-  }
-
-  let remaining = [...PEOPLE];
-  let drawn = []; // Ahora guarda objetos { person, originalIndex } para un "Deshacer Perfecto"
-
-  const bigname = document.getElementById('bigname');
-  const metainfo = document.getElementById('metainfo');
-  const badgeCount = document.getElementById('badgeCount');
-  const storage = document.getElementById('storage');
-  const btnDraw = document.getElementById('btnDraw');
-  const btnUndo = document.getElementById('btnUndo');
-  const btnReset = document.getElementById('btnReset');
-  const statsbar = document.getElementById('statsbar');
-  const btnTop = document.getElementById('btnTop');
-  const btnBottom = document.getElementById('btnBottom');
-
-  function refreshButtons(){ 
-    btnDraw.disabled = remaining.length === 0; 
-  }
-
-  function counters(){ 
-    const total = PEOPLE.length;
-    const llamados = drawn.length;
-    const porLlamar = remaining.length;
-    
-    if(statsbar){
-      statsbar.innerHTML = ''
-        + '<span class="chip">Total: <b>' + total + '</b></span>'
-        + '<span class="chip" style="color:#2c5e31">Llamados: <b>' + llamados + '</b></span>'
-        + '<span class="chip" style="color:#7b3b3b">Restantes: <b>' + porLlamar + '</b></span>';
+    function loadWinners() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) return [];
+        const validClaves = new Set(EMPLOYEES.map(e => normalizeClave(e.clave)));
+        return parsed.filter(w => validClaves.has(normalizeClave(w.clave)));
+      } catch (error) {
+        return [];
+      }
     }
-    
-    if(badgeCount) badgeCount.textContent = llamados;
-    refreshButtons();
-  }
 
-  function renderStorage(preserve=false){
-    if(!storage) return;
-    let prevTop = storage.scrollTop, prevH = storage.scrollHeight;
-    storage.innerHTML = '';
-    
-    for(let i=0; i<drawn.length; i++){
-      const p = drawn[i].person;
-      const el = document.createElement('div');
-      el.className = 'stor-item';
-      const pos = i + 1;
-      el.innerHTML = `<span>${p.name}</span><span class="badge">#${pos}</span>`;
-      storage.insertBefore(el, storage.firstChild);
+    function saveWinners() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(winners));
     }
-    
-    if(preserve){
-      let delta = storage.scrollHeight - prevH;
-      storage.scrollTop = Math.max(0, prevTop + delta);
-    }
-  }
 
-  function starBurst(){
-    const N = 30;
-    for(let i=0;i<N;i++){
-      const s = document.createElement('div');
-      s.textContent = (i%3===0)?'✦':'★';
-      s.style.position='fixed';
-      s.style.left = (50 + (Math.random()*40-20)) + '%';
-      s.style.top = (35 + (Math.random()*20-10)) + '%';
-      s.style.fontSize = (14 + Math.random()*30) + 'px';
-      s.style.opacity = 1;
-      s.style.pointerEvents = 'none';
-      s.style.userSelect = 'none';
-      s.style.zIndex = 999;
-      s.style.transition = 'transform 1000ms cubic-bezier(0.25, 1, 0.5, 1), opacity 1000ms ease';
-      s.style.color = (i % 2 === 0) ? '#D4AF37' : '#50C878';
-      s.style.textShadow = '0 0 8px rgba(255,255,255,0.8)';
-      document.body.appendChild(s);
-      const dx = (Math.random()*300-150);
-      const dy = - (80 + Math.random()*180);
-      requestAnimationFrame(()=>{
-        s.style.transform = `translate(${dx}px, ${dy}px) rotate(${(Math.random()*90-45)}deg) scale(${Math.random()*1.5})`;
-        s.style.opacity = 0;
+    function randomSymbol() {
+      return symbols[Math.floor(Math.random() * symbols.length)];
+    }
+
+    function getAvailable() {
+      const won = new Set(winners.map(w => normalizeClave(w.clave)));
+      return EMPLOYEES.filter(e => !won.has(normalizeClave(e.clave)));
+    }
+
+    function getRandomEmployee(pool = EMPLOYEES) {
+      return pool[Math.floor(Math.random() * pool.length)];
+    }
+
+    function updateStats() {
+      const available = getAvailable();
+      totalParticipants.textContent = EMPLOYEES.length;
+      remainingParticipants.textContent = available.length;
+      winnerTotal.textContent = winners.length;
+      historyCount.textContent = winners.length;
+      speedLabel.textContent = `${Number(spinDuration.value || 4.8).toFixed(1)}s`;
+      spinButton.disabled = spinning || available.length === 0;
+
+      if (available.length === 0 && !spinning) {
+        spinButton.textContent = '✅ Sorteo completo';
+      } else if (!spinning) {
+        spinButton.textContent = '🎯 Girar ruleta';
+      }
+    }
+
+    function setDisplay(employee) {
+      if (!employee) return;
+      displayClave.textContent = employee.clave || '-----';
+      displayName.textContent = employee.nombre || 'SIN NOMBRE';
+      displayArea.textContent = employee.adscripcion || 'SIN ADSCRIPCIÓN';
+    }
+
+    function pulseWinnerCard() {
+      winnerCard.classList.remove('pulse');
+      void winnerCard.offsetWidth;
+      winnerCard.classList.add('pulse');
+    }
+
+    function showToast(message) {
+      clearTimeout(toastTimer);
+      toast.textContent = message;
+      toast.classList.add('show');
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    function triggerFlash() {
+      flashOverlay.classList.remove('flash-active');
+      void flashOverlay.offsetWidth;
+      flashOverlay.classList.add('flash-active');
+    }
+
+    function triggerConfetti() {
+      for (let i = 0; i < 54; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'confetti';
+        particle.textContent = randomSymbol();
+        particle.style.left = '50%';
+        particle.style.top = '50%';
+        particle.style.setProperty('--size', (28 + Math.random() * 28) + 'px');
+        particle.style.setProperty('--x', ((Math.random() - .5) * window.innerWidth * 1.26) + 'px');
+        particle.style.setProperty('--y', ((Math.random() - .5) * window.innerHeight * 1.04) + 'px');
+        document.body.appendChild(particle);
+        setTimeout(() => particle.remove(), 1400);
+      }
+    }
+
+    function createFloatingSymbols() {
+      for (let i = 0; i < 30; i++) {
+        const item = document.createElement('div');
+        item.className = 'floating-symbol';
+        item.textContent = symbols[i % symbols.length];
+        item.style.left = Math.random() * 100 + 'vw';
+        item.style.top = Math.random() * 100 + 'vh';
+        item.style.setProperty('--size', (24 + Math.random() * 42) + 'px');
+        item.style.setProperty('--opacity', (0.10 + Math.random() * 0.14).toFixed(2));
+        item.style.setProperty('--duration', (16 + Math.random() * 22) + 's');
+        item.style.setProperty('--delay', (-Math.random() * 22) + 's');
+        floatingSymbols.appendChild(item);
+      }
+    }
+
+    function createSparkles() {
+      for (let i = 0; i < 42; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = Math.random() * 100 + 'vw';
+        sparkle.style.top = Math.random() * 100 + 'vh';
+        sparkle.style.setProperty('--size', (3 + Math.random() * 8) + 'px');
+        sparkle.style.setProperty('--duration', (2.4 + Math.random() * 4.2) + 's');
+        sparkle.style.setProperty('--delay', (-Math.random() * 7) + 's');
+        sparklesLayer.appendChild(sparkle);
+      }
+    }
+
+    function buildReel() {
+      reelTrack.innerHTML = '';
+      const sample = [];
+      for (let i = 0; i < 24; i++) {
+        const e = getRandomEmployee(EMPLOYEES);
+        sample.push(e);
+      }
+
+      sample.forEach(e => {
+        const pill = document.createElement('div');
+        pill.className = 'reel-pill';
+        pill.textContent = `${e.clave} · ${e.nombre}`;
+        reelTrack.appendChild(pill);
       });
-      setTimeout(()=> s.remove(), 1050);
     }
-  }
 
-  function drawOne(){
-    if(remaining.length===0){ 
-      bigname.textContent='🎉 ¡Lista completa!'; 
-      metainfo.textContent=''; 
-      refreshButtons(); 
-      return; 
+    function renderWinners() {
+      const existing = winnersList.querySelectorAll('.winner-item');
+      existing.forEach(el => el.remove());
+
+      if (winners.length === 0) {
+        emptyWinners.style.display = 'grid';
+      } else {
+        emptyWinners.style.display = 'none';
+      }
+
+      winners.forEach((winner, index) => {
+        const item = document.createElement('div');
+        item.className = 'winner-item';
+
+        const emoji = document.createElement('div');
+        emoji.className = 'emoji';
+        emoji.textContent = winner.emoji || '🎁';
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+
+        const clave = document.createElement('div');
+        clave.className = 'clave';
+        clave.textContent = `#${winners.length - index} · ${winner.clave}`;
+
+        const name = document.createElement('div');
+        name.className = 'name';
+        name.textContent = winner.nombre;
+
+        const area = document.createElement('div');
+        area.className = 'area';
+        area.textContent = winner.adscripcion;
+
+        meta.appendChild(clave);
+        meta.appendChild(name);
+        meta.appendChild(area);
+        item.appendChild(emoji);
+        item.appendChild(meta);
+        winnersList.appendChild(item);
+      });
     }
-    
-    playWinSound();
-    
-    const idx = Math.floor(Math.random()*remaining.length);
-    const person = remaining.splice(idx,1)[0];
-    
-    // Guardamos el índice original para el Deshacer Perfecto
-    drawn.push({ person: person, originalIndex: idx });
-    
-    bigname.textContent = person.name;
-    bigname.style.transform='scale(1.04)'; 
-    bigname.style.filter='drop-shadow(0 12px 24px rgba(80,200,120,.3))'; 
-    setTimeout(()=>{
-      bigname.style.transform='scale(1)'; 
-      bigname.style.filter='none';
-    }, 350);
-    
-    metainfo.textContent = `Clave: ${person.clave || '—'}${person.dept ? ' · Departamento: ' + person.dept : ''}`;
-    
-    starBurst();
-    counters();
-    renderStorage(true);
-    storage.scrollTop = 0;
-  }
 
-  function undoLast(){
-    if(drawn.length===0) return;
-    const lastDraw = drawn.pop();
-    
-    // Deshacer Perfecto: Reinserta a la persona exactamente en el índice de donde salió
-    remaining.splice(lastDraw.originalIndex, 0, lastDraw.person);
-    
-    bigname.textContent = '↩️ Deshecho: ' + (lastDraw.person.name||'');
-    metainfo.textContent = 'El trabajador ha vuelto a la tómbola';
-    counters();
-    renderStorage(true);
-  }
+    function startSpin() {
+      if (spinning) return;
 
-  function resetAll(){
-    if(!confirm('¿Reiniciar la rifa completa?')) return;
-    remaining = [...PEOPLE]; 
-    drawn = [];
-    bigname.textContent = '— Presiona “Sortear nombre” —';
-    metainfo.textContent = '';
-    counters();
-    renderStorage(true);
-    storage.scrollTop = 0;
-  }
+      const available = getAvailable();
+      if (available.length === 0) {
+        showToast('Ya no hay participantes disponibles. Reinicia el sorteo para comenzar de nuevo.');
+        return;
+      }
 
-  btnDraw.addEventListener('click', safe(drawOne));
-  btnUndo.addEventListener('click', safe(undoLast));
-  btnReset.addEventListener('click', safe(resetAll));
-  btnTop.addEventListener('click', ()=> storage.scrollTop = 0);
-  btnBottom.addEventListener('click', ()=> storage.scrollTop = storage.scrollHeight);
-  
-  document.addEventListener('keydown', (e)=>{ 
-    if(e.code==='Space' && e.target.tagName !== 'BUTTON'){
-      e.preventDefault();
-      safe(drawOne)();
-    } 
-    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){
-      e.preventDefault();
-      safe(undoLast)();
-    } 
-  });
+      spinning = true;
+      spinButton.disabled = true;
+      spinButton.textContent = 'Girando...';
+      wheelWrap.classList.add('spinning');
+      stagePanel.classList.add('spinning');
+      buildReel();
 
-  counters();
-  renderStorage();
-</script>
+      const duration = Math.max(2000, Math.min(12000, Number(spinDuration.value || 4.8) * 1000));
+      const start = performance.now();
+      let delay = 42;
+
+      function tick() {
+        const elapsed = performance.now() - start;
+        const progress = Math.min(1, elapsed / duration);
+        const ease = progress * progress * progress;
+        delay = 38 + ease * 210;
+
+        const randomCandidate = getRandomEmployee(available);
+        setDisplay(randomCandidate);
+
+        if (progress < 1) {
+          tickTimer = setTimeout(tick, delay);
+        } else {
+          finishSpin(available);
+        }
+      }
+
+      tick();
+    }
+
+    function finishSpin(available) {
+      clearTimeout(tickTimer);
+      const winner = getRandomEmployee(available);
+      const stampedWinner = {
+        ...winner,
+        emoji: randomSymbol(),
+        fecha: new Date().toISOString()
+      };
+
+      winners.unshift(stampedWinner);
+      saveWinners();
+
+      setDisplay(winner);
+      pulseWinnerCard();
+      triggerFlash();
+      triggerConfetti();
+      renderWinners();
+
+      wheelWrap.classList.remove('spinning');
+      stagePanel.classList.remove('spinning');
+      spinning = false;
+      updateStats();
+
+      showToast(`Ganador: ${winner.clave} · ${winner.nombre}`);
+    }
+
+    function undoLast() {
+      if (spinning) return;
+      if (winners.length === 0) {
+        showToast('Todavía no hay ganadores para deshacer.');
+        return;
+      }
+      const removed = winners.shift();
+      saveWinners();
+      renderWinners();
+      updateStats();
+      showToast(`Se retiró del historial: ${removed.clave} · ${removed.nombre}`);
+    }
+
+    function resetAll() {
+      if (spinning) return;
+      const ok = confirm('¿Deseas reiniciar el sorteo y borrar el historial de ganadores de este navegador?');
+      if (!ok) return;
+      winners = [];
+      saveWinners();
+      renderWinners();
+      updateStats();
+      displayClave.textContent = '-----';
+      displayName.textContent = 'Presiona “Girar ruleta”';
+      displayArea.textContent = 'La ruleta elegirá un registro aleatorio de la base de datos.';
+      showToast('Sorteo reiniciado.');
+    }
+
+    function exportWinnersCSV() {
+      if (winners.length === 0) {
+        showToast('No hay ganadores para exportar.');
+        return;
+      }
+
+      const headers = ['ORDEN', 'CLAVE', 'NOMBRE', 'ADSCRIPCION', 'FECHA'];
+      const rows = winners.slice().reverse().map((w, i) => [
+        i + 1,
+        w.clave,
+        w.nombre,
+        w.adscripcion,
+        w.fecha || ''
+      ]);
+
+      const csv = [headers, ...rows].map(row => row.map(cell => {
+        const text = String(cell ?? '');
+        return `"${text.replaceAll('"', '""')}"`;
+      }).join(',')).join('\n');
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'ganadores_rifadora_despensas_altamira.csv';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      showToast('Archivo CSV de ganadores generado.');
+    }
+
+    spinButton.addEventListener('click', startSpin);
+    undoButton.addEventListener('click', undoLast);
+    resetButton.addEventListener('click', resetAll);
+    exportButton.addEventListener('click', exportWinnersCSV);
+    spinDuration.addEventListener('input', updateStats);
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'F5' || (event.ctrlKey && event.key.toLowerCase() === 'r')) {
+        event.preventDefault();
+      }
+
+      if (event.key === 'Enter' || event.key === 'ArrowRight' || event.key === 'PageDown') {
+        if (!spinning) {
+          startSpin();
+          event.preventDefault();
+        }
+      }
+    }, true);
+
+    createFloatingSymbols();
+    createSparkles();
+    buildReel();
+    renderWinners();
+    updateStats();
+  </script>
 </body>
 </html>

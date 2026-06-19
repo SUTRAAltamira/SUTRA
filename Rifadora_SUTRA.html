@@ -524,6 +524,178 @@
     }
 
 
+
+
+    /* ===== Revelación profesional del ganador: evita cambio sospechoso de último candidato ===== */
+    .flash-names-layer {
+      position: absolute;
+      inset: -7%;
+      z-index: 9;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .flash-name-chip {
+      position: absolute;
+      max-width: min(330px, 64vw);
+      display: grid;
+      gap: 2px;
+      padding: 9px 13px;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.74), rgba(247,244,233,.38)),
+        radial-gradient(circle at 20% 10%, rgba(242,215,123,.50), transparent 42%);
+      border: 1px solid rgba(201,164,59,.58);
+      box-shadow: 0 12px 24px rgba(3,56,33,.16), 0 0 18px rgba(201,164,59,.16);
+      color: var(--sutra-verde-3);
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(.55) rotate(var(--rot));
+      animation: flashNameChip var(--life) cubic-bezier(.16,.84,.36,1) forwards;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+
+    .flash-name-chip .mini-clave {
+      font-size: .78rem;
+      line-height: 1;
+      color: var(--sutra-verde);
+      font-weight: 1000;
+      letter-spacing: .06em;
+    }
+
+    .flash-name-chip .mini-name {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: .72rem;
+      line-height: 1.08;
+      font-weight: 900;
+      color: rgba(3,56,33,.78);
+    }
+
+    @keyframes flashNameChip {
+      0% {
+        opacity: 0;
+        filter: blur(7px);
+        transform: translate(-50%, -50%) scale(.45) rotate(var(--rot));
+      }
+      18% {
+        opacity: .74;
+        filter: blur(0);
+      }
+      58% {
+        opacity: .44;
+      }
+      100% {
+        opacity: 0;
+        filter: blur(4px);
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.12) rotate(calc(var(--rot) + 12deg));
+      }
+    }
+
+    .winner-card.pre-reveal {
+      animation: preRevealBreath .46s ease-in-out infinite alternate;
+    }
+
+    .winner-card.pre-reveal .winner-kicker {
+      background: linear-gradient(180deg, var(--sutra-verde), var(--sutra-verde-3));
+      box-shadow: 0 0 18px rgba(201,164,59,.35);
+    }
+
+    .winner-card.pre-reveal .winner-clave {
+      opacity: .40;
+      filter: blur(1.8px);
+      letter-spacing: .12em;
+      text-shadow: 0 0 18px rgba(201,164,59,.36);
+    }
+
+    .winner-card.pre-reveal .winner-name,
+    .winner-card.pre-reveal .winner-area {
+      opacity: .72;
+      filter: blur(.15px);
+    }
+
+    @keyframes preRevealBreath {
+      from {
+        transform: scale(.992);
+        box-shadow: 0 24px 54px rgba(3,56,33,.24), 0 0 0 6px rgba(201,164,59,.10), 0 0 20px rgba(201,164,59,.16);
+      }
+      to {
+        transform: scale(1.012);
+        box-shadow: 0 28px 66px rgba(3,56,33,.32), 0 0 0 10px rgba(201,164,59,.15), 0 0 38px rgba(201,164,59,.36);
+      }
+    }
+
+    .winner-card.final-reveal {
+      animation: finalWinnerReveal .88s cubic-bezier(.15,.9,.25,1.22);
+    }
+
+    @keyframes finalWinnerReveal {
+      0% {
+        opacity: 0;
+        transform: scale(.52) rotate(-2.5deg);
+        filter: blur(9px) brightness(1.35);
+      }
+      42% {
+        opacity: 1;
+        transform: scale(1.08) rotate(.8deg);
+        filter: blur(0) brightness(1.16);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+        filter: blur(0) brightness(1);
+      }
+    }
+
+    .winner-card.final-reveal .winner-clave {
+      animation: finalClaveLock .92s cubic-bezier(.15,.9,.25,1.22);
+    }
+
+    @keyframes finalClaveLock {
+      0% {
+        letter-spacing: .18em;
+        transform: scale(.75);
+        opacity: 0;
+        filter: blur(8px);
+      }
+      55% {
+        letter-spacing: .04em;
+        transform: scale(1.08);
+        opacity: 1;
+        filter: blur(0);
+      }
+      100% {
+        letter-spacing: .02em;
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    .final-lock-ring {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: var(--ring-size);
+      height: var(--ring-size);
+      border-radius: 50%;
+      border: 3px solid rgba(201,164,59,.85);
+      box-shadow: 0 0 28px rgba(201,164,59,.46), inset 0 0 22px rgba(255,255,255,.42);
+      transform: translate(-50%, -50%) scale(.15);
+      pointer-events: none;
+      z-index: 86;
+      animation: finalLockRing 1.05s ease-out forwards;
+    }
+
+    @keyframes finalLockRing {
+      0% { opacity: .95; transform: translate(-50%, -50%) scale(.15); }
+      68% { opacity: .58; }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.18); }
+    }
+
     .screen-flash {
       position: fixed;
       inset: 0;
@@ -1307,7 +1479,7 @@
       </div>
 
       <div class="main-title">
-        <div class="eyebrow">Sistema de sorteo aleatorio · Base depurada</div>
+        <div class="eyebrow">Sistema de sorteo aleatorio · Base depurada 380 registros</div>
         <h1>Rifadora de Despensas</h1>
         <div class="sub">Ruleta de empleados con clave y adscripción</div>
       </div>
@@ -1355,7 +1527,7 @@
         <button class="button soft-button danger-button" id="resetButton">Reiniciar sorteo</button>
 
         <div class="hint">
-          Base de datos depurada para este sorteo: <strong>417 registros</strong>. La ruleta evita que una persona ganadora vuelva a salir. El historial queda guardado en este navegador mediante almacenamiento local.
+          Base de datos depurada para este sorteo: <strong>380 registros</strong>. La ruleta evita que una persona ganadora vuelva a salir. El historial queda guardado en este navegador mediante almacenamiento local.
         </div>
       </aside>
 
@@ -1369,6 +1541,7 @@
             <div class="casino-orbit casino-orbit-b" aria-hidden="true"></div>
             <div class="wheel"></div>
             <div class="pointer"></div>
+            <div class="flash-names-layer" id="flashNamesLayer" aria-hidden="true"></div>
 
             <div class="winner-card" id="winnerCard">
               <div class="winner-kicker">🎁 Participante seleccionado</div>
@@ -1570,11 +1743,6 @@
     "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
   },
   {
-    "clave": "00036",
-    "nombre": "SILVERIO COLLAZO RODRIGUEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
     "clave": "00037",
     "nombre": "BERTHA HERNANDEZ BALDERAS",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
@@ -1592,16 +1760,6 @@
   {
     "clave": "00040",
     "nombre": "MIGUEL ANGEL BAEZ DOMINGUEZ",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00042",
-    "nombre": "NICOLAS HERNANDEZ RODRIGUEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00043",
-    "nombre": "JUAN JOSE DIAZ HERNANDEZ",
     "adscripcion": "09 02 PENSIONADOS"
   },
   {
@@ -1628,11 +1786,6 @@
     "clave": "00048",
     "nombre": "JOSE ZUÑIGA VAZQUEZ",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00049",
-    "nombre": "GUADALUPE GAMBOA HERNANDEZ",
-    "adscripcion": "09 02 PENSIONADOS"
   },
   {
     "clave": "00050",
@@ -1695,11 +1848,6 @@
     "adscripcion": "09 02 PENSIONADOS"
   },
   {
-    "clave": "00063",
-    "nombre": "MARIA HERMINIA MORALES ARMENDARIZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
     "clave": "00064",
     "nombre": "GLORIA LARA VILLARREAL",
     "adscripcion": "09 02 PENSIONADOS"
@@ -1725,11 +1873,6 @@
     "adscripcion": "02 04 DELEGACION ZONA NORTE"
   },
   {
-    "clave": "00070",
-    "nombre": "AMPARO HERNANDEZ VEGA",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
-  },
-  {
     "clave": "00071",
     "nombre": "ADELA DIANA MOLINA CAMACHO",
     "adscripcion": "09 02 PENSIONADOS"
@@ -1742,11 +1885,6 @@
   {
     "clave": "00075",
     "nombre": "ARMANDO SALAZAR",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00076",
-    "nombre": "JUAN PEDRO RAMOS CORTES",
     "adscripcion": "09 02 PENSIONADOS"
   },
   {
@@ -1803,11 +1941,6 @@
     "clave": "00089",
     "nombre": "LAZARO GABRIEL SANTIAGO",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00090",
-    "nombre": "RICARDO PEREZ MATA",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
   },
   {
     "clave": "00092",
@@ -1875,11 +2008,6 @@
     "adscripcion": "01 02 PERSONAL DE CABILDO"
   },
   {
-    "clave": "00107",
-    "nombre": "JUAN MARTIN LOPEZ ZAPATA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
     "clave": "00108",
     "nombre": "ALEJANDRO SAN MARTIN SANTIAGO",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
@@ -1923,11 +2051,6 @@
     "clave": "00118",
     "nombre": "FELIX ARREDONDO IZAGUIRRE",
     "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00119",
-    "nombre": "ARTURO VILLAFUERTE BEDOLLA",
-    "adscripcion": "09 02 PENSIONADOS"
   },
   {
     "clave": "00120",
@@ -1975,34 +2098,14 @@
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00131",
-    "nombre": "JOSE GUADALUPE HERNANDEZ HERNANDEZ",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
-  },
-  {
-    "clave": "00132",
-    "nombre": "NORMA ANTONIA DAVILA RIVAS",
-    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
-  },
-  {
     "clave": "00133",
     "nombre": "MIGUEL ANGEL RODRIGUEZ ESPINOSA",
     "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
   },
   {
-    "clave": "00134",
-    "nombre": "FABIOLA SANTOS ROSAS",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
     "clave": "00135",
     "nombre": "VICTOR HUGO OLVERA LARA",
     "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00136",
-    "nombre": "ESTEBAN BRIGIDO RODRIGUEZ CASTRO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
     "clave": "00137",
@@ -2058,11 +2161,6 @@
     "clave": "00149",
     "nombre": "TITO GONZALO ROUX POLANCO",
     "adscripcion": "SIN DEPARTAMENTO"
-  },
-  {
-    "clave": "00150",
-    "nombre": "NOE BARBOSA RODRIGUEZ",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
   },
   {
     "clave": "00151",
@@ -2290,11 +2388,6 @@
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00201",
-    "nombre": "SANTIAGO ORTEGA HERNANDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
     "clave": "00202",
     "nombre": "J SANTOS CASTILLO REYES",
     "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
@@ -2320,23 +2413,8 @@
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00207",
-    "nombre": "RODOLFO NIETO GONZALEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
     "clave": "00208",
     "nombre": "JOSE LUIS HERNANDEZ AHUMADA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00209",
-    "nombre": "ERICK ARTURO BALDOMERO DEL ANGEL",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00210",
-    "nombre": "DAMIAN SALAZAR HUERTA",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
@@ -2380,11 +2458,6 @@
     "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
   },
   {
-    "clave": "00219",
-    "nombre": "LUIS MIGUEL ZUÑIGA CIBRIAN",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
     "clave": "00220",
     "nombre": "JUANA GARCIA GONZALEZ",
     "adscripcion": "01 02 PERSONAL DE CABILDO"
@@ -2398,11 +2471,6 @@
     "clave": "00222",
     "nombre": "MARGARITA ALICIA ORTA HERRERA",
     "adscripcion": "07 01 CONTRALORIA MUNICIPAL"
-  },
-  {
-    "clave": "00223",
-    "nombre": "CARLOS ALBERTO VAZQUEZ ROSAS",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
   },
   {
     "clave": "00224",
@@ -2457,11 +2525,6 @@
   {
     "clave": "00234",
     "nombre": "CUPERTINO GRANILLO MARTINEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00235",
-    "nombre": "JOSE DOMINGO GREGORIO SILGUERO",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
@@ -2775,11 +2838,6 @@
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00300",
-    "nombre": "NOE RANGEL RODRIGUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
     "clave": "00301",
     "nombre": "RUBEN DARIO AREGULLIN SANCHEZ",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
@@ -2807,11 +2865,6 @@
   {
     "clave": "00306",
     "nombre": "JOSE EDUARDO CUERVO CONTRERAS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00307",
-    "nombre": "JUAN ANGEL GARROCHO REYES",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
@@ -2863,16 +2916,6 @@
     "clave": "00318",
     "nombre": "GRACIELA GARCIA LEMUS",
     "adscripcion": "07 01 CONTRALORIA MUNICIPAL"
-  },
-  {
-    "clave": "00319",
-    "nombre": "BEATRIZ ADRIANA GONZALEZ AREVALOS",
-    "adscripcion": "06 05 DIRECCION DE CATASTRO"
-  },
-  {
-    "clave": "00320",
-    "nombre": "MARIA MAGDALENA ESCALANTE PEREZ",
-    "adscripcion": "06 05 DIRECCION DE CATASTRO"
   },
   {
     "clave": "00321",
@@ -2937,11 +2980,6 @@
   {
     "clave": "00333",
     "nombre": "EMILIO HERNANDEZ BAEZ",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00334",
-    "nombre": "GUADALUPE MORENO ALADINO",
     "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
   },
   {
@@ -3080,11 +3118,6 @@
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00362",
-    "nombre": "GELACIO FELIX",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
     "clave": "00363",
     "nombre": "MANUEL NUÑEZ CRUZ",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
@@ -3140,11 +3173,6 @@
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00374",
-    "nombre": "JOSE ALEJANDRO PEREZ HERNANDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
     "clave": "00375",
     "nombre": "RAFAEL MENDOZA WEBER",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
@@ -3180,11 +3208,6 @@
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00382",
-    "nombre": "DANIEL RANGEL RODRIGUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
     "clave": "00383",
     "nombre": "JUAN JOSE DEL ANGEL DEL ANGEL",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
@@ -3215,19 +3238,9 @@
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00389",
-    "nombre": "MARTIN MARCELO PEREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
     "clave": "00390",
     "nombre": "ROGELIO FERNANDEZ ZUÑIGA",
     "adscripcion": "06 05 DIRECCION DE CATASTRO"
-  },
-  {
-    "clave": "00391",
-    "nombre": "JESUS ISRAEL GALVAN NETRO",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
   },
   {
     "clave": "00392",
@@ -3265,11 +3278,6 @@
     "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
   },
   {
-    "clave": "00399",
-    "nombre": "JUAN ANTONIO CASTILLO TOVAR",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
     "clave": "00400",
     "nombre": "FRANCISCO JAVIER LANDAVERDE CASTILLO",
     "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
@@ -3288,11 +3296,6 @@
     "clave": "00404",
     "nombre": "ARACELI DIAZ BARRON",
     "adscripcion": "02 04 DELEGACION ZONA NORTE"
-  },
-  {
-    "clave": "00405",
-    "nombre": "TERESA GUADALUPE CRUZ DEL ANGEL",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
     "clave": "00406",
@@ -3318,11 +3321,6 @@
     "clave": "00410",
     "nombre": "ISABEL CRISTINA JIMENEZ JIMENEZ",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00411",
-    "nombre": "ANGELICA CRUZ JARAMILLO",
-    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
   },
   {
     "clave": "00412",
@@ -3357,11 +3355,6 @@
   {
     "clave": "00418",
     "nombre": "OMAR ALEJANDRO JIMENEZ BRICEÑO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00419",
-    "nombre": "LUIS ANTONIO PECERO ALONSO",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   },
   {
@@ -3470,11 +3463,6 @@
     "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
   },
   {
-    "clave": "00441",
-    "nombre": "MARIA DE LOURDES ALVARADO MOJICA",
-    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
-  },
-  {
     "clave": "00442",
     "nombre": "MARISOL BARBERENA GONZALEZ",
     "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
@@ -3517,8 +3505,9 @@
     const burstLayer = document.getElementById('burstLayer');
     const toast = document.getElementById('toast');
     const casinoLights = document.getElementById('casinoLights');
+    const flashNamesLayer = document.getElementById('flashNamesLayer');
 
-    const STORAGE_KEY = 'rifadora_sutra_casino_verde_dorado_v1';
+    const STORAGE_KEY = 'rifadora_sutra_380_revelacion_final_limpia_v1';
     let winners = loadWinners();
     let spinning = false;
     let tickTimer = null;
@@ -3580,6 +3569,80 @@
       displayName.textContent = employee.nombre || 'SIN NOMBRE';
       displayArea.textContent = employee.adscripcion || 'SIN ADSCRIPCIÓN';
     }
+
+
+    function clearFlashNames() {
+      if (!flashNamesLayer) return;
+      flashNamesLayer.innerHTML = '';
+    }
+
+    function showTransientName(employee) {
+      if (!flashNamesLayer || !employee) return;
+
+      const chip = document.createElement('div');
+      chip.className = 'flash-name-chip';
+      chip.style.left = `${12 + Math.random() * 76}%`;
+      chip.style.top = `${16 + Math.random() * 68}%`;
+      chip.style.setProperty('--rot', `${Math.floor(Math.random() * 22) - 11}deg`);
+      chip.style.setProperty('--dx', `${Math.floor(Math.random() * 90) - 45}px`);
+      chip.style.setProperty('--dy', `${Math.floor(Math.random() * 70) - 55}px`);
+      chip.style.setProperty('--life', `${0.55 + Math.random() * 0.38}s`);
+
+      const clave = document.createElement('div');
+      clave.className = 'mini-clave';
+      clave.textContent = employee.clave || '-----';
+
+      const name = document.createElement('div');
+      name.className = 'mini-name';
+      name.textContent = employee.nombre || 'SIN NOMBRE';
+
+      chip.appendChild(clave);
+      chip.appendChild(name);
+      flashNamesLayer.appendChild(chip);
+
+      setTimeout(() => chip.remove(), 1000);
+    }
+
+    function setPreRevealDisplay() {
+      winnerCard.classList.add('pre-reveal');
+      displayClave.textContent = '•••••';
+      displayName.textContent = 'CERRANDO SORTEO';
+      displayArea.textContent = 'Registros en validación visual · el ganador se revelará al final.';
+    }
+
+    function triggerFinalLockRing() {
+      const sizes = ['42vw', '58vw', '76vw'];
+      sizes.forEach((size, index) => {
+        const ring = document.createElement('div');
+        ring.className = 'final-lock-ring';
+        ring.style.setProperty('--ring-size', size);
+        ring.style.animationDelay = `${index * 0.08}s`;
+        document.body.appendChild(ring);
+        setTimeout(() => ring.remove(), 1250);
+      });
+    }
+
+    function revealWinnerCleanly(winner) {
+      clearFlashNames();
+      winnerCard.classList.remove('pre-reveal', 'final-reveal', 'final-glow', 'pulse');
+      wheelWrap.classList.remove('spinning');
+      stagePanel.classList.remove('spinning');
+
+      setDisplay(winner);
+
+      void winnerCard.offsetWidth;
+      winnerCard.classList.add('final-reveal');
+      pulseWinnerCard();
+      triggerFlash();
+      triggerFinalLockRing();
+      triggerConfetti();
+      triggerCasinoTokens();
+      triggerWinnerBurst();
+      winnerCard.classList.remove('final-glow');
+      void winnerCard.offsetWidth;
+      winnerCard.classList.add('final-glow');
+    }
+
 
     function pulseWinnerCard() {
       winnerCard.classList.remove('pulse');
@@ -3772,39 +3835,60 @@
         return;
       }
 
+      const finalWinner = getRandomEmployee(available);
+      const visualPoolRaw = available.filter(e => normalizeClave(e.clave) !== normalizeClave(finalWinner.clave));
+      const visualPool = visualPoolRaw.length > 0 ? visualPoolRaw : available;
+
       spinning = true;
       spinButton.disabled = true;
       spinButton.textContent = 'Girando...';
       wheelWrap.classList.add('spinning');
       stagePanel.classList.add('spinning');
+      winnerCard.classList.remove('pre-reveal', 'final-reveal', 'final-glow', 'pulse');
+      clearFlashNames();
       buildReel();
 
-      const duration = Math.max(2000, Math.min(12000, Number(spinDuration.value || 4.8) * 1000));
+      const duration = Math.max(3200, Math.min(12000, Number(spinDuration.value || 4.8) * 1000));
       const start = performance.now();
-      let delay = 42;
+      let delay = 38;
+      let preRevealStarted = false;
 
       function tick() {
         const elapsed = performance.now() - start;
         const progress = Math.min(1, elapsed / duration);
-        const ease = progress * progress * progress;
-        delay = 38 + ease * 210;
 
-        const randomCandidate = getRandomEmployee(available);
-        setDisplay(randomCandidate);
+        if (progress < 0.70) {
+          const ease = progress * progress;
+          delay = 34 + ease * 92;
+          const randomCandidate = getRandomEmployee(visualPool);
+          setDisplay(randomCandidate);
+        } else if (progress < 1) {
+          if (!preRevealStarted) {
+            preRevealStarted = true;
+            setPreRevealDisplay();
+          }
+
+          const intensity = (progress - 0.70) / 0.30;
+          const namesToFlash = intensity > 0.72 ? 5 : intensity > 0.38 ? 3 : 2;
+          for (let i = 0; i < namesToFlash; i++) {
+            showTransientName(getRandomEmployee(visualPool));
+          }
+          delay = 58 + intensity * 150;
+        }
 
         if (progress < 1) {
           tickTimer = setTimeout(tick, delay);
         } else {
-          finishSpin(available);
+          finishSpin(finalWinner);
         }
       }
 
       tick();
     }
 
-    function finishSpin(available) {
+    function finishSpin(winner) {
       clearTimeout(tickTimer);
-      const winner = getRandomEmployee(available);
+
       const stampedWinner = {
         ...winner,
         emoji: randomSymbol(),
@@ -3814,19 +3898,9 @@
       winners.unshift(stampedWinner);
       saveWinners();
 
-      setDisplay(winner);
-      pulseWinnerCard();
-      triggerFlash();
-      triggerConfetti();
-      triggerCasinoTokens();
-      triggerWinnerBurst();
-      winnerCard.classList.remove('final-glow');
-      void winnerCard.offsetWidth;
-      winnerCard.classList.add('final-glow');
+      revealWinnerCleanly(winner);
       renderWinners();
 
-      wheelWrap.classList.remove('spinning');
-      stagePanel.classList.remove('spinning');
       spinning = false;
       updateStats();
 

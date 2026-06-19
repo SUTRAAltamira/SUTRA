@@ -2,69 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Rifadora de Despensas | SUTRA Altamira</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rifadora de Despensas | Gobierno Municipal de Altamira</title>
   <style>
     :root {
-      --sutra-verde: #087245;
-      --sutra-verde-2: #065334;
-      --sutra-verde-3: #033821;
-      --sutra-negro: #101312;
-      --sutra-dorado: #c9a43b;
-      --sutra-dorado-2: #f2d77b;
-      --sutra-blanco: #ffffff;
-      --sutra-hueso: #f7f4e9;
-      --sutra-gris: #4b5563;
-      --sutra-rojo: #8a1f2d;
-      --sombra: 0 20px 52px rgba(3, 56, 33, .20);
-      --sombra-fuerte: 0 28px 72px rgba(3, 56, 33, .30);
-      --borde: rgba(8, 114, 69, .18);
-      --borde-dorado: rgba(201, 164, 59, .55);
+      --vino: #7a1234;
+      --vino-2: #5b0d28;
+      --vino-3: #3b0619;
+      --dorado: #c79a2c;
+      --dorado-2: #f0d486;
+      --dorado-3: #8d6415;
+      --blanco: #ffffff;
+      --hueso: #fbf7ee;
+      --gris: #3f3f46;
+      --gris-suave: #f3f4f6;
+      --verde: #1f8f5f;
+      --sombra: 0 20px 52px rgba(58, 6, 25, .22);
+      --sombra-fuerte: 0 28px 70px rgba(58, 6, 25, .30);
+      --borde: rgba(122, 18, 52, .18);
+      --borde-dorado: rgba(199, 154, 44, .55);
     }
 
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+    * { box-sizing: border-box; }
 
-    html {
+    html, body {
+      margin: 0;
       width: 100%;
-      min-height: 100%;
-      background: var(--sutra-blanco);
+      height: 100%;
+      overflow: hidden;
+      font-family: Montserrat, "Segoe UI", Arial, sans-serif;
+      background: var(--blanco);
+      color: var(--vino-3);
     }
 
     body {
-      margin: 0;
-      width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-      overflow-x: hidden;
-      font-family: Montserrat, "Segoe UI", Arial, sans-serif;
-      color: var(--sutra-verde-3);
-      background:
-        radial-gradient(circle at 50% 32%, rgba(242, 215, 123, .36), transparent 30%),
-        radial-gradient(circle at 8% 10%, rgba(8, 114, 69, .12), transparent 20%),
-        radial-gradient(circle at 92% 14%, rgba(201, 164, 59, .18), transparent 18%),
-        linear-gradient(180deg, #ffffff 0%, #f7f4e9 52%, #ffffff 100%);
       position: relative;
+      background:
+        radial-gradient(circle at 49% 43%, rgba(240, 212, 134, .35), transparent 30%),
+        radial-gradient(circle at 8% 10%, rgba(122, 18, 52, .10), transparent 20%),
+        radial-gradient(circle at 92% 14%, rgba(199, 154, 44, .18), transparent 18%),
+        linear-gradient(180deg, #ffffff 0%, #fbf7ee 50%, #ffffff 100%);
     }
 
     body::before {
       content: "";
-      position: fixed;
+      position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: 0;
       background-image:
-        linear-gradient(90deg, rgba(8, 114, 69, .035) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(8, 114, 69, .035) 1px, transparent 1px);
+        linear-gradient(90deg, rgba(122, 18, 52, .035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(122, 18, 52, .035) 1px, transparent 1px);
       background-size: 42px 42px;
-      opacity: .95;
-      mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,.62), transparent 82%);
+      opacity: .85;
+      mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,.56), transparent 78%);
+      z-index: 0;
     }
 
     .background-rings {
-      position: fixed;
+      position: absolute;
       inset: 0;
       overflow: hidden;
       pointer-events: none;
@@ -78,7 +73,7 @@
       width: 55vw;
       height: 55vw;
       border-radius: 50%;
-      border: 34px solid rgba(8, 114, 69, .07);
+      border: 34px solid rgba(122, 18, 52, .06);
       animation: slowSpin 28s linear infinite;
     }
 
@@ -86,7 +81,7 @@
     .background-rings::after {
       right: -22vw;
       top: -24vw;
-      border-color: rgba(201, 164, 59, .16);
+      border-color: rgba(199, 154, 44, .14);
       animation-direction: reverse;
     }
 
@@ -95,9 +90,8 @@
       to { transform: rotate(360deg); }
     }
 
-    #floatingSymbols,
-    #sparklesLayer {
-      position: fixed;
+    #floatingSymbols, #sparklesLayer {
+      position: absolute;
       inset: 0;
       pointer-events: none;
       overflow: hidden;
@@ -111,7 +105,7 @@
       font-size: var(--size);
       line-height: 1;
       opacity: var(--opacity);
-      text-shadow: 0 12px 20px rgba(3, 56, 33, .18);
+      text-shadow: 0 12px 20px rgba(58, 6, 25, .16);
       animation: drift var(--duration) linear infinite;
       animation-delay: var(--delay);
       will-change: transform;
@@ -130,7 +124,7 @@
       width: var(--size);
       height: var(--size);
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,164,59,.95), rgba(201,164,59,.26) 48%, transparent 72%);
+      background: radial-gradient(circle, rgba(199,154,44,.95), rgba(199,154,44,.26) 48%, transparent 72%);
       animation: twinkle var(--duration) ease-in-out infinite;
       animation-delay: var(--delay);
       opacity: 0;
@@ -142,12 +136,102 @@
       66% { opacity: .25; transform: scale(.74); }
     }
 
+
+
+    #burstLayer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 82;
+    }
+
+    .gold-burst {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      border: 2px solid rgba(201, 164, 59, .82);
+      box-shadow: 0 0 22px rgba(201,164,59,.45), inset 0 0 18px rgba(255,255,255,.38);
+      animation: goldBurstRing 1.15s ease-out forwards;
+      transform: translate(-50%, -50%) scale(.18);
+    }
+
+    @keyframes goldBurstRing {
+      0% { opacity: .92; transform: translate(-50%, -50%) scale(.18); }
+      80% { opacity: .52; }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.12); }
+    }
+
+    .winner-sigil {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      z-index: 83;
+      pointer-events: none;
+      font-size: var(--size);
+      line-height: 1;
+      text-shadow: 0 10px 22px rgba(3,56,33,.26), 0 0 18px rgba(201,164,59,.35);
+      animation: sigilFly 1.45s cubic-bezier(.16,.84,.36,1) forwards;
+    }
+
+    @keyframes sigilFly {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(.25) rotate(0deg); }
+      18% { opacity: 1; }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.05) rotate(var(--rot)); }
+    }
+
+    .winner-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,.06) 36%, rgba(242,215,123,.42) 48%, rgba(255,255,255,.08) 58%, transparent 100%);
+      transform: translateX(-140%) skewX(-14deg);
+    }
+
+    .winner-card.pulse::after,
+    .spinning .winner-card::after {
+      animation: sweepWinner 1.05s ease-out;
+    }
+
+    @keyframes sweepWinner {
+      0% { transform: translateX(-140%) skewX(-14deg); }
+      100% { transform: translateX(140%) skewX(-14deg); }
+    }
+
+    .stage-panel.spinning .winner-card {
+      box-shadow: 0 24px 54px rgba(3,56,33,.28), 0 0 0 8px rgba(201,164,59,.10), 0 0 46px rgba(201,164,59,.32);
+    }
+
+    .stage-panel.spinning .winner-kicker {
+      animation: kickerPulse .58s ease-in-out infinite alternate;
+    }
+
+    @keyframes kickerPulse {
+      from { transform: scale(1); filter: brightness(1); }
+      to { transform: scale(1.04); filter: brightness(1.18); }
+    }
+
+    .final-glow {
+      animation: finalGlow .95s ease-out;
+    }
+
+    @keyframes finalGlow {
+      0% { filter: drop-shadow(0 0 0 rgba(201,164,59,0)); }
+      35% { filter: drop-shadow(0 0 26px rgba(201,164,59,.72)); }
+      100% { filter: drop-shadow(0 0 0 rgba(201,164,59,0)); }
+    }
+
     .screen-flash {
       position: fixed;
       inset: 0;
       z-index: 80;
       pointer-events: none;
-      background: radial-gradient(circle at center, rgba(242,215,123,.74), rgba(255,255,255,.48), transparent 74%);
+      background: radial-gradient(circle at center, rgba(240,212,134,.74), rgba(255,255,255,.48), transparent 74%);
       opacity: 0;
     }
 
@@ -164,7 +248,7 @@
       pointer-events: none;
       font-size: var(--size);
       animation: confettiFly 1.35s ease-out forwards;
-      text-shadow: 0 8px 16px rgba(3, 56, 33, .24);
+      text-shadow: 0 8px 16px rgba(58, 6, 25, .24);
     }
 
     @keyframes confettiFly {
@@ -176,27 +260,26 @@
       position: relative;
       z-index: 10;
       width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-      padding: clamp(10px, 1.5vw, 18px);
+      height: 100%;
+      padding: 16px 22px 20px;
       display: grid;
       grid-template-rows: auto 1fr;
-      gap: clamp(10px, 1.3vw, 16px);
+      gap: 16px;
     }
 
     .top-bar {
       display: grid;
-      grid-template-columns: minmax(190px, 1fr) minmax(320px, 760px) minmax(190px, 1fr);
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: clamp(10px, 1.3vw, 18px);
+      gap: 18px;
       min-height: 116px;
     }
 
     .brand-side {
-      min-height: 116px;
+      height: 116px;
       border-radius: 28px;
-      background: rgba(255,255,255,.82);
-      border: 1px solid rgba(8,114,69,.13);
+      background: rgba(255,255,255,.80);
+      border: 1px solid rgba(122,18,52,.12);
       box-shadow: var(--sombra);
       display: flex;
       align-items: center;
@@ -211,51 +294,17 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(8,114,69,.10), transparent 45%, rgba(201,164,59,.14));
+      background: linear-gradient(135deg, rgba(122,18,52,.08), transparent 45%, rgba(199,154,44,.12));
       pointer-events: none;
-    }
-
-    .sutra-badge {
-      position: relative;
-      width: min(100%, 230px);
-      min-height: 82px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, var(--sutra-verde), var(--sutra-verde-3));
-      color: #fff;
-      border: 2px solid var(--sutra-dorado);
-      display: grid;
-      place-items: center;
-      padding: 10px 16px;
-      text-align: center;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.16), 0 14px 28px rgba(3,56,33,.20);
-    }
-
-    .sutra-badge .big {
-      display: block;
-      font-size: clamp(1.65rem, 2.4vw, 2.6rem);
-      line-height: .9;
-      font-weight: 1000;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .sutra-badge .small {
-      display: block;
-      margin-top: 6px;
-      font-size: .72rem;
-      font-weight: 850;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--sutra-dorado-2);
     }
 
     .brand-side strong {
       position: relative;
       display: block;
-      font-size: clamp(1rem, 1.45vw, 1.52rem);
+      font-size: clamp(1.05rem, 1.5vw, 1.6rem);
       text-transform: uppercase;
       letter-spacing: .08em;
-      color: var(--sutra-verde);
+      color: var(--vino);
       text-align: center;
       line-height: 1.15;
     }
@@ -263,23 +312,24 @@
     .brand-side span {
       display: block;
       margin-top: 6px;
-      font-size: .82rem;
+      font-size: .86rem;
       letter-spacing: .16em;
-      color: #8a6a17;
+      color: var(--dorado-3);
     }
 
     .main-title {
-      min-height: 116px;
+      min-width: min(760px, 48vw);
+      height: 116px;
       border-radius: 32px;
-      background: linear-gradient(90deg, rgba(8,114,69,.97), rgba(3,56,33,.97)), var(--sutra-verde);
+      background: linear-gradient(90deg, rgba(122,18,52,.96), rgba(90,12,41,.96)), var(--vino);
       box-shadow: var(--sombra-fuerte);
-      border: 2px solid rgba(201,164,59,.72);
+      border: 2px solid rgba(199,154,44,.72);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 14px 34px;
-      color: var(--sutra-blanco);
+      color: var(--blanco);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -291,7 +341,7 @@
       inset: -40%;
       background:
         linear-gradient(115deg, transparent 0%, rgba(255,255,255,.14) 45%, transparent 58%),
-        radial-gradient(circle at 50% 0%, rgba(242,215,123,.30), transparent 45%);
+        radial-gradient(circle at 50% 0%, rgba(240,212,134,.30), transparent 45%);
       animation: titleShine 5s ease-in-out infinite;
     }
 
@@ -304,19 +354,19 @@
       position: relative;
       z-index: 1;
       font-size: .86rem;
-      font-weight: 950;
+      font-weight: 900;
       letter-spacing: .20em;
       text-transform: uppercase;
-      color: var(--sutra-dorado-2);
+      color: var(--dorado-2);
     }
 
     .main-title h1 {
       position: relative;
       z-index: 1;
       margin: 4px 0 0;
-      font-size: clamp(1.8rem, 3.1vw, 3.45rem);
+      font-size: clamp(1.9rem, 3.1vw, 3.45rem);
       line-height: .96;
-      font-weight: 1000;
+      font-weight: 900;
       text-transform: uppercase;
       text-shadow: 0 8px 20px rgba(0,0,0,.24);
     }
@@ -326,8 +376,8 @@
       z-index: 1;
       margin-top: 6px;
       font-size: .94rem;
-      font-weight: 800;
-      color: rgba(255,255,255,.94);
+      font-weight: 700;
+      color: rgba(255,255,255,.92);
       letter-spacing: .08em;
       text-transform: uppercase;
     }
@@ -335,13 +385,13 @@
     .main-layout {
       min-height: 0;
       display: grid;
-      grid-template-columns: minmax(270px, 330px) minmax(410px, 1fr) minmax(310px, 380px);
-      gap: clamp(10px, 1.3vw, 18px);
+      grid-template-columns: 340px 1fr 380px;
+      gap: 18px;
     }
 
     .panel {
       border-radius: 28px;
-      background: rgba(255,255,255,.84);
+      background: rgba(255,255,255,.82);
       border: 1px solid var(--borde);
       box-shadow: var(--sombra);
       backdrop-filter: blur(14px);
@@ -351,7 +401,7 @@
     }
 
     .controls-panel {
-      padding: clamp(14px, 1.2vw, 18px);
+      padding: 18px;
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -360,8 +410,8 @@
     .panel-title {
       margin: 0;
       font-size: 1.2rem;
-      font-weight: 1000;
-      color: var(--sutra-verde);
+      font-weight: 900;
+      color: var(--vino);
       text-transform: uppercase;
       letter-spacing: .06em;
     }
@@ -375,15 +425,15 @@
     .stat {
       border-radius: 18px;
       background: linear-gradient(180deg, #fff, #fff8e6);
-      border: 1px solid rgba(201,164,59,.42);
+      border: 1px solid rgba(199,154,44,.42);
       padding: 12px;
       min-height: 72px;
     }
 
     .stat .label {
       font-size: .72rem;
-      font-weight: 850;
-      color: var(--sutra-gris);
+      font-weight: 800;
+      color: var(--gris);
       text-transform: uppercase;
       letter-spacing: .08em;
     }
@@ -391,8 +441,8 @@
     .stat .value {
       margin-top: 6px;
       font-size: 1.65rem;
-      font-weight: 1000;
-      color: var(--sutra-verde);
+      font-weight: 900;
+      color: var(--vino);
       line-height: 1;
     }
 
@@ -402,11 +452,10 @@
       border-radius: 20px;
       cursor: pointer;
       font-family: inherit;
-      font-weight: 1000;
+      font-weight: 900;
       transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
       text-transform: uppercase;
       letter-spacing: .06em;
-      touch-action: manipulation;
     }
 
     .button:hover { transform: translateY(-2px) scale(1.01); filter: brightness(1.02); }
@@ -415,14 +464,14 @@
     .spin-button {
       min-height: 82px;
       font-size: 1.25rem;
-      color: var(--sutra-blanco);
-      background: linear-gradient(180deg, var(--sutra-verde), var(--sutra-verde-3));
-      box-shadow: 0 18px 30px rgba(8,114,69,.28);
-      border: 2px solid var(--sutra-dorado);
+      color: var(--blanco);
+      background: linear-gradient(180deg, var(--vino), var(--vino-3));
+      box-shadow: 0 18px 30px rgba(122,18,52,.28);
+      border: 2px solid var(--dorado);
     }
 
     .spin-button[disabled] {
-      opacity: .58;
+      opacity: .55;
       cursor: not-allowed;
     }
 
@@ -435,53 +484,52 @@
     .soft-button {
       min-height: 52px;
       font-size: .78rem;
-      color: var(--sutra-verde);
+      color: var(--vino);
       background: linear-gradient(180deg, #ffffff, #fff3d1);
-      border: 1px solid rgba(201,164,59,.50);
+      border: 1px solid rgba(199,154,44,.50);
     }
 
     .danger-button {
       color: #ffffff;
-      background: linear-gradient(180deg, #164b33, #052a19);
-      border: 1px solid rgba(201,164,59,.50);
+      background: linear-gradient(180deg, #8a1d3f, #560a27);
     }
 
     .setting-box {
       padding: 12px;
       border-radius: 18px;
-      background: rgba(8,114,69,.06);
-      border: 1px dashed rgba(8,114,69,.22);
+      background: rgba(122,18,52,.06);
+      border: 1px dashed rgba(122,18,52,.20);
     }
 
     .setting-box label {
       display: block;
       margin-bottom: 8px;
       font-size: .78rem;
-      font-weight: 950;
-      color: var(--sutra-verde);
+      font-weight: 900;
+      color: var(--vino);
       text-transform: uppercase;
       letter-spacing: .08em;
     }
 
     .setting-box input {
       width: 100%;
-      border: 1px solid rgba(8,114,69,.25);
+      border: 1px solid rgba(122,18,52,.24);
       border-radius: 14px;
       padding: 12px;
       font-family: inherit;
       font-size: 1rem;
-      font-weight: 900;
-      color: var(--sutra-verde);
+      font-weight: 800;
+      color: var(--vino);
       text-align: center;
       outline: none;
-      background: rgba(255,255,255,.90);
+      background: rgba(255,255,255,.88);
     }
 
     .hint {
       font-size: .78rem;
       line-height: 1.45;
-      color: rgba(3,56,33,.80);
-      font-weight: 700;
+      color: rgba(75,7,31,.78);
+      font-weight: 650;
     }
 
     .stage-panel {
@@ -510,8 +558,8 @@
       position: relative;
       width: min(72vh, 62vw, 710px);
       height: min(72vh, 62vw, 710px);
-      min-width: min(480px, 100%);
-      min-height: min(480px, 100%);
+      min-width: 480px;
+      min-height: 480px;
       display: grid;
       place-items: center;
     }
@@ -523,34 +571,34 @@
       background:
         conic-gradient(
           from 0deg,
-          var(--sutra-verde) 0 16deg,
-          var(--sutra-dorado) 16deg 32deg,
+          var(--vino) 0 16deg,
+          var(--dorado) 16deg 32deg,
           #ffffff 32deg 48deg,
-          var(--sutra-verde-2) 48deg 64deg,
-          var(--sutra-dorado-2) 64deg 80deg,
-          var(--sutra-verde) 80deg 96deg,
-          var(--sutra-dorado) 96deg 112deg,
+          var(--vino-2) 48deg 64deg,
+          var(--dorado-2) 64deg 80deg,
+          var(--vino) 80deg 96deg,
+          var(--dorado) 96deg 112deg,
           #ffffff 112deg 128deg,
-          var(--sutra-verde-2) 128deg 144deg,
-          var(--sutra-dorado-2) 144deg 160deg,
-          var(--sutra-verde) 160deg 176deg,
-          var(--sutra-dorado) 176deg 192deg,
+          var(--vino-2) 128deg 144deg,
+          var(--dorado-2) 144deg 160deg,
+          var(--vino) 160deg 176deg,
+          var(--dorado) 176deg 192deg,
           #ffffff 192deg 208deg,
-          var(--sutra-verde-2) 208deg 224deg,
-          var(--sutra-dorado-2) 224deg 240deg,
-          var(--sutra-verde) 240deg 256deg,
-          var(--sutra-dorado) 256deg 272deg,
+          var(--vino-2) 208deg 224deg,
+          var(--dorado-2) 224deg 240deg,
+          var(--vino) 240deg 256deg,
+          var(--dorado) 256deg 272deg,
           #ffffff 272deg 288deg,
-          var(--sutra-verde-2) 288deg 304deg,
-          var(--sutra-dorado-2) 304deg 320deg,
-          var(--sutra-verde) 320deg 336deg,
-          var(--sutra-dorado) 336deg 360deg
+          var(--vino-2) 288deg 304deg,
+          var(--dorado-2) 304deg 320deg,
+          var(--vino) 320deg 336deg,
+          var(--dorado) 336deg 360deg
         );
-      border: 10px solid var(--sutra-verde);
+      border: 10px solid var(--vino);
       box-shadow:
         var(--sombra-fuerte),
         inset 0 0 0 10px rgba(255,255,255,.48),
-        inset 0 0 0 18px rgba(201,164,59,.55);
+        inset 0 0 0 18px rgba(199,154,44,.55);
       animation: wheelIdle 16s linear infinite;
       opacity: .98;
     }
@@ -560,9 +608,9 @@
       position: absolute;
       inset: 52px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,.95), rgba(247,244,233,.93));
-      box-shadow: inset 0 0 44px rgba(8,114,69,.11);
-      border: 2px solid rgba(201,164,59,.50);
+      background: radial-gradient(circle, rgba(255,255,255,.94), rgba(251,247,238,.92));
+      box-shadow: inset 0 0 44px rgba(122,18,52,.11);
+      border: 2px solid rgba(199,154,44,.50);
     }
 
     .wheel::after {
@@ -595,8 +643,8 @@
       height: 0;
       border-left: 24px solid transparent;
       border-right: 24px solid transparent;
-      border-top: 56px solid var(--sutra-verde-3);
-      filter: drop-shadow(0 8px 12px rgba(3,56,33,.28));
+      border-top: 56px solid var(--vino);
+      filter: drop-shadow(0 8px 12px rgba(58,6,25,.28));
       z-index: 6;
     }
 
@@ -608,7 +656,7 @@
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      background: var(--sutra-dorado);
+      background: var(--dorado);
       border: 3px solid #fff;
     }
 
@@ -623,9 +671,9 @@
       justify-content: center;
       text-align: center;
       border-radius: 34px;
-      background: rgba(255,255,255,.94);
-      border: 3px solid var(--sutra-dorado);
-      box-shadow: 0 24px 54px rgba(3,56,33,.28);
+      background: rgba(255,255,255,.92);
+      border: 3px solid var(--dorado);
+      box-shadow: 0 24px 54px rgba(58,6,25,.28);
       padding: 24px 28px;
       overflow: hidden;
     }
@@ -635,8 +683,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(135deg, rgba(8,114,69,.08), transparent 44%, rgba(201,164,59,.16)),
-        radial-gradient(circle at 50% -20%, rgba(242,215,123,.35), transparent 40%);
+        linear-gradient(135deg, rgba(122,18,52,.08), transparent 44%, rgba(199,154,44,.16)),
+        radial-gradient(circle at 50% -20%, rgba(240,212,134,.35), transparent 40%);
       pointer-events: none;
     }
 
@@ -647,12 +695,12 @@
       align-items: center;
       gap: 8px;
       border-radius: 999px;
-      background: var(--sutra-verde);
+      background: var(--vino);
       color: #fff;
-      border: 2px solid var(--sutra-dorado);
+      border: 2px solid var(--dorado);
       padding: 8px 16px;
       font-size: .92rem;
-      font-weight: 1000;
+      font-weight: 900;
       letter-spacing: .08em;
       text-transform: uppercase;
     }
@@ -663,10 +711,10 @@
       margin-top: 14px;
       font-size: clamp(2.8rem, 6vw, 5.6rem);
       line-height: .92;
-      color: var(--sutra-verde);
-      font-weight: 1000;
+      color: var(--vino);
+      font-weight: 900;
       letter-spacing: .02em;
-      text-shadow: 0 4px 0 rgba(255,255,255,.84), 0 12px 22px rgba(3,56,33,.14);
+      text-shadow: 0 4px 0 rgba(255,255,255,.84), 0 12px 22px rgba(58,6,25,.14);
     }
 
     .winner-name {
@@ -675,8 +723,8 @@
       margin-top: 10px;
       font-size: clamp(1.05rem, 2.2vw, 2.05rem);
       line-height: 1.05;
-      font-weight: 1000;
-      color: var(--sutra-negro);
+      font-weight: 900;
+      color: var(--vino-3);
       text-transform: uppercase;
     }
 
@@ -687,8 +735,8 @@
       max-width: 96%;
       font-size: clamp(.82rem, 1.25vw, 1.08rem);
       line-height: 1.25;
-      color: var(--sutra-gris);
-      font-weight: 800;
+      color: var(--gris);
+      font-weight: 750;
       text-transform: uppercase;
     }
 
@@ -704,9 +752,9 @@
       width: min(94%, 820px);
       height: 72px;
       border-radius: 24px;
-      background: rgba(255,255,255,.88);
-      border: 1px solid rgba(8,114,69,.15);
-      box-shadow: 0 12px 30px rgba(3,56,33,.12);
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(122,18,52,.15);
+      box-shadow: 0 12px 30px rgba(58,6,25,.12);
       overflow: hidden;
       position: relative;
       display: flex;
@@ -750,21 +798,21 @@
       text-overflow: ellipsis;
       border-radius: 999px;
       padding: 12px 18px;
-      color: var(--sutra-verde);
+      color: var(--vino);
       background: linear-gradient(180deg, #fff, #fff4d9);
-      border: 1px solid rgba(201,164,59,.48);
-      font-weight: 1000;
+      border: 1px solid rgba(199,154,44,.48);
+      font-weight: 900;
       font-size: .92rem;
       text-align: center;
-      box-shadow: 0 6px 12px rgba(3,56,33,.08);
+      box-shadow: 0 6px 12px rgba(58,6,25,.08);
     }
 
     .history-panel {
       display: flex;
       flex-direction: column;
       min-height: 0;
-      background: linear-gradient(180deg, var(--sutra-verde), var(--sutra-verde-3));
-      border: 1px solid rgba(201,164,59,.60);
+      background: linear-gradient(180deg, var(--vino), var(--vino-3));
+      border: 1px solid rgba(199,154,44,.60);
       color: #fff;
     }
 
@@ -774,24 +822,24 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      border-bottom: 1px solid rgba(242,215,123,.30);
+      border-bottom: 1px solid rgba(240,212,134,.30);
     }
 
     .history-head h2 {
       margin: 0;
       font-size: 1.22rem;
-      font-weight: 1000;
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: .04em;
     }
 
     .history-count {
       border-radius: 999px;
-      background: linear-gradient(180deg, var(--sutra-dorado-2), var(--sutra-dorado));
-      color: var(--sutra-verde-3);
+      background: linear-gradient(180deg, var(--dorado-2), var(--dorado));
+      color: var(--vino-3);
       padding: 8px 12px;
       font-size: .84rem;
-      font-weight: 1000;
+      font-weight: 900;
       white-space: nowrap;
     }
 
@@ -804,12 +852,12 @@
       flex-direction: column;
       gap: 12px;
       scrollbar-width: thin;
-      scrollbar-color: rgba(242,215,123,.75) transparent;
+      scrollbar-color: rgba(240,212,134,.75) transparent;
     }
 
     .winners-list::-webkit-scrollbar { width: 8px; }
     .winners-list::-webkit-scrollbar-thumb {
-      background: rgba(242,215,123,.70);
+      background: rgba(240,212,134,.70);
       border-radius: 999px;
     }
 
@@ -820,10 +868,10 @@
       text-align: center;
       padding: 24px 18px;
       border-radius: 22px;
-      border: 1px dashed rgba(242,215,123,.42);
+      border: 1px dashed rgba(240,212,134,.42);
       color: rgba(255,255,255,.86);
       line-height: 1.5;
-      font-weight: 750;
+      font-weight: 700;
       background: rgba(255,255,255,.06);
     }
 
@@ -833,10 +881,10 @@
       gap: 12px;
       align-items: center;
       border-radius: 20px;
-      background: rgba(255,255,255,.95);
-      color: var(--sutra-negro);
+      background: rgba(255,255,255,.94);
+      color: var(--vino-3);
       padding: 12px;
-      border: 1px solid rgba(242,215,123,.58);
+      border: 1px solid rgba(240,212,134,.58);
       box-shadow: 0 10px 20px rgba(0,0,0,.12);
       animation: itemIn .32s ease-out;
     }
@@ -854,7 +902,7 @@
       height: 46px;
       border-radius: 14px;
       background: #fff4d6;
-      border: 1px solid rgba(201,164,59,.42);
+      border: 1px solid rgba(199,154,44,.42);
     }
 
     .winner-item .meta { min-width: 0; }
@@ -864,9 +912,9 @@
       align-items: center;
       border-radius: 999px;
       padding: 5px 10px;
-      background: var(--sutra-verde);
+      background: var(--vino);
       color: #fff;
-      font-weight: 1000;
+      font-weight: 900;
       font-size: .82rem;
       letter-spacing: .05em;
       margin-bottom: 5px;
@@ -875,35 +923,35 @@
     .winner-item .name {
       font-size: .92rem;
       line-height: 1.12;
-      font-weight: 1000;
+      font-weight: 900;
       text-transform: uppercase;
     }
 
     .winner-item .area {
       margin-top: 4px;
-      color: var(--sutra-gris);
+      color: var(--gris);
       font-size: .72rem;
       line-height: 1.22;
-      font-weight: 800;
+      font-weight: 750;
       text-transform: uppercase;
     }
 
     .toast {
       position: fixed;
       left: 50%;
-      bottom: max(18px, env(safe-area-inset-bottom));
+      bottom: 28px;
       transform: translateX(-50%) translateY(110px);
       z-index: 90;
-      min-width: min(300px, 92vw);
-      max-width: min(720px, 92vw);
+      min-width: 300px;
+      max-width: 720px;
       text-align: center;
       border-radius: 999px;
       padding: 14px 22px;
-      background: var(--sutra-verde);
+      background: var(--vino);
       color: #fff;
-      border: 2px solid var(--sutra-dorado);
+      border: 2px solid var(--dorado);
       box-shadow: var(--sombra-fuerte);
-      font-weight: 1000;
+      font-weight: 900;
       opacity: 0;
       transition: opacity .22s ease, transform .22s ease;
     }
@@ -915,15 +963,15 @@
 
     @media (max-width: 1366px) {
       .main-layout {
-        grid-template-columns: minmax(250px, 300px) minmax(360px, 1fr) minmax(290px, 330px);
+        grid-template-columns: 300px 1fr 330px;
         gap: 14px;
       }
 
       .wheel-wrap {
         width: min(68vh, 58vw, 620px);
         height: min(68vh, 58vw, 620px);
-        min-width: min(420px, 100%);
-        min-height: min(420px, 100%);
+        min-width: 420px;
+        min-height: 420px;
       }
 
       .winner-card { width: min(86%, 500px); }
@@ -931,261 +979,19 @@
     }
 
     @media (max-width: 1100px) {
-      .page {
-        height: auto;
-        min-height: 100vh;
-        display: block;
-        padding: 12px;
-      }
-
-      .top-bar {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        gap: 12px;
-      }
-
-      .brand-side {
-        min-height: 86px;
-        border-radius: 22px;
-      }
-
-      .main-title {
-        min-height: 108px;
-        border-radius: 24px;
-        padding: 14px 18px;
-      }
-
-      .main-layout {
-        margin-top: 12px;
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .controls-panel {
-        order: 2;
-      }
-
-      .stage-panel {
-        order: 1;
-        min-height: auto;
-      }
-
-      .roulette-stage {
-        min-height: auto;
-      }
-
+      body { overflow: auto; }
+      html, body { height: auto; min-height: 100%; }
+      .page { min-height: 100vh; height: auto; }
+      .top-bar { grid-template-columns: 1fr; }
+      .main-title { min-width: 100%; }
+      .main-layout { grid-template-columns: 1fr; }
       .wheel-wrap {
         min-width: 0;
-        min-height: 0;
         width: min(92vw, 620px);
         height: min(92vw, 620px);
       }
-
-      .winner-card {
-        width: min(86%, 520px);
-        min-height: 240px;
-      }
-
-      .history-panel {
-        order: 3;
-        max-height: 520px;
-      }
-
-      .reel {
-        width: 100%;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (max-width: 720px) {
-      body::before {
-        background-size: 32px 32px;
-      }
-
-      .background-rings::before,
-      .background-rings::after {
-        width: 85vw;
-        height: 85vw;
-        border-width: 22px;
-      }
-
-      .sutra-badge {
-        min-height: 72px;
-      }
-
-      .brand-side strong {
-        font-size: 1rem;
-      }
-
-      .main-title .eyebrow {
-        font-size: .70rem;
-        letter-spacing: .14em;
-      }
-
-      .main-title h1 {
-        font-size: clamp(1.45rem, 8vw, 2.25rem);
-      }
-
-      .main-title .sub {
-        font-size: .70rem;
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .stat {
-        min-height: 66px;
-        padding: 10px;
-      }
-
-      .stat .value {
-        font-size: 1.35rem;
-      }
-
-      .spin-button {
-        min-height: 70px;
-        font-size: 1.08rem;
-      }
-
-      .wheel-wrap {
-        width: min(94vw, 430px);
-        height: min(94vw, 430px);
-      }
-
-      .wheel {
-        border-width: 7px;
-        box-shadow:
-          var(--sombra),
-          inset 0 0 0 7px rgba(255,255,255,.48),
-          inset 0 0 0 13px rgba(201,164,59,.55);
-      }
-
-      .wheel::before {
-        inset: 36px;
-      }
-
-      .pointer {
-        border-left-width: 17px;
-        border-right-width: 17px;
-        border-top-width: 42px;
-      }
-
-      .pointer::after {
-        width: 20px;
-        height: 20px;
-        left: -10px;
-        top: -39px;
-      }
-
-      .winner-card {
-        width: 84%;
-        min-height: 206px;
-        border-radius: 24px;
-        padding: 18px 16px;
-      }
-
-      .winner-kicker {
-        font-size: .66rem;
-        padding: 7px 11px;
-      }
-
-      .winner-clave {
-        font-size: clamp(2.3rem, 16vw, 4.4rem);
-      }
-
-      .winner-name {
-        font-size: clamp(.92rem, 4.8vw, 1.5rem);
-      }
-
-      .winner-area {
-        font-size: clamp(.70rem, 3vw, .92rem);
-      }
-
-      .reel {
-        height: 58px;
-        border-radius: 18px;
-      }
-
-      .reel::before,
-      .reel::after {
-        width: 58px;
-      }
-
-      .reel-pill {
-        min-width: 220px;
-        font-size: .78rem;
-        padding: 10px 14px;
-      }
-
-      .secondary-actions {
-        grid-template-columns: 1fr;
-      }
-
-      .history-head {
-        padding: 14px 14px 10px;
-      }
-
-      .history-head h2 {
-        font-size: 1rem;
-      }
-
-      .winners-list {
-        padding: 12px;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .page { padding: 8px; }
-      .top-bar { gap: 8px; }
-      .main-layout { gap: 8px; }
-      .panel, .brand-side, .main-title { border-radius: 18px; }
-
-      .brand-side {
-        min-height: 72px;
-        padding: 10px 12px;
-      }
-
-      .sutra-badge .big {
-        font-size: 1.55rem;
-      }
-
-      .sutra-badge .small {
-        font-size: .62rem;
-      }
-
-      .main-title {
-        min-height: 96px;
-      }
-
-      .controls-panel {
-        padding: 12px;
-      }
-
-      .panel-title {
-        font-size: 1rem;
-      }
-
-      .wheel-wrap {
-        width: min(94vw, 380px);
-        height: min(94vw, 380px);
-      }
-
-      .winner-card {
-        width: 86%;
-        min-height: 190px;
-      }
-
-      .winner-clave {
-        margin-top: 10px;
-      }
-
-      .history-panel {
-        max-height: 440px;
-      }
+      .history-panel { max-height: 460px; }
+      .reel { width: 100%; }
     }
   </style>
 </head>
@@ -1193,27 +999,23 @@
   <div class="background-rings"></div>
   <div id="floatingSymbols"></div>
   <div id="sparklesLayer"></div>
+  <div id="burstLayer"></div>
   <div class="screen-flash" id="flashOverlay"></div>
 
   <div class="page">
     <header class="top-bar">
       <div class="brand-side">
-        <div class="sutra-badge">
-          <div>
-            <span class="big">SUTRA</span>
-            <span class="small">Orgullosamente sindicalizados</span>
-          </div>
-        </div>
+        <strong>COMITÉ EJECUTIVO SUTRA<br><span>Cd. Altamira 2025 · 2028</span></strong>
       </div>
 
       <div class="main-title">
-        <div class="eyebrow">Sistema de sorteo aleatorio</div>
+        <div class="eyebrow">Sistema de sorteo aleatorio · Base depurada</div>
         <h1>Rifadora de Despensas</h1>
-        <div class="sub">SUTRA · Sindicato Único de Trabajadores del R. Ayuntamiento de Altamira</div>
+        <div class="sub">Ruleta de empleados con clave y adscripción</div>
       </div>
 
       <div class="brand-side">
-        <strong>Comité Ejecutivo<br>SUTRA<span>2025 · 2028</span></strong>
+        <strong>La ciudad de la<br>transformación<span>Evento institucional</span></strong>
       </div>
     </header>
 
@@ -1255,7 +1057,7 @@
         <button class="button soft-button danger-button" id="resetButton">Reiniciar sorteo</button>
 
         <div class="hint">
-          Base de datos actualizada: <strong>388 registros</strong>. La ruleta evita que una persona ganadora vuelva a salir. El historial queda guardado en este navegador mediante almacenamiento local.
+          Base de datos depurada para este sorteo: <strong>417 registros</strong>. La ruleta evita que una persona ganadora vuelva a salir. El historial queda guardado en este navegador mediante almacenamiento local.
         </div>
       </aside>
 
@@ -1269,7 +1071,7 @@
               <div class="winner-kicker">🎁 Participante seleccionado</div>
               <div class="winner-clave" id="displayClave">-----</div>
               <div class="winner-name" id="displayName">Presiona “Girar ruleta”</div>
-              <div class="winner-area" id="displayArea">La ruleta elegirá un registro aleatorio de la base de datos actualizada.</div>
+              <div class="winner-area" id="displayArea">La ruleta elegirá un registro aleatorio de la base depurada para este sorteo.</div>
             </div>
           </div>
 
@@ -3238,10 +3040,155 @@
     "clave": "00415",
     "nombre": "MARIA ANTONIA GONZALEZ DEL ANGEL",
     "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00416",
+    "nombre": "LUIS ERNESTO VALDEZ CUELLAR",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00417",
+    "nombre": "CHRISTHIAN ALFONSO PADILLA MARTIN DEL CAMPO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00418",
+    "nombre": "OMAR ALEJANDRO JIMENEZ BRICEÑO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00419",
+    "nombre": "LUIS ANTONIO PECERO ALONSO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00420",
+    "nombre": "JACOB ORTEGA SANCHEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00421",
+    "nombre": "ROSY YERALDY LEAL RIVERA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00422",
+    "nombre": "OSCAR ANTONIO CASTILLO PEREZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00423",
+    "nombre": "ROBERTO PADILLA MATA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00424",
+    "nombre": "JOSUE GILBERTO CARRIZALES HERNANDEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00425",
+    "nombre": "NESTOR CARLOS OLVERA GAMBOA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00426",
+    "nombre": "DANIEL ISSAI HERRERA TRUJILLO",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00427",
+    "nombre": "CRESENCIO BALDERAS OCHOA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00428",
+    "nombre": "RUBEN LEDEZMA SANTIAGO",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00429",
+    "nombre": "OSCAR EDUARDO GUTIERREZ PADILLA",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00430",
+    "nombre": "MIGUEL GERARDO CORTEZ OBREGON",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00431",
+    "nombre": "ALFREDO PEREZ SANCHEZ",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00432",
+    "nombre": "RUBEN OSMIN LEDEZMA HERNANDEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00433",
+    "nombre": "ROSA ISELA CERNA ORTIZ",
+    "adscripcion": "04 09 DELEGACION ZONA SUR"
+  },
+  {
+    "clave": "00434",
+    "nombre": "KARLA EDITH DOMINGUEZ HERNANDEZ",
+    "adscripcion": "04 08 PREPARATORIA MUNICIPAL"
+  },
+  {
+    "clave": "00435",
+    "nombre": "TALHIA ILIANA RODRIGUEZ MUÑOZ",
+    "adscripcion": "01 02 PERSONAL DE CABILDO"
+  },
+  {
+    "clave": "00436",
+    "nombre": "RAUL PUGA CASTRO",
+    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
+  },
+  {
+    "clave": "00437",
+    "nombre": "BRENDA IVONE BOLADO FRANCISCO",
+    "adscripcion": "04 09 DELEGACION ZONA SUR"
+  },
+  {
+    "clave": "00438",
+    "nombre": "SAUL GUADALUPE CERVANTES VILLAFUERTE",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+  },
+  {
+    "clave": "00439",
+    "nombre": "FERNANDO MARTINEZ RODRIGUEZ",
+    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+  },
+  {
+    "clave": "00440",
+    "nombre": "MILAGROS BERENICE LEDEZMA DE LEON",
+    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
+  },
+  {
+    "clave": "00441",
+    "nombre": "MARIA DE LOURDES ALVARADO MOJICA",
+    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
+  },
+  {
+    "clave": "00442",
+    "nombre": "MARISOL BARBERENA GONZALEZ",
+    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+  },
+  {
+    "clave": "00443",
+    "nombre": "MIGUEL ANGEL TOBIAS MARTINEZ",
+    "adscripcion": "04 03 DIRECCION DE CULTURA"
+  },
+  {
+    "clave": "00444",
+    "nombre": "MARIA ANGELICA ORTIZ SOSA",
+    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
   }
 ];
 
-    const symbols = ['🎁', '🛒', '⭐', '🏆', '🎯', '✨', '🍀', '🎊', '📦', '🙌', '💚', '🤝'];
+    const symbols = ['🎁', '🛒', '⭐', '🏆', '🎯', '✨', '🍀', '🎊', '📦', '🙌', '💚', '🟢', '🥇', '🎉'];
     const spinButton = document.getElementById('spinButton');
     const undoButton = document.getElementById('undoButton');
     const exportButton = document.getElementById('exportButton');
@@ -3264,9 +3211,10 @@
     const flashOverlay = document.getElementById('flashOverlay');
     const floatingSymbols = document.getElementById('floatingSymbols');
     const sparklesLayer = document.getElementById('sparklesLayer');
+    const burstLayer = document.getElementById('burstLayer');
     const toast = document.getElementById('toast');
 
-    const STORAGE_KEY = 'rifadora_sutra_despensas_ganadores_388_00415';
+    const STORAGE_KEY = 'rifadora_despensas_sutra_base_depurada_417_v2';
     let winners = loadWinners();
     let spinning = false;
     let tickTimer = null;
@@ -3363,9 +3311,34 @@
       }
     }
 
+    function triggerWinnerBurst() {
+      const ringSizes = ['360px', '520px', '690px'];
+      ringSizes.forEach((size, index) => {
+        const ring = document.createElement('div');
+        ring.className = 'gold-burst';
+        ring.style.setProperty('--size', size);
+        ring.style.animationDelay = `${index * 0.08}s`;
+        burstLayer.appendChild(ring);
+        setTimeout(() => ring.remove(), 1350);
+      });
+
+      for (let i = 0; i < 30; i++) {
+        const sigil = document.createElement('div');
+        sigil.className = 'winner-sigil';
+        sigil.textContent = randomSymbol();
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 130 + Math.random() * Math.min(window.innerWidth, window.innerHeight) * 0.42;
+        sigil.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
+        sigil.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
+        sigil.style.setProperty('--rot', `${Math.floor(Math.random() * 560 - 280)}deg`);
+        sigil.style.setProperty('--size', `${28 + Math.random() * 30}px`);
+        burstLayer.appendChild(sigil);
+        setTimeout(() => sigil.remove(), 1500);
+      }
+    }
+
     function createFloatingSymbols() {
-      const amount = window.matchMedia('(max-width: 720px)').matches ? 16 : 30;
-      for (let i = 0; i < amount; i++) {
+      for (let i = 0; i < 30; i++) {
         const item = document.createElement('div');
         item.className = 'floating-symbol';
         item.textContent = symbols[i % symbols.length];
@@ -3380,8 +3353,7 @@
     }
 
     function createSparkles() {
-      const amount = window.matchMedia('(max-width: 720px)').matches ? 22 : 42;
-      for (let i = 0; i < amount; i++) {
+      for (let i = 0; i < 42; i++) {
         const sparkle = document.createElement('div');
         sparkle.className = 'sparkle';
         sparkle.style.left = Math.random() * 100 + 'vw';
@@ -3396,7 +3368,7 @@
     function buildReel() {
       reelTrack.innerHTML = '';
       const sample = [];
-      for (let i = 0; i < 24; i++) {
+      for (let i = 0; i < 32; i++) {
         const e = getRandomEmployee(EMPLOYEES);
         sample.push(e);
       }
@@ -3506,6 +3478,10 @@
       pulseWinnerCard();
       triggerFlash();
       triggerConfetti();
+      triggerWinnerBurst();
+      winnerCard.classList.remove('final-glow');
+      void winnerCard.offsetWidth;
+      winnerCard.classList.add('final-glow');
       renderWinners();
 
       wheelWrap.classList.remove('spinning');
@@ -3539,7 +3515,7 @@
       updateStats();
       displayClave.textContent = '-----';
       displayName.textContent = 'Presiona “Girar ruleta”';
-      displayArea.textContent = 'La ruleta elegirá un registro aleatorio de la base de datos actualizada.';
+      displayArea.textContent = 'La ruleta elegirá un registro aleatorio de la base depurada para este sorteo.';
       showToast('Sorteo reiniciado.');
     }
 
@@ -3567,7 +3543,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'ganadores_rifadora_despensas_sutra.csv';
+      link.download = 'ganadores_rifadora_despensas_SUTRA_base_depurada.csv';
       document.body.appendChild(link);
       link.click();
       link.remove();

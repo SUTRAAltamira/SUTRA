@@ -1479,7 +1479,7 @@
       </div>
 
       <div class="main-title">
-        <div class="eyebrow">Sistema de sorteo aleatorio · Base depurada 380 registros</div>
+        <div class="eyebrow">Sistema de sorteo aleatorio · Base actualizada 376 registros</div>
         <h1>Rifadora de Despensas</h1>
         <div class="sub">Ruleta de empleados con clave y adscripción</div>
       </div>
@@ -1527,7 +1527,7 @@
         <button class="button soft-button danger-button" id="resetButton">Reiniciar sorteo</button>
 
         <div class="hint">
-          Base de datos depurada para este sorteo: <strong>380 registros</strong>. La ruleta evita que una persona ganadora vuelva a salir. El historial queda guardado en este navegador mediante almacenamiento local.
+          Base de datos actualizada: <strong>376 registros</strong>. La ruleta evita que una persona ganadora vuelva a salir. El historial queda guardado en este navegador mediante almacenamiento local.
         </div>
       </aside>
 
@@ -1547,7 +1547,7 @@
               <div class="winner-kicker">🎁 Participante seleccionado</div>
               <div class="winner-clave" id="displayClave">-----</div>
               <div class="winner-name" id="displayName">Presiona “Girar ruleta”</div>
-              <div class="winner-area" id="displayArea">La ruleta elegirá un registro aleatorio de la base depurada para este sorteo.</div>
+              <div class="winner-area" id="displayArea">La ruleta elegirá un registro aleatorio del padrón actualizado para rifa.</div>
             </div>
           </div>
 
@@ -1578,1904 +1578,3012 @@
   <script>
     const EMPLOYEES = [
   {
-    "clave": "00001",
-    "nombre": "ENRIQUE SALINAS CONTRERAS",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00002",
-    "nombre": "HERIBERTO MARTINEZ GARCIA",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00003",
-    "nombre": "GERARDO ANTONIO ORTA PACHECO",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00004",
-    "nombre": "JOSE SANTOS MORALES VAZQUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00005",
-    "nombre": "MAXIMINO REYES GARCIA",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00006",
-    "nombre": "ANDREA CRUZ SOLIS",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00007",
-    "nombre": "ARTURO HERNANDEZ ALVAREZ",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00008",
-    "nombre": "AGUSTIN CABRIALES OVIEDO",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00009",
-    "nombre": "FLORENCIA RAMIREZ MORALES",
-    "adscripcion": "04 09 DELEGACION ZONA SUR"
-  },
-  {
-    "clave": "00010",
-    "nombre": "NORMA DOLORES MENDOZA BANDA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00011",
-    "nombre": "REYES RAMIREZ RODRIGUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00012",
-    "nombre": "DULCE MA DE JESUS RUBIO SILVA",
-    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
-  },
-  {
-    "clave": "00013",
-    "nombre": "NORA ALICIA REYES REYES",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00014",
-    "nombre": "EUSEBIA PEREZ MATA",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00015",
-    "nombre": "ELIZABETH CALLES SALAZAR",
-    "adscripcion": "06 05 DIRECCION DE CATASTRO"
-  },
-  {
-    "clave": "00016",
-    "nombre": "RIGOBERTO SILVA MAYA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00017",
-    "nombre": "LUZ VICTORIA CARREON RAMOS",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00018",
-    "nombre": "MIGUEL QUINTERO MACIAS",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00019",
-    "nombre": "JUANA BARTOLO ALONSO",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00020",
-    "nombre": "FELIPE MONTES SANCHEZ",
-    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
-  },
-  {
-    "clave": "00021",
-    "nombre": "ADRIANA WBOLESTANO REYES",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00022",
-    "nombre": "GUSTAVO MANUEL ORTA BALDERAS",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00023",
-    "nombre": "ISRAEL ASCENCION VILLARREAL",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00024",
-    "nombre": "GUADALUPE SALAZAR HERNANDEZ",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00026",
-    "nombre": "JOSE GUADALUPE LUGO DIAZ",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00027",
-    "nombre": "CARLOS NORIEGA SALAZAR",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00028",
-    "nombre": "RAFAEL RUIZ DIAZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00029",
-    "nombre": "LUCIO GOMEZ CASTRO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00030",
-    "nombre": "JOSE LUIS CASANOVA MAR",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00031",
-    "nombre": "JOSE LUIS TORRES VAZQUEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00033",
-    "nombre": "GILBERTO CARRIZALES JUAREZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00034",
-    "nombre": "RIGOBERTO DEL ANGEL LEDEZMA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00035",
-    "nombre": "MARCO ANTONIO ARANDA REYNAGA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00037",
-    "nombre": "BERTHA HERNANDEZ BALDERAS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00038",
-    "nombre": "RAUL PUGA MACIAS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00039",
-    "nombre": "MARIA LUISA OBREGON CEBALLOS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00040",
-    "nombre": "MIGUEL ANGEL BAEZ DOMINGUEZ",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00044",
-    "nombre": "JUAN CARLOS HERNANDEZ HERNANDEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00045",
-    "nombre": "GREGORIO ESCOBAR HERNANDEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00046",
-    "nombre": "FRANCISCO RAFAEL BALDERAS ZUÑIGA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00047",
-    "nombre": "JORGE ALFREDO SANCHEZ LOPEZ",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00048",
-    "nombre": "JOSE ZUÑIGA VAZQUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00050",
-    "nombre": "CATALINA CORONA FAJARDO",
-    "adscripcion": "01 02 PERSONAL DE CABILDO"
-  },
-  {
-    "clave": "00051",
-    "nombre": "AMBROSIO GUTIERREZ RIVAS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00052",
-    "nombre": "CONCEPCION RIVERA CELVERA",
-    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
-  },
-  {
-    "clave": "00053",
-    "nombre": "MA DEL SOCORRO RANGEL CRUZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00055",
-    "nombre": "SELZO CALDERON COLORADO",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00056",
-    "nombre": "FRANCISCO GARCIA CHAVEZ",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
-  },
-  {
-    "clave": "00057",
-    "nombre": "LUIS BARRAGAN PEREZ",
-    "adscripcion": "06 05 DIRECCION DE CATASTRO"
-  },
-  {
-    "clave": "00058",
-    "nombre": "MARIA DEL ROSARIO GONZALEZ PEREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00059",
-    "nombre": "RAYMUNDO PEREZ DEL ANGEL",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00060",
-    "nombre": "ESMERALDA REYES REYES",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
-  },
-  {
-    "clave": "00061",
-    "nombre": "ANTONIO VEGA DELGADO",
-    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
-  },
-  {
-    "clave": "00062",
-    "nombre": "AGUSTINA LEON LARRAGA",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00064",
-    "nombre": "GLORIA LARA VILLARREAL",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00065",
-    "nombre": "JUANA GUADALUPE CARRIZALES QUILANTAN",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00066",
-    "nombre": "J GUADALUPE RODRIGUEZ DELGADO",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
-  },
-  {
-    "clave": "00067",
-    "nombre": "ANTONIO ARELLANO CERVANTES",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00069",
-    "nombre": "EUSTOLIA GARCIA ROCHA",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
-  },
-  {
-    "clave": "00071",
-    "nombre": "ADELA DIANA MOLINA CAMACHO",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00074",
-    "nombre": "AMADO LOPEZ CARRERA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00075",
-    "nombre": "ARMANDO SALAZAR",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00078",
-    "nombre": "RAYMUNDO RAMOS BAUTISTA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00079",
-    "nombre": "RUBEN SALAZAR HERNANDEZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00080",
-    "nombre": "SAUL LERMA CASTRO",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00081",
-    "nombre": "ABUNDIO CASTRO MORALES",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00082",
-    "nombre": "ANCELMO MORENO VELAZQUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00084",
-    "nombre": "GUADALUPE HERNANDEZ CERVANTES",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00085",
-    "nombre": "VICTOR MANUEL CEBALLOS PASTRANA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00086",
-    "nombre": "MIGUEL BAEZ AMARO",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00087",
-    "nombre": "RAUL BAEZ PEREZ",
-    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
-  },
-  {
-    "clave": "00088",
-    "nombre": "JOSE LUIS REYNOSO GAMEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00089",
-    "nombre": "LAZARO GABRIEL SANTIAGO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00092",
-    "nombre": "JESUS CASTRO POZOS",
-    "adscripcion": "SIN DEPARTAMENTO"
-  },
-  {
-    "clave": "00093",
-    "nombre": "RUFINO CRUZ RUBIO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00094",
-    "nombre": "CONRADO CASTILLO SANCHEZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00095",
-    "nombre": "JOSE MANUEL MARQUEZ GARCIA",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00096",
-    "nombre": "JULIAN HERNANDEZ TURRUBIATES",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00097",
-    "nombre": "ERNESTO VAZQUEZ AGUILAR",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00098",
-    "nombre": "RUBEN LEDEZMA JAQUIS",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00100",
-    "nombre": "FEDERICO PEREZ BANDA",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00102",
-    "nombre": "FRANCISCO LEONEL MORALES CARETA",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00103",
-    "nombre": "JORGE AGUILAR FLORES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00104",
-    "nombre": "FELIPE DE JESUS CASTILLO SUASTE",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00105",
-    "nombre": "GUILLERMO RIVADENEIRA GUERRERO",
-    "adscripcion": "SIN DEPARTAMENTO"
-  },
-  {
-    "clave": "00106",
-    "nombre": "MA GUADALUPE LARA GUZMAN",
-    "adscripcion": "01 02 PERSONAL DE CABILDO"
-  },
-  {
-    "clave": "00108",
-    "nombre": "ALEJANDRO SAN MARTIN SANTIAGO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00109",
-    "nombre": "GRACIELA CERVANTES CEPEDA",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00110",
-    "nombre": "SANTOS MATA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00111",
-    "nombre": "CARLOS MONTOYA CALDERON",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00112",
-    "nombre": "ALEJANDRINA PEREZ JACOBO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00113",
-    "nombre": "ERNESTO RIVERA HERNANDEZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00114",
-    "nombre": "INES TORRES YAÑEZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00117",
-    "nombre": "EDGAR ESCOBEDO PEREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00118",
-    "nombre": "FELIX ARREDONDO IZAGUIRRE",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00120",
-    "nombre": "JOSE MANUEL VARGAS GARCES",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00121",
-    "nombre": "RUBEN ZUÑIGA MARTINEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00122",
-    "nombre": "J CIPRIANO MARTINEZ MOCTEZUMA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00124",
-    "nombre": "ROSA ISELA CASTRO SAN JUAN",
-    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
-  },
-  {
-    "clave": "00125",
-    "nombre": "AGUSTIN CASTILLO HERNANDEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00126",
-    "nombre": "JOSE ELIAS LOPEZ MELENDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00127",
-    "nombre": "MA BERENICE ORDOÑEZ CRUZ",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00129",
-    "nombre": "BEATRIZ BAÑUELOS JIMENEZ",
-    "adscripcion": "06 04 DIRECCION DE INGRESOS"
-  },
-  {
-    "clave": "00130",
-    "nombre": "RAFAEL REYES GUERRERO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00133",
-    "nombre": "MIGUEL ANGEL RODRIGUEZ ESPINOSA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00135",
-    "nombre": "VICTOR HUGO OLVERA LARA",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00137",
-    "nombre": "J FEDERICO AGUILAR AGUILLON",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
-  },
-  {
-    "clave": "00139",
-    "nombre": "MA DOMINGA BADILLO BADILLO",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
-  },
-  {
-    "clave": "00140",
-    "nombre": "ADEL BARRIENTOS VANEGAS",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00141",
-    "nombre": "AMBROSIO PORTES JUAREZ",
-    "adscripcion": "09 02 PENSIONADOS"
-  },
-  {
-    "clave": "00143",
-    "nombre": "EMILIO GARCIA GUERRERO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00144",
-    "nombre": "PEDRO EMMANUEL MORALES AGUIAR",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00145",
-    "nombre": "JUAN ANTONIO ESCOBEDO FLORES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00146",
-    "nombre": "MARGARITA MUÑIZ MONCAYO",
-    "adscripcion": "01 02 PERSONAL DE CABILDO"
-  },
-  {
-    "clave": "00147",
-    "nombre": "GABRIEL MATEOS ANASTACIO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00148",
-    "nombre": "CARLOS MAURICIO DEMES BARRON",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00149",
-    "nombre": "TITO GONZALO ROUX POLANCO",
-    "adscripcion": "SIN DEPARTAMENTO"
-  },
-  {
-    "clave": "00151",
-    "nombre": "MARGARITA RODRIGUEZ MARTINEZ",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00152",
-    "nombre": "MAYOLA GOMEZ LARA",
-    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
-  },
-  {
-    "clave": "00153",
-    "nombre": "MARTHA LAURA CRUZ PONCE",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00154",
-    "nombre": "FERNANDO GAMEZ ZUÑIGA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00155",
-    "nombre": "SOLEDAD DEL ANGEL AGUSTIN",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00156",
-    "nombre": "NORMA GUADALUPE LARA AVILES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00157",
-    "nombre": "JOSE ALFREDO PEREZ CAMPOS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00160",
-    "nombre": "FERNANDO RAMIREZ MARTINEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00162",
-    "nombre": "SONIA CATALINA LARA MALDONADO",
-    "adscripcion": "07 01 CONTRALORIA MUNICIPAL"
-  },
-  {
-    "clave": "00163",
-    "nombre": "MARIO CASANOVA MAR",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00164",
-    "nombre": "OVIDIO CARDIEL CASTILLO",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00165",
-    "nombre": "AURORA SALVADOR SALVADOR",
-    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
-  },
-  {
-    "clave": "00166",
-    "nombre": "SERGIO AGUILAR PEREZ",
-    "adscripcion": "06 04 DIRECCION DE INGRESOS"
-  },
-  {
-    "clave": "00167",
-    "nombre": "JAVIER ESPINOSA SOSA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00168",
-    "nombre": "TEODULO SANCHEZ MANCILLA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00169",
-    "nombre": "MA AMPARO VAZQUEZ HERNANDEZ",
-    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
-  },
-  {
-    "clave": "00170",
-    "nombre": "SINDY YAZMIN HERNANDEZ CASTILLO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00171",
-    "nombre": "MA ANTONIA BONILLA CORONADO",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00172",
-    "nombre": "CRUZ ADRIANA GOMEZ LOREDO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00173",
-    "nombre": "LUCIA RODRIGUEZ HERNANDEZ",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
-  },
-  {
-    "clave": "00174",
-    "nombre": "CONSUELO DOMINGUEZ MARTINEZ",
-    "adscripcion": "13 01 AGENCIA DE INNOVACION E INTELIGENCIA DIGITAL"
-  },
-  {
-    "clave": "00175",
-    "nombre": "ANASTACIO CASTILLO TREVIÑO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00176",
-    "nombre": "ADRIAN VARGAS MARTINEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00177",
-    "nombre": "EDNA LUCIA REYES BERLAJE",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00178",
-    "nombre": "EDER IVAN ZUÑIGA FREGOSO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00179",
-    "nombre": "MARTIN SOSA CARRIZALES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00180",
-    "nombre": "JOSE LUIS PECINA PECINA",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00181",
-    "nombre": "MARIA DEL CARMEN GARCIA PEREZ",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00182",
-    "nombre": "IGNACIO GONZALEZ HERNANDEZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00183",
-    "nombre": "ALMA LUZ SANCHEZ SANCHEZ",
-    "adscripcion": "06 05 DIRECCION DE CATASTRO"
-  },
-  {
-    "clave": "00184",
-    "nombre": "AGUSTIN ZUÑIGA VILLANUEVA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00185",
-    "nombre": "J JUAN TELLO",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00187",
-    "nombre": "FLORENTINO ROMAN BLANCO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00189",
-    "nombre": "GERMAN FELIX VILLANUEVA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00190",
-    "nombre": "SERGIO FLORES GARCIA",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00191",
-    "nombre": "RAYMUNDO GOMEZ CASTRO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00192",
-    "nombre": "MARTHA ALEMAN RODRIGUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00193",
-    "nombre": "DIANA ANGELICA LANDA GUZMAN",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00194",
-    "nombre": "JULIAN HERNANDEZ MENDOZA",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00195",
-    "nombre": "JOAQUIN ANTONIO TREVIÑO TREJO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00196",
-    "nombre": "FRANCISCO CERVANTES MALDONADO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00197",
-    "nombre": "JOSE CARLOS VAZQUEZ AGUILAR",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00198",
-    "nombre": "NOE ESPINO MARTINEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00199",
-    "nombre": "JUAN GUADALUPE DEL ANGEL",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00200",
-    "nombre": "HERMELINDO MARQUEZ RIOS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00202",
-    "nombre": "J SANTOS CASTILLO REYES",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00203",
-    "nombre": "FRANCO SOSA DEL ANGEL",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00204",
-    "nombre": "SILVIA CRUZ PORTALES",
-    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
-  },
-  {
-    "clave": "00205",
-    "nombre": "MARIA GABRIELA QUIROZ PEREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00206",
-    "nombre": "RAMON ZUÑIGA MARTINEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00208",
-    "nombre": "JOSE LUIS HERNANDEZ AHUMADA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00211",
-    "nombre": "JORGE ANTONIO PEREZ CASTILLO",
-    "adscripcion": "06 04 DIRECCION DE INGRESOS"
-  },
-  {
-    "clave": "00212",
-    "nombre": "EFREN FLORES HERNANDEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00213",
-    "nombre": "FERNANDO BECERRA SANCHEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00214",
-    "nombre": "ORALIA SOSA CRUZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00215",
-    "nombre": "ROSA ELISA ORTEGA OBREGON",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00216",
-    "nombre": "RITA ESCOBAR JIMENEZ",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00217",
-    "nombre": "JUAN CARLOS LOPEZ GONZALEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00218",
-    "nombre": "JUANA ILEANA MARTINEZ BLANCO",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
-  },
-  {
-    "clave": "00220",
-    "nombre": "JUANA GARCIA GONZALEZ",
-    "adscripcion": "01 02 PERSONAL DE CABILDO"
-  },
-  {
-    "clave": "00221",
-    "nombre": "CARLOS ESTEBAN RODRIGUEZ GUERRERO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00222",
-    "nombre": "MARGARITA ALICIA ORTA HERRERA",
-    "adscripcion": "07 01 CONTRALORIA MUNICIPAL"
-  },
-  {
-    "clave": "00224",
-    "nombre": "AMELIA GUADALUPE GAMEZ MORALES",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00225",
-    "nombre": "ANA MACRINA MUÑIZ BADILLO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00226",
-    "nombre": "JOSE ALONSO HERNANDEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00227",
-    "nombre": "ENEIDA GUADALUPE SANCHEZ PEREZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00228",
-    "nombre": "MARTHA VIRGINIA BALDERAS REYES",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00229",
-    "nombre": "JORGE RIVAS MEDINA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00230",
-    "nombre": "VICTOR MANUEL RIVERA CASTRO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00231",
-    "nombre": "ROBERTO ANTONIO LEDEZMA SANTIAGO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00232",
-    "nombre": "MARTIN JARAMILLO ESPINOSA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00233",
-    "nombre": "NICOLAS CAMACHO MALDONADO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00234",
-    "nombre": "CUPERTINO GRANILLO MARTINEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00236",
-    "nombre": "DANIA SOSA CRUZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00237",
-    "nombre": "EVARISTA RUIZ HERNANDEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00238",
-    "nombre": "ROSALIA REYES MENDO",
-    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
-  },
-  {
-    "clave": "00239",
-    "nombre": "IGNACIO MANRIQUEZ COVARRUBIAS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00240",
-    "nombre": "MARTIN LEONARDO MANRIQUES COVARRUBIAS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00241",
-    "nombre": "ANACLETO BARRIOS ORTEGA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00243",
-    "nombre": "ARNOLDO VELAZQUEZ CASTILLO",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00244",
-    "nombre": "MA DE LOURDES MENDOZA HERNANDEZ",
-    "adscripcion": "01 02 PERSONAL DE CABILDO"
-  },
-  {
-    "clave": "00245",
-    "nombre": "ZORAIDA BALDERAS CRUZ",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00246",
-    "nombre": "JOSE CATARINO ALVAREZ LOPEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00247",
-    "nombre": "JOSE ALFREDO GOMEZ CASTRO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00248",
-    "nombre": "DAVID GOMEZ CASTRO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00249",
-    "nombre": "MARIA GUADALUPE ALONSO RESENDEZ",
-    "adscripcion": "06 04 DIRECCION DE INGRESOS"
-  },
-  {
-    "clave": "00250",
-    "nombre": "ELVIA NOHEMI TORRES VEGA",
-    "adscripcion": "01 02 PERSONAL DE CABILDO"
-  },
-  {
-    "clave": "00251",
-    "nombre": "MARTHA LETICIA SALAZAR RAMIREZ",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00252",
-    "nombre": "MIGUEL ANGEL RAMIREZ RODRIGUEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00253",
-    "nombre": "SOCORRO RAMIREZ JUAREZ",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
-  },
-  {
-    "clave": "00254",
-    "nombre": "JULIA MUÑOZ PECINA",
-    "adscripcion": "04 04 DIRECCION DE EDUCACION"
-  },
-  {
-    "clave": "00255",
-    "nombre": "JOSE REYES MUNGUIA CASTILLO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00256",
-    "nombre": "MARGARITO CASTILLO LOPEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00257",
-    "nombre": "MIGUEL ANGEL ZUÑIGA CASTILLO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00258",
-    "nombre": "OMAR RAMON DELGADO RODRIGUEZ",
-    "adscripcion": "SIN DEPARTAMENTO"
-  },
-  {
-    "clave": "00259",
-    "nombre": "MARIA ISABEL GOMEZ LARA",
-    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
-  },
-  {
-    "clave": "00260",
-    "nombre": "ARMANDO ARRAÑAGA PEREZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00261",
-    "nombre": "NOE GARCIA MORALES",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00262",
-    "nombre": "SERVANDO HERNANDEZ YAÑEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00263",
-    "nombre": "FAUSTINO RAMOS JIMENEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00264",
-    "nombre": "JORGE ARMANDO HERNANDEZ ANTONIO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00265",
-    "nombre": "ERNESTO ZALETA NICACIO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00266",
-    "nombre": "ISAIAS COLLAZO MIRELES",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00267",
-    "nombre": "EDUARDO TORRES AMARO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00268",
-    "nombre": "MARCO POLO RAMIREZ MARTINEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00269",
-    "nombre": "BRENDA CECILIA MARTINEZ CHAVEZ",
-    "adscripcion": "01 02 PERSONAL DE CABILDO"
-  },
-  {
-    "clave": "00271",
-    "nombre": "JOSE GUADALUPE BARRIOS ORTEGA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00272",
-    "nombre": "JOSE LUIS VAZQUEZ AGUILAR",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00273",
-    "nombre": "MOISES MATA PEREZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00274",
-    "nombre": "OTHON ALVAREZ PINTOR",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00275",
-    "nombre": "CYNTHIA ADRIANA ZEPEDA DEMIS",
-    "adscripcion": "01 02 PERSONAL DE CABILDO"
-  },
-  {
-    "clave": "00276",
-    "nombre": "MARIA GARCIA ROCHA",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
-  },
-  {
-    "clave": "00277",
-    "nombre": "JUAN ESPINOSA FLORES",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00278",
-    "nombre": "MAYRA MANDUJANO MONTELONGO",
-    "adscripcion": "06 05 DIRECCION DE CATASTRO"
-  },
-  {
-    "clave": "00279",
-    "nombre": "ISSA IRASEMA ECHEVARRIA CABALLERO",
-    "adscripcion": "03 04 DIRECCION DE ECOLOGIA Y MEDIO AMBIENTE"
-  },
-  {
-    "clave": "00280",
-    "nombre": "JOSE DE JESUS CERVANTES COVARRUBIAS",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00281",
-    "nombre": "MARIA ELENA VILLAFUERTE BEDOLLA",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00282",
-    "nombre": "GREGORIO ALEJANDRO MARTINEZ PEREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
+    "numero": 1,
     "clave": "00283",
-    "nombre": "BENITO ABAUNZA SOTO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "nombre": "ABAUNZA SOTO BENITO",
+    "categoria": "DIBUJANTE AUTOCAD",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "DIBUJANTE AUTOCAD · OBRAS PUBLICAS"
   },
   {
-    "clave": "00284",
-    "nombre": "MARTIN ALBERTO ESPINOSA ROSAS",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00285",
-    "nombre": "EDNA PAOLA NIETO HERNANDEZ",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
-  },
-  {
-    "clave": "00286",
-    "nombre": "DAVID ROCHA GUZMAN",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00287",
-    "nombre": "AVILENE ARREDONDO IZAGUIRRE",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00288",
-    "nombre": "HECTOR HUGO DEMES BARRON",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00289",
-    "nombre": "MIGUEL ANGEL CAMACHO ESPRIELLA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00290",
-    "nombre": "ISMAEL DEL ANGEL DEL ANGEL",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00291",
-    "nombre": "FRANCISCO DIAZ HERNANDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00292",
-    "nombre": "ANA LAURA GAMEZ GARCIA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00293",
-    "nombre": "JOSE MANUEL TORRES YAÑEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00294",
-    "nombre": "JESUS RAUL OLVERA MENDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00295",
-    "nombre": "ERNESTO CABALLERO OBREGON",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00296",
-    "nombre": "MARIA DEL ROSARIO CALLES SALAZAR",
-    "adscripcion": "06 05 DIRECCION DE CATASTRO"
-  },
-  {
-    "clave": "00297",
-    "nombre": "JOSE ADRIAN GOMEZ RODRIGUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00298",
-    "nombre": "ELEAZAR HERNANDEZ REYES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00299",
-    "nombre": "FRANCISCO MANUEL HERNANDEZ MARES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00301",
-    "nombre": "RUBEN DARIO AREGULLIN SANCHEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00302",
-    "nombre": "JUAN MIGUEL PEREZ GONZALEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00303",
-    "nombre": "TEODORO CARRIZALES BARRAGAN",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00304",
-    "nombre": "JUAN DOMINGO CEBALLOS PASTRAN",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00305",
-    "nombre": "JOSE JUAN GUADALUPE RAMIREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00306",
-    "nombre": "JOSE EDUARDO CUERVO CONTRERAS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00308",
-    "nombre": "XOCHITL REYES MENDO",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00309",
-    "nombre": "FLORINDA TADEO ROMAN",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00310",
-    "nombre": "ENEMECIO MARTINEZ HERNANDEZ",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00311",
-    "nombre": "VICTOR HUGO VITE",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00313",
-    "nombre": "JOSE ANTONIO HERNANDEZ RODRIGUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00314",
-    "nombre": "JUAN DIEGO ARREAGA FERNANDEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00315",
-    "nombre": "LORENA PEREZ MUÑIZ",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
-  },
-  {
-    "clave": "00316",
-    "nombre": "SHAYRA LIZET CASTELLANOS SALVADOR",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
-  },
-  {
-    "clave": "00317",
-    "nombre": "MARIA DEL CARMEN TORRES MARTINEZ",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
-  },
-  {
-    "clave": "00318",
-    "nombre": "GRACIELA GARCIA LEMUS",
-    "adscripcion": "07 01 CONTRALORIA MUNICIPAL"
-  },
-  {
-    "clave": "00321",
-    "nombre": "JUANA PEREZ BADILLO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00322",
-    "nombre": "DENNIS ARECHIGA AVILA",
-    "adscripcion": "04 09 DELEGACION ZONA SUR"
-  },
-  {
-    "clave": "00323",
-    "nombre": "ALMA CONCEPCION BANDA PONCE",
-    "adscripcion": "05 01 SECRETARIA DE ECONOMIA"
-  },
-  {
-    "clave": "00324",
-    "nombre": "MAURO ERNESTO GARCIA ALMAZAN",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
+    "numero": 2,
     "clave": "00325",
-    "nombre": "ALFONSO AGUILAR CRUZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "nombre": "AGUILAR CRUZ ALFONSO",
+    "categoria": "TOPOGRAFO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "TOPOGRAFO · OBRAS PUBLICAS"
   },
   {
-    "clave": "00326",
-    "nombre": "ROBERTO ALFREDO LOPEZ LIMON",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "numero": 3,
+    "clave": "00103",
+    "nombre": "AGUILAR FLORES JORGE",
+    "categoria": "MECANICO SUSP. Y FRENOS",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "MECANICO SUSP. Y FRENOS · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00327",
-    "nombre": "ROEL RUBIN MARTINEZ ACOSTA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00328",
-    "nombre": "EDGAR GOMEZ FLORES",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00329",
-    "nombre": "MARIO ELEAZAR CASANOVA SALINAS",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00330",
-    "nombre": "JANETH EUNICE OLVERA VAZQUEZ",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00331",
-    "nombre": "ERIKA JANET RIVERA PEÑA",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00332",
-    "nombre": "FELIX ROBERTO SIFUENTES LEAL",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00333",
-    "nombre": "EMILIO HERNANDEZ BAEZ",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00335",
-    "nombre": "JESUS LEONEL MORALES RODRIGUEZ",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00336",
-    "nombre": "SERGIO ANTONIO SAUCEDO YERA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00337",
-    "nombre": "YAIR FERNANDO BECERRA GONZALEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00338",
-    "nombre": "MERCED VARGAS LOREDO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00339",
-    "nombre": "MIGUEL ANGEL MORENO COLLAZO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00340",
-    "nombre": "ODILON PEREZ RAMIREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00341",
-    "nombre": "MYRNA GUADALUPE DELGADO ORTA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00342",
-    "nombre": "SILVERIO COLLAZO REBULLOSA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00343",
-    "nombre": "HILARIO REBOLLOSO GALLEGOS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00344",
-    "nombre": "LEOPOLDO BARRIOS ORTEGA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00345",
-    "nombre": "FRANCISCO JAVIER RODRIGUEZ HERNANDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00346",
-    "nombre": "OSCAR BUSTAMANTE SANCHEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00347",
-    "nombre": "FELIPE DE JESUS SANCHEZ AVILA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00348",
-    "nombre": "JUAN DAVID GOMEZ VAZQUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00349",
-    "nombre": "JUAN CARLOS HERNANDEZ CRUZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00350",
-    "nombre": "GREGORIO CABRALES SALAZAR",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00351",
-    "nombre": "FELIPE MARCELO PEREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00352",
-    "nombre": "JUAN ANGEL MENDEZ TREJO",
-    "adscripcion": "09 03 INCAPACIDAD PERMANENTE"
-  },
-  {
-    "clave": "00353",
-    "nombre": "GAUDENCIO GUADALUPE RAMIREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00354",
-    "nombre": "ERNESTO VAZQUEZ CASTRO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00355",
-    "nombre": "MARTIN MORALES HERNANDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00356",
-    "nombre": "JUAN ANTONIO ALEJO MORELOS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00357",
-    "nombre": "LUIS ENRIQUE DEL ANGEL RODRIGUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00358",
-    "nombre": "JULISA HERNANDEZ PINTOR",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00359",
-    "nombre": "MIRNA PATRICIA RAMIREZ RODRIGUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00360",
-    "nombre": "MARCO ANTONIO ROCHA CHABACANO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00361",
-    "nombre": "JUAN REYES GONZALEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00363",
-    "nombre": "MANUEL NUÑEZ CRUZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00364",
-    "nombre": "EDGAR DANIEL DEMES BARRON",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00365",
-    "nombre": "SERGIO BAEZ IBARRA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00366",
-    "nombre": "EDUARDO AGUILERA FERRAL",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00367",
-    "nombre": "JORGE ARNNOL CARRILLO VAZQUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00368",
-    "nombre": "RICARDO GAMEZ GARDUÑO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00369",
-    "nombre": "VICTOR MANUEL GARCIA VAZQUEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00370",
-    "nombre": "TOMAS CRUZ AQUINO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00371",
-    "nombre": "CESAR LEAO CABRIALES PONCE",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00372",
-    "nombre": "PAUL ANTONIO MARTINEZ PEREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00373",
-    "nombre": "JOSE DONATO LOPEZ HERNANDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00375",
-    "nombre": "RAFAEL MENDOZA WEBER",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00376",
-    "nombre": "BRAYAN FERNANDO LEAL TAVARES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
+    "numero": 4,
     "clave": "00377",
-    "nombre": "JUAN JOSE AGUILAR MONTIEL",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "nombre": "AGUILAR MONTIEL JUAN JOSE",
+    "categoria": "MECANICO SUSP. Y FRENOS",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "MECANICO SUSP. Y FRENOS · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00378",
-    "nombre": "JOSE DE JESUS GALLEGOS REYES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "numero": 5,
+    "clave": "00166",
+    "nombre": "AGUILAR PÉREZ SERGIO",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "ALCOHOLES",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · ALCOHOLES"
   },
   {
-    "clave": "00379",
-    "nombre": "EDUARDO MISAEL RAMOS TURRUBIATES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "numero": 6,
+    "clave": "00366",
+    "nombre": "AGUILERA FERRAL EDUARDO",
+    "categoria": "OFICAL ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICAL ELECTRICO · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00380",
-    "nombre": "JORGE ARMANDO VILLAFUERTE PANTOJA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00381",
-    "nombre": "LUIS ENRIQUE DEL ANGEL CABRALES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00383",
-    "nombre": "JUAN JOSE DEL ANGEL DEL ANGEL",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00384",
-    "nombre": "JULIAN MENDO FLORES",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
+    "numero": 7,
     "clave": "00385",
-    "nombre": "EDGAR AHUMADA GONZALEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "nombre": "AHUMADA GONZALEZ EDGAR",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00386",
-    "nombre": "JESUS MATEOS HERNANDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00387",
-    "nombre": "LUIS MARTIN GONZALEZ ORTEGA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
+    "numero": 8,
     "clave": "00388",
-    "nombre": "JOEL ALEJO MORELOS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "nombre": "ALEJO MORELOS JOEL",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00390",
-    "nombre": "ROGELIO FERNANDEZ ZUÑIGA",
-    "adscripcion": "06 05 DIRECCION DE CATASTRO"
+    "numero": 9,
+    "clave": "00356",
+    "nombre": "ALEJO MORELOS JUAN ANTONIO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00392",
-    "nombre": "DANIEL CAMACHO ANDABLO",
-    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
+    "numero": 10,
+    "clave": "00192",
+    "nombre": "ALEMAN RODRIGUEZ MARTHA",
+    "categoria": "INTENDENTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "INTENDENTE · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00393",
-    "nombre": "RICARDO HERNANDEZ CASTILLO",
-    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
-  },
-  {
+    "numero": 11,
     "clave": "00394",
-    "nombre": "JOSE GUADALUPE ALMAZAN CASTILLO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "nombre": "ALMAZAN CASTILLO JOSE GUADALUPE",
+    "categoria": "AYUDANTE ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE ELECTRICO · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00395",
-    "nombre": "JUAN CARLOS MORALES DUARTE",
-    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
+    "numero": 12,
+    "clave": "00226",
+    "nombre": "ALONSO HERNÁNDEZ JOSÉ",
+    "categoria": "AYUDANTE ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "AYUDANTE ALBAÑIL · OBRAS PUBLICAS"
   },
   {
-    "clave": "00396",
-    "nombre": "SILVIA SUGEY SAUCEDO BORJAS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "numero": 13,
+    "clave": "00249",
+    "nombre": "ALONSO RESENDEZ MARIA GUADALUPE",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "PANTEÓN Z/CENTRO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · PANTEÓN Z/CENTRO"
   },
   {
-    "clave": "00397",
-    "nombre": "SUGEY RIVERA CASTRO",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
+    "numero": 14,
+    "clave": "00246",
+    "nombre": "ALVAREZ LOPEZ JOSE CATARINO",
+    "categoria": "OFICIAL TUBERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL TUBERO · OBRAS PUBLICAS"
   },
   {
-    "clave": "00398",
-    "nombre": "JAVIER CARRIZALES HERNANDEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "numero": 15,
+    "clave": "00274",
+    "nombre": "ALVAREZ PINTOR OTHON",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00400",
-    "nombre": "FRANCISCO JAVIER LANDAVERDE CASTILLO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "numero": 16,
+    "clave": "00035",
+    "nombre": "ARANDA REYNAGA MARCO ANTONIO",
+    "categoria": "TOPOGRAFO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "TOPOGRAFO · OBRAS PUBLICAS"
   },
   {
-    "clave": "00401",
-    "nombre": "SANTA BARBARITA ORTA MARTINEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "numero": 17,
+    "clave": "00301",
+    "nombre": "AREGULLIN SÁNCHEZ RUBÉN DARÍO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00402",
-    "nombre": "MANUEL UBER VILLESCAS DE LA CRUZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "numero": 18,
+    "clave": "00260",
+    "nombre": "ARRAÑAGA PÉREZ ARMANDO",
+    "categoria": "ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "ALBAÑIL · OBRAS PUBLICAS"
   },
   {
-    "clave": "00404",
-    "nombre": "ARACELI DIAZ BARRON",
-    "adscripcion": "02 04 DELEGACION ZONA NORTE"
+    "numero": 19,
+    "clave": "00314",
+    "nombre": "ARREAGA FERNANDEZ JUAN DIEGO",
+    "categoria": "OPERADOR 5TA. RUEDA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OPERADOR 5TA. RUEDA · OBRAS PUBLICAS"
   },
   {
-    "clave": "00406",
-    "nombre": "RENE CRUZ JASSO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "numero": 20,
+    "clave": "00287",
+    "nombre": "ARREDONDO IZAGUIRRE AVILENE",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · BIBLIOTECA MPAL."
   },
   {
-    "clave": "00407",
-    "nombre": "ALBINO RICARDO RIVERA RIVAS",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "numero": 21,
+    "clave": "00118",
+    "nombre": "ARREDONDO IZAGUIRRE FELIX",
+    "categoria": "AUXILIAR DE BIBLIOTECA",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "AUXILIAR DE BIBLIOTECA · BIBLIOTECA MPAL."
   },
   {
-    "clave": "00408",
-    "nombre": "LILIA MABEL ZUÑIGA HERNANDEZ",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
+    "numero": 22,
+    "clave": "00139",
+    "nombre": "BADILLO BADILLO DOMINGA",
+    "categoria": "INTENDENTE",
+    "departamento": "TRANSITO Y VIALIDAD",
+    "adscripcion": "INTENDENTE · TRANSITO Y VIALIDAD"
   },
   {
-    "clave": "00409",
-    "nombre": "MARTHA LETICIA HERNANDEZ LUNA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "numero": 23,
+    "clave": "00365",
+    "nombre": "BAEZ IBARRA SERGIO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
   },
   {
-    "clave": "00410",
-    "nombre": "ISABEL CRISTINA JIMENEZ JIMENEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "numero": 24,
+    "clave": "00087",
+    "nombre": "BAEZ PEREZ RAUL",
+    "categoria": "AYUDANTE",
+    "departamento": "TURISMO",
+    "adscripcion": "AYUDANTE · TURISMO"
   },
   {
-    "clave": "00412",
-    "nombre": "MARIA DOLORES CASTILLO RAMIREZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "numero": 25,
+    "clave": "00245",
+    "nombre": "BALDERAS CRUZ ZORAIDA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "CAPTURISTA DE DATOS · DESARROLLO URBANO"
   },
   {
-    "clave": "00413",
-    "nombre": "NORMA ALICIA ORTEGA OBREGON",
-    "adscripcion": "04 04 DIRECCION DE EDUCACION"
-  },
-  {
-    "clave": "00414",
-    "nombre": "ENRIQUE ROSALES CASTILLO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00415",
-    "nombre": "MARIA ANTONIA GONZALEZ DEL ANGEL",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00416",
-    "nombre": "LUIS ERNESTO VALDEZ CUELLAR",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00417",
-    "nombre": "CHRISTHIAN ALFONSO PADILLA MARTIN DEL CAMPO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00418",
-    "nombre": "OMAR ALEJANDRO JIMENEZ BRICEÑO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00420",
-    "nombre": "JACOB ORTEGA SANCHEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00421",
-    "nombre": "ROSY YERALDY LEAL RIVERA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00422",
-    "nombre": "OSCAR ANTONIO CASTILLO PEREZ",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
-  },
-  {
-    "clave": "00423",
-    "nombre": "ROBERTO PADILLA MATA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00424",
-    "nombre": "JOSUE GILBERTO CARRIZALES HERNANDEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00425",
-    "nombre": "NESTOR CARLOS OLVERA GAMBOA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00426",
-    "nombre": "DANIEL ISSAI HERRERA TRUJILLO",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
+    "numero": 26,
     "clave": "00427",
-    "nombre": "CRESENCIO BALDERAS OCHOA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "nombre": "BALDERAS OCHOA CRECENCIO",
+    "categoria": "OPERADOR DE MOTOCONFORMADORA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OPERADOR DE MOTOCONFORMADORA · OBRAS PUBLICAS"
   },
   {
-    "clave": "00428",
-    "nombre": "RUBEN LEDEZMA SANTIAGO",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "numero": 27,
+    "clave": "00323",
+    "nombre": "BANDA PONCE ALMA CONCEPCION",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "DESARROLLO ECONOMICO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · DESARROLLO ECONOMICO"
   },
   {
-    "clave": "00429",
-    "nombre": "OSCAR EDUARDO GUTIERREZ PADILLA",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
+    "numero": 28,
+    "clave": "00129",
+    "nombre": "BAÑUELOS JIMENEZ BEATRIZ",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "CATASTRO",
+    "adscripcion": "CAPTURISTA DE DATOS · CATASTRO"
   },
   {
-    "clave": "00430",
-    "nombre": "MIGUEL GERARDO CORTEZ OBREGON",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00431",
-    "nombre": "ALFREDO PEREZ SANCHEZ",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00432",
-    "nombre": "RUBEN OSMIN LEDEZMA HERNANDEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00433",
-    "nombre": "ROSA ISELA CERNA ORTIZ",
-    "adscripcion": "04 09 DELEGACION ZONA SUR"
-  },
-  {
-    "clave": "00434",
-    "nombre": "KARLA EDITH DOMINGUEZ HERNANDEZ",
-    "adscripcion": "04 08 PREPARATORIA MUNICIPAL"
-  },
-  {
-    "clave": "00435",
-    "nombre": "TALHIA ILIANA RODRIGUEZ MUÑOZ",
-    "adscripcion": "01 02 PERSONAL DE CABILDO"
-  },
-  {
-    "clave": "00436",
-    "nombre": "RAUL PUGA CASTRO",
-    "adscripcion": "03 03 DIRECCION DE DESARROLLO URBANO"
-  },
-  {
-    "clave": "00437",
-    "nombre": "BRENDA IVONE BOLADO FRANCISCO",
-    "adscripcion": "04 09 DELEGACION ZONA SUR"
-  },
-  {
-    "clave": "00438",
-    "nombre": "SAUL GUADALUPE CERVANTES VILLAFUERTE",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
-  },
-  {
-    "clave": "00439",
-    "nombre": "FERNANDO MARTINEZ RODRIGUEZ",
-    "adscripcion": "03 02 DIRECCION DE OBRAS PUBLICAS"
-  },
-  {
-    "clave": "00440",
-    "nombre": "MILAGROS BERENICE LEDEZMA DE LEON",
-    "adscripcion": "04 02 DIRECCION DE BIENESTAR SOCIAL"
-  },
-  {
+    "numero": 29,
     "clave": "00442",
-    "nombre": "MARISOL BARBERENA GONZALEZ",
-    "adscripcion": "02 01 SECRETARIA DEL AYUNTAMIENTO"
+    "nombre": "BARBARENA GONZALEZ MARISOL",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "BOMBEROS",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · BOMBEROS"
   },
   {
-    "clave": "00443",
-    "nombre": "MIGUEL ANGEL TOBIAS MARTINEZ",
-    "adscripcion": "04 03 DIRECCION DE CULTURA"
+    "numero": 30,
+    "clave": "00057",
+    "nombre": "BARRAGAN PEREZ LUIS",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "CATASTRO",
+    "adscripcion": "CAPTURISTA DE DATOS · CATASTRO"
   },
   {
+    "numero": 31,
+    "clave": "00140",
+    "nombre": "BARRIENTOS VANEGAS ADEL",
+    "categoria": "OFICIAL ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 32,
+    "clave": "00241",
+    "nombre": "BARRIOS ORTEGA ANACLETO",
+    "categoria": "OPERADOR AUTOBUS",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OPERADOR AUTOBUS · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 33,
+    "clave": "00271",
+    "nombre": "BARRIOS ORTEGA JOSÉ GUADALUPE",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 34,
+    "clave": "00344",
+    "nombre": "BARRIOS ORTEGA LEOPOLDO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 35,
+    "clave": "00337",
+    "nombre": "BECERRA GONZALEZ YAIR FERNANDO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 36,
+    "clave": "00213",
+    "nombre": "BECERRA SÁNCHEZ FERNANDO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 37,
+    "clave": "00437",
+    "nombre": "BOLADO FRANCISCO BRENDA IVONE",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 38,
+    "clave": "00171",
+    "nombre": "BONILLA CORONADO MARIA ANTONIA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · DESARROLLO URBANO"
+  },
+  {
+    "numero": 39,
+    "clave": "00346",
+    "nombre": "BUSTAMANTE SANCHEZ OSCAR",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 40,
+    "clave": "00295",
+    "nombre": "CABALLERO OBREGÓN ERNESTO",
+    "categoria": "AYUDANTE BARRIDO DE CALLES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE BARRIDO DE CALLES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 41,
+    "clave": "00350",
+    "nombre": "CABRALES SALAZAR GREGORIO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 42,
+    "clave": "00371",
+    "nombre": "CABRIALES PONCE CESAR LEAO",
+    "categoria": "OPERADOR DE BARREDORA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE BARREDORA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 43,
+    "clave": "00015",
+    "nombre": "CALLES SALAZAR ELIZABETH",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "CATASTRO",
+    "adscripcion": "CAPTURISTA DE DATOS · CATASTRO"
+  },
+  {
+    "numero": 44,
+    "clave": "00296",
+    "nombre": "CALLES SALAZAR MARIA DEL ROSARIO",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "CATASTRO",
+    "adscripcion": "CAPTURISTA DE DATOS · CATASTRO"
+  },
+  {
+    "numero": 45,
+    "clave": "00392",
+    "nombre": "CAMACHO ANDABLO DANIEL",
+    "categoria": "BRIGADA SOCIAL",
+    "departamento": "BIENESTAR SOCIAL",
+    "adscripcion": "BRIGADA SOCIAL · BIENESTAR SOCIAL"
+  },
+  {
+    "numero": 46,
+    "clave": "00289",
+    "nombre": "CAMACHO ESPRIELLA MIGUEL ÁNGEL",
+    "categoria": "OFICAL ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICAL ELECTRICO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 47,
+    "clave": "00233",
+    "nombre": "CAMACHO MALDONADO NICOLAS",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 48,
+    "clave": "00164",
+    "nombre": "CARDIEL CASTILLO OVIDIO",
+    "categoria": "OPERADOR DE RETROEXCAVADORA",
+    "departamento": "SERVICIOS PUBLICAS",
+    "adscripcion": "OPERADOR DE RETROEXCAVADORA · SERVICIOS PUBLICAS"
+  },
+  {
+    "numero": 49,
+    "clave": "00367",
+    "nombre": "CARRILLO VAZQUEZ JORGE ARNNOL",
+    "categoria": "PINTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "PINTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 50,
+    "clave": "00303",
+    "nombre": "CARRIZALES BARRAGAN TEODORO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 51,
+    "clave": "00424",
+    "nombre": "CARRIZALES HERNANDEZ JOSUE GILBERTO",
+    "categoria": "OFICIAL SOLDADOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICIAL SOLDADOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 52,
+    "clave": "00398",
+    "nombre": "CARRIZALEZ HERNANDEZ JAVIER",
+    "categoria": "OFICIAL SOLDADOR",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL SOLDADOR · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 53,
+    "clave": "00030",
+    "nombre": "CASANOVA MAR JOSE LUIS",
+    "categoria": "MAESTRO DE OBRA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "MAESTRO DE OBRA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 54,
+    "clave": "00163",
+    "nombre": "CASANOVA MAR MARIO",
+    "categoria": "MAESTRO DE OBRA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "MAESTRO DE OBRA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 55,
+    "clave": "00329",
+    "nombre": "CASANOVA SALINAS MARIO ELEAZAR",
+    "categoria": "TECNICO EN SISTEMAS",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "TECNICO EN SISTEMAS · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 56,
+    "clave": "00316",
+    "nombre": "CASTELLANOS SALVADOR SHAYRA LIZET",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "SECRETARIA DEL AYTO.",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · SECRETARIA DEL AYTO."
+  },
+  {
+    "numero": 57,
+    "clave": "00125",
+    "nombre": "CASTILLO HERNANDEZ AGUSTIN",
+    "categoria": "OFICIAL PLOMERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL PLOMERO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 58,
+    "clave": "00256",
+    "nombre": "CASTILLO LOPEZ MARGARITO",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 59,
+    "clave": "00422",
+    "nombre": "CASTILLO PEREZ OSCAR ANTONIO",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "CULTURA",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · CULTURA"
+  },
+  {
+    "numero": 60,
+    "clave": "00412",
+    "nombre": "CASTILLO RAMIREZ MARIA DOLORES",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 61,
+    "clave": "00202",
+    "nombre": "CASTILLO REYES J. SANTOS",
+    "categoria": "VIGILANTE",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "VIGILANTE · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 62,
+    "clave": "00175",
+    "nombre": "CASTILLO TREVIÑO ANASTACIO",
+    "categoria": "CADENERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CADENERO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 63,
+    "clave": "00124",
+    "nombre": "CASTRO SAN JUAN ROSA ISELA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "ECOLOGIA",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · ECOLOGIA"
+  },
+  {
+    "numero": 64,
+    "clave": "00304",
+    "nombre": "CEBALLOS PASTRAN JUAN DOMINGO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 65,
+    "clave": "00433",
+    "nombre": "CERNA ORTIZ ROSA ISELA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "DELEGACION ZONA SUR",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · DELEGACION ZONA SUR"
+  },
+  {
+    "numero": 66,
+    "clave": "00280",
+    "nombre": "CERVANTES COVARRUBIAS JOSE DE JESUS",
+    "categoria": "AYUDANTE ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "AYUDANTE ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 67,
+    "clave": "00196",
+    "nombre": "CERVANTES MALDONADO FRANCISCO",
+    "categoria": "MAESTRO DE OBRA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "MAESTRO DE OBRA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 68,
+    "clave": "00438",
+    "nombre": "CERVANTES VILLAFUERTE SAUL GUADALUPE",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 69,
+    "clave": "00266",
+    "nombre": "COLLAZO MÍRELES ISAÍAS",
+    "categoria": "CADENERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CADENERO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 70,
+    "clave": "00430",
+    "nombre": "CORTEZ OBREGON MIGUEL GERARDO",
+    "categoria": "OFICAL ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICAL ELECTRICO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 71,
+    "clave": "00370",
+    "nombre": "CRUZ AQUINO TOMAS",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 72,
+    "clave": "00406",
+    "nombre": "CRUZ JASSO RENE",
+    "categoria": "OPERADOR 5TA. RUEDA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR 5TA. RUEDA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 73,
+    "clave": "00153",
+    "nombre": "CRUZ PONCE MARTHA LAURA",
+    "categoria": "AUXILIAR DE BIBLIOTECA",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "AUXILIAR DE BIBLIOTECA · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 74,
+    "clave": "00204",
+    "nombre": "CRUZ PORTALES SILVIA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 75,
+    "clave": "00093",
+    "nombre": "CRUZ RUBIO RUFINO",
+    "categoria": "CHOFER MATERIALISTA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CHOFER MATERIALISTA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 76,
+    "clave": "00006",
+    "nombre": "CRUZ SOLIS ANDREA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 77,
+    "clave": "00306",
+    "nombre": "CUERVO CONTRERAS JOSÉ EDUARDO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 78,
+    "clave": "00155",
+    "nombre": "DEL ANGEL AGUSTIN SOLEDAD",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 79,
+    "clave": "00381",
+    "nombre": "DEL ANGEL CABRALES LUIS ENRIQUE",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 80,
+    "clave": "00290",
+    "nombre": "DEL ANGEL DEL ANGEL ISMAEL",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 81,
+    "clave": "00383",
+    "nombre": "DEL ANGEL DEL ANGEL JUAN JOSE",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 82,
+    "clave": "00034",
+    "nombre": "DEL ANGEL LEDEZMA RIGOBERTO",
+    "categoria": "MAESTRO DE OBRA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "MAESTRO DE OBRA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 83,
+    "clave": "00357",
+    "nombre": "DEL ANGEL RODRIGUEZ LUIS ENRIQUE",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 84,
+    "clave": "00341",
+    "nombre": "DELGADO ORTA MYRNA GUADALUPE",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 85,
+    "clave": "00148",
+    "nombre": "DEMES BARRON CARLOS MAURICIO",
+    "categoria": "OFICIAL SOLDADOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICIAL SOLDADOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 86,
+    "clave": "00364",
+    "nombre": "DEMES BARRON EDGAR DANIEL",
+    "categoria": "MECANICO DIESEL",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "MECANICO DIESEL · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 87,
+    "clave": "00288",
+    "nombre": "DEMES BARRON HECTOR HUGO",
+    "categoria": "MECANICO GASOLINA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "MECANICO GASOLINA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 88,
+    "clave": "00404",
+    "nombre": "DIAZ BARRON ARACELI",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "SERV. PUB.ZONA NORTE",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · SERV. PUB.ZONA NORTE"
+  },
+  {
+    "numero": 89,
+    "clave": "00291",
+    "nombre": "DIAZ HERNÁNDEZ FRANCISCO",
+    "categoria": "CARPINTERO",
+    "departamento": "CARPINTERIA",
+    "adscripcion": "CARPINTERO · CARPINTERIA"
+  },
+  {
+    "numero": 90,
+    "clave": "00434",
+    "nombre": "DOMINGUEZ HERNANDEZ KARLA EDITH",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "EDUCACION",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · EDUCACION"
+  },
+  {
+    "numero": 91,
+    "clave": "00174",
+    "nombre": "DOMINGUEZ MARTINEZ CONSUELO",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "JEFATURA DE INNOVACION",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · JEFATURA DE INNOVACION"
+  },
+  {
+    "numero": 92,
+    "clave": "00279",
+    "nombre": "ECHEVARRIA CABALLERO ISSA IRASEMA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "ECOLOGIA",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · ECOLOGIA"
+  },
+  {
+    "numero": 93,
+    "clave": "00045",
+    "nombre": "ESCOBAR HERNANDEZ GREGORIO",
+    "categoria": "CHOFER MATERIALISTA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CHOFER MATERIALISTA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 94,
+    "clave": "00216",
+    "nombre": "ESCOBAR JIMENEZ RITA",
+    "categoria": "INTENDENTE",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "INTENDENTE · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 95,
+    "clave": "00145",
+    "nombre": "ESCOBEDO FLORES JUAN ANTONIO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 96,
+    "clave": "00117",
+    "nombre": "ESCOBEDO PEREZ EDGAR",
+    "categoria": "OFICAL ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICAL ELECTRICO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 97,
+    "clave": "00198",
+    "nombre": "ESPINO MARTINEZ NOE",
+    "categoria": "MECANICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "MECANICO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 98,
+    "clave": "00277",
+    "nombre": "ESPINOSA FLORES JUAN",
+    "categoria": "AYUDANTE ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "AYUDANTE ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 99,
+    "clave": "00284",
+    "nombre": "ESPINOSA ROSAS MARTIN ALBERTO",
+    "categoria": "AYUDANTE ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "AYUDANTE ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 100,
+    "clave": "00167",
+    "nombre": "ESPINOSA SOSA JAVIER",
+    "categoria": "OFICAL ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICAL ELECTRICO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 101,
+    "clave": "00189",
+    "nombre": "FÉLIX VILLANUEVA GERMAN",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 102,
+    "clave": "00390",
+    "nombre": "FERNANDEZ ZUÑIGA ROGELIO",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "CATASTRO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · CATASTRO"
+  },
+  {
+    "numero": 103,
+    "clave": "00190",
+    "nombre": "FLORES GARCIA SERGIO",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "CAPTURISTA DE DATOS · DESARROLLO URBANO"
+  },
+  {
+    "numero": 104,
+    "clave": "00212",
+    "nombre": "FLORES HERNÁNDEZ EFRÉN",
+    "categoria": "AYUDANTE ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "AYUDANTE ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 105,
+    "clave": "00378",
+    "nombre": "GALLEGOS REYES JOSE DE JESUS",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 106,
+    "clave": "00292",
+    "nombre": "GÁMEZ GARCÍA ANA LAURA",
+    "categoria": "CABO DE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CABO DE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 107,
+    "clave": "00368",
+    "nombre": "GAMEZ GARDUÑO RICARDO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 108,
+    "clave": "00224",
+    "nombre": "GAMEZ MORALES AMELIA GUADALUPE",
+    "categoria": "DIBUJANTE AUTOCAD",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "DIBUJANTE AUTOCAD · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 109,
+    "clave": "00154",
+    "nombre": "GAMEZ ZUÑIGA FERNANDO",
+    "categoria": "MECANICO DIESEL",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "MECANICO DIESEL · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 110,
+    "clave": "00324",
+    "nombre": "GARCIA ALMAZAN MAURO ERNESTO",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · DESARROLLO URBANO"
+  },
+  {
+    "numero": 111,
+    "clave": "00220",
+    "nombre": "GARCÍA GONZALEZ JUANA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "SALA DE REGIDORES",
+    "adscripcion": "CAPTURISTA DE DATOS · SALA DE REGIDORES"
+  },
+  {
+    "numero": 112,
+    "clave": "00143",
+    "nombre": "GARCIA GUERRERO EMILIO",
+    "categoria": "OFICIAL ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 113,
+    "clave": "00318",
+    "nombre": "GARCIA LEMUS GRACIELA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "CONTRALORIA",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · CONTRALORIA"
+  },
+  {
+    "numero": 114,
+    "clave": "00261",
+    "nombre": "GARCÍA MORALES NOHE",
+    "categoria": "OPERADOR DE MOTOCONFORMADORA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OPERADOR DE MOTOCONFORMADORA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 115,
+    "clave": "00181",
+    "nombre": "GARCIA PEREZ MARIA DEL CARMEN",
+    "categoria": "INTENDENTE",
+    "departamento": "DESARROLLO ECONOMICO",
+    "adscripcion": "INTENDENTE · DESARROLLO ECONOMICO"
+  },
+  {
+    "numero": 116,
+    "clave": "00276",
+    "nombre": "GARCÍA ROCHA MARIA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "SERV. PUB.ZONA NORTE",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · SERV. PUB.ZONA NORTE"
+  },
+  {
+    "numero": 117,
+    "clave": "00369",
+    "nombre": "GARCIA VAZQUEZ VICTOR MANUEL",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 118,
+    "clave": "00248",
+    "nombre": "GOMEZ CASTRO DAVID",
+    "categoria": "OFICIAL TUBERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL TUBERO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 119,
+    "clave": "00247",
+    "nombre": "GOMEZ CASTRO JOSE ALFREDO",
+    "categoria": "OFICIAL ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 120,
+    "clave": "00029",
+    "nombre": "GOMEZ CASTRO LUCIO",
+    "categoria": "TOPOGRAFO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "TOPOGRAFO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 121,
+    "clave": "00328",
+    "nombre": "GOMEZ FLORES EDGAR",
+    "categoria": "TECNICO EN SISTEMAS",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "TECNICO EN SISTEMAS · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 122,
+    "clave": "00259",
+    "nombre": "GÓMEZ LARA MARIA ISABEL",
+    "categoria": "INTENDENTE",
+    "departamento": "DESARROLLO ECONOMICO",
+    "adscripcion": "INTENDENTE · DESARROLLO ECONOMICO"
+  },
+  {
+    "numero": 123,
+    "clave": "00152",
+    "nombre": "GOMEZ LARA MAYOLA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "TURISMO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · TURISMO"
+  },
+  {
+    "numero": 124,
+    "clave": "00172",
+    "nombre": "GOMEZ LOREDO CRUZ ADRIANA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CAPTURISTA DE DATOS · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 125,
+    "clave": "00348",
+    "nombre": "GOMEZ VAZQUEZ JUAN DAVID",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 126,
+    "clave": "00415",
+    "nombre": "GONZALEZ DEL ANGEL MARIA ANTONIA",
+    "categoria": "INTENDENTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "INTENDENTE · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 127,
+    "clave": "00182",
+    "nombre": "GONZALEZ HERNÁNDEZ IGNACIO",
+    "categoria": "OFICIAL ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 128,
+    "clave": "00387",
+    "nombre": "GONZALEZ ORTEGA LUIS MARTIN",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 129,
+    "clave": "00058",
+    "nombre": "GONZALEZ PEREZ MARIA DEL ROSARIO",
+    "categoria": "CABO DE INTENDENCIA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CABO DE INTENDENCIA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 130,
+    "clave": "00234",
+    "nombre": "GRANILLO MARTÍNEZ CUPERTINO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 131,
+    "clave": "00199",
+    "nombre": "GUADALUPE DEL ANGEL JUAN",
+    "categoria": "AYUDANTE",
+    "departamento": "TURISMO",
+    "adscripcion": "AYUDANTE · TURISMO"
+  },
+  {
+    "numero": 132,
+    "clave": "00353",
+    "nombre": "GUADALUPE RAMIREZ GAUDENCIO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 133,
+    "clave": "00305",
+    "nombre": "GUADALUPE RAMÍREZ JOSÉ JUAN",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 134,
+    "clave": "00429",
+    "nombre": "GUTIERREZ PADILLA OSCAR EDUARDO",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 135,
+    "clave": "00051",
+    "nombre": "GUTIERREZ RIVAS AMBROSIO",
+    "categoria": "OPERADOR DE MOTOCONFORMADORA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE MOTOCONFORMADORA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 136,
+    "clave": "00208",
+    "nombre": "HERNÁNDEZ AHUMADA JOSÉ LUIS",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 137,
+    "clave": "00264",
+    "nombre": "HERNÁNDEZ ANTONIO JORGE ARMANDO",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 138,
+    "clave": "00333",
+    "nombre": "HERNANDEZ BAEZ EMILIO",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · DESARROLLO URBANO"
+  },
+  {
+    "numero": 139,
+    "clave": "00393",
+    "nombre": "HERNANDEZ CASTILLO RICARDO",
+    "categoria": "BRIGADA SOCIAL",
+    "departamento": "BIENESTAR SOCIAL",
+    "adscripcion": "BRIGADA SOCIAL · BIENESTAR SOCIAL"
+  },
+  {
+    "numero": 140,
+    "clave": "00170",
+    "nombre": "HERNÁNDEZ CASTILLO SINDY YAZMIN",
+    "categoria": "CAPTURISTA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CAPTURISTA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 141,
+    "clave": "00349",
+    "nombre": "HERNANDEZ CRUZ JUAN CARLOS",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 142,
+    "clave": "00044",
+    "nombre": "HERNÁNDEZ HERNÁNDEZ JUAN CARLOS",
+    "categoria": "TOPOGRAFO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "TOPOGRAFO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 143,
+    "clave": "00409",
+    "nombre": "HERNANDEZ LUNA MARTHA LETICIA",
+    "categoria": "INTENDENTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "INTENDENTE · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 144,
+    "clave": "00299",
+    "nombre": "HERNÁNDEZ MARES FRANCISCO MANUEL",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 145,
+    "clave": "00358",
+    "nombre": "HERNANDEZ PINTOR JULISA",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 146,
+    "clave": "00298",
+    "nombre": "HERNÁNDEZ REYES ELEAZAR",
+    "categoria": "NOTIFICADOR",
+    "departamento": "TRANSITO",
+    "adscripcion": "NOTIFICADOR · TRANSITO"
+  },
+  {
+    "numero": 147,
+    "clave": "00313",
+    "nombre": "HERNANDEZ RODRIGUEZ JOSE ANTONIO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 148,
+    "clave": "00262",
+    "nombre": "HERNÁNDEZ YÁNEZ SERVANDO",
+    "categoria": "CADENERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CADENERO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 149,
+    "clave": "00426",
+    "nombre": "HERRERA TRUJILLO DANIEL ISSAI",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 150,
+    "clave": "00232",
+    "nombre": "JARAMILLO ESPINOZA MARTIN",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 151,
+    "clave": "00418",
+    "nombre": "JIMENEZ BRICEÑO OMAR ALEJANDRO",
+    "categoria": "AYUDANTE BARRIDO DE CALLES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE BARRIDO DE CALLES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 152,
+    "clave": "00410",
+    "nombre": "JIMENEZ JIMENEZ ISABEL CRISTINA",
+    "categoria": "AYUDANTE BARRIDO DE CALLES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE BARRIDO DE CALLES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 153,
+    "clave": "00193",
+    "nombre": "LANDA GUZMAN DIANA ANGELICA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 154,
+    "clave": "00400",
+    "nombre": "LANDAVERDE CASTILLO FRANCISCO JAVIER",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 155,
+    "clave": "00156",
+    "nombre": "LARA AVILÉS NORMA GUADALUPE",
+    "categoria": "AYUDANTE BARRIDO DE CALLES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE BARRIDO DE CALLES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 156,
+    "clave": "00162",
+    "nombre": "LARA MALDONADO SONIA CATALINA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "CONTRALORIA",
+    "adscripcion": "CAPTURISTA DE DATOS · CONTRALORIA"
+  },
+  {
+    "numero": 157,
+    "clave": "00421",
+    "nombre": "LEAL RIVERA ROSY YERALDY",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 158,
+    "clave": "00376",
+    "nombre": "LEAL TAVARES BRAYAN FERNANDO",
+    "categoria": "OFICAL ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICAL ELECTRICO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 159,
+    "clave": "00440",
+    "nombre": "LEDEZMA DE LEON MILAGROS BERENICE",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "BIENESTAR SOCIAL",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · BIENESTAR SOCIAL"
+  },
+  {
+    "numero": 160,
+    "clave": "00432",
+    "nombre": "LEDEZMA HERNANDEZ RUBEN OSMIN",
+    "categoria": "CADENERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CADENERO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 161,
+    "clave": "00231",
+    "nombre": "LEDEZMA SANTIAGO ROBERTO ANTONIO",
+    "categoria": "OPERADOR DE MOTOCONFORMADORA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OPERADOR DE MOTOCONFORMADORA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 162,
+    "clave": "00428",
+    "nombre": "LEDEZMA SANTIAGO RUBEN",
+    "categoria": "OPERADOR DE MOTOCONFORMADORA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OPERADOR DE MOTOCONFORMADORA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 163,
+    "clave": "00217",
+    "nombre": "LOPEZ GONZALEZ JUAN CARLOS",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 164,
+    "clave": "00373",
+    "nombre": "LOPEZ HERNANDEZ JOSE DONATO",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "DELEGACION ZONA SUR",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · DELEGACION ZONA SUR"
+  },
+  {
+    "numero": 165,
+    "clave": "00326",
+    "nombre": "LOPEZ LIMON ROBERTO ALFREDO",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 166,
+    "clave": "00126",
+    "nombre": "LÓPEZ MELÉNDEZ JOSÉ ELÍAS",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 167,
+    "clave": "00278",
+    "nombre": "MANDUJANO MONTELONGO MAYRA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "CATASTRO",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · CATASTRO"
+  },
+  {
+    "numero": 168,
+    "clave": "00239",
+    "nombre": "MANRÍQUEZ COVARRUBIAS IGNACIO",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "DELEGACION ZONA SUR",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · DELEGACION ZONA SUR"
+  },
+  {
+    "numero": 169,
+    "clave": "00240",
+    "nombre": "MANRÍQUEZ COVARRUBIAS MARTÍN LEONARDO",
+    "categoria": "ENCARGADO",
+    "departamento": "ALBERCA MUNICIPAL",
+    "adscripcion": "ENCARGADO · ALBERCA MUNICIPAL"
+  },
+  {
+    "numero": 170,
+    "clave": "00351",
+    "nombre": "MARCELO PEREZ FELIPE",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 171,
+    "clave": "00200",
+    "nombre": "MÁRQUEZ RÍOS HERMELINDO",
+    "categoria": "CHOFER PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 172,
+    "clave": "00327",
+    "nombre": "MARTINEZ ACOSTA ROEL RUBIN",
+    "categoria": "DIBUJANTE AUTOCAD",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "DIBUJANTE AUTOCAD · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 173,
+    "clave": "00218",
+    "nombre": "MARTÍNEZ BLANCO JUANA ILEANA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "JUNTA MPAL. DE RECLUTAMIENTO",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · JUNTA MPAL. DE RECLUTAMIENTO"
+  },
+  {
+    "numero": 174,
+    "clave": "00269",
+    "nombre": "MARTÍNEZ CHAVEZ BRENDA CECILIA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "SALA DE REGIDORES",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · SALA DE REGIDORES"
+  },
+  {
+    "numero": 175,
+    "clave": "00310",
+    "nombre": "MARTINEZ HERNANDEZ ENEMECIO",
+    "categoria": "VIGILANTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "VIGILANTE · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 176,
+    "clave": "00122",
+    "nombre": "MARTINEZ MOCTEZUMA J CIPRIANO",
+    "categoria": "OFICIAL MECANICO GASOLINA",
+    "departamento": "MECANICO",
+    "adscripcion": "OFICIAL MECANICO GASOLINA · MECANICO"
+  },
+  {
+    "numero": 177,
+    "clave": "00282",
+    "nombre": "MARTÍNEZ PÉREZ GREGORIO ALEJANDRO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 178,
+    "clave": "00372",
+    "nombre": "MARTINEZ PEREZ PAUL ANTONIO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 179,
+    "clave": "00439",
+    "nombre": "MARTINEZ RODRIGUEZ FERNANDO",
+    "categoria": "OPERADOR DE PIPA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OPERADOR DE PIPA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 180,
+    "clave": "00273",
+    "nombre": "MATA PÉREZ MOISES",
+    "categoria": "CHOFER MATERIALISTA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER MATERIALISTA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 181,
+    "clave": "00110",
+    "nombre": "MATA SANTOS",
+    "categoria": "OFICIAL ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 182,
+    "clave": "00147",
+    "nombre": "MATEOS ANASTACIO GABRIEL",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 183,
+    "clave": "00386",
+    "nombre": "MATEOS HERNANDEZ JESUS",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 184,
+    "clave": "00352",
+    "nombre": "MENDEZ TREJO JUAN ANGEL",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 185,
+    "clave": "00384",
+    "nombre": "MENDO FLORES JULIAN",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 186,
+    "clave": "00010",
+    "nombre": "MENDOZA BANDA NORMA DOLORES",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CAPTURISTA DE DATOS · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 187,
+    "clave": "00244",
+    "nombre": "MENDOZA HERNANDEZ MA. DE LOURDES",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "SALA DE REGIDORES",
+    "adscripcion": "CAPTURISTA DE DATOS · SALA DE REGIDORES"
+  },
+  {
+    "numero": 188,
+    "clave": "00375",
+    "nombre": "MENDOZA WEBER RAFAEL",
+    "categoria": "CARPINTERO",
+    "departamento": "CARPINTERIA",
+    "adscripcion": "CARPINTERO · CARPINTERIA"
+  },
+  {
+    "numero": 189,
+    "clave": "00111",
+    "nombre": "MONTOYA CALDERON CARLOS",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 190,
+    "clave": "00144",
+    "nombre": "MORALES AGUIAR PEDRO EMMANUEL",
+    "categoria": "MECANICO DE 1RA.",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "MECANICO DE 1RA. · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 191,
+    "clave": "00395",
+    "nombre": "MORALES DUARTE JUAN CARLOS",
+    "categoria": "CHOFER DE BRIGADA SOCIAL",
+    "departamento": "BIENESTAR SOCIAL",
+    "adscripcion": "CHOFER DE BRIGADA SOCIAL · BIENESTAR SOCIAL"
+  },
+  {
+    "numero": 192,
+    "clave": "00355",
+    "nombre": "MORALES HERNANDEZ MARTIN",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 193,
+    "clave": "00335",
+    "nombre": "MORALES RODRIGUEZ JESUS LEONEL",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · DESARROLLO URBANO"
+  },
+  {
+    "numero": 194,
+    "clave": "00004",
+    "nombre": "MORALES VAZQUEZ JOSE SANTOS",
+    "categoria": "PINTOR ROTULISTA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "PINTOR ROTULISTA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 195,
+    "clave": "00339",
+    "nombre": "MORENO COLLAZO MIGUEL ANGEL",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 196,
+    "clave": "00082",
+    "nombre": "MORENO VELAZQUEZ ANCELMO",
+    "categoria": "OFICIAL CARPINTERO EBANISTA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICIAL CARPINTERO EBANISTA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 197,
+    "clave": "00255",
+    "nombre": "MUNGUIA CASTILLO JOSÉ REYES",
+    "categoria": "CARPINTERO",
+    "departamento": "CARPINTERIA",
+    "adscripcion": "CARPINTERO · CARPINTERIA"
+  },
+  {
+    "numero": 198,
+    "clave": "00225",
+    "nombre": "MUÑIZ BADILLO ANA MACRINA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CAPTURISTA DE DATOS · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 199,
+    "clave": "00146",
+    "nombre": "MUÑIZ MONCAYO MARGARITA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "JUNTA MPAL. DE RECLUTAMIENTO",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · JUNTA MPAL. DE RECLUTAMIENTO"
+  },
+  {
+    "numero": 200,
+    "clave": "00285",
+    "nombre": "NIETO HERNNDEZ EDNA PAOLA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "SECRETARIA DEL AYTO.",
+    "adscripcion": "CAPTURISTA DE DATOS · SECRETARIA DEL AYTO."
+  },
+  {
+    "numero": 201,
+    "clave": "00363",
+    "nombre": "NUÑEZ CRUZ MANUEL",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 202,
+    "clave": "00039",
+    "nombre": "OBREGON CEBALLOS MARIA LUISA",
+    "categoria": "CABO DE BARRIDO DE CALLES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CABO DE BARRIDO DE CALLES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 203,
+    "clave": "00425",
+    "nombre": "OLVERA GAMBOA NESTOR CARLOS",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 204,
+    "clave": "00135",
+    "nombre": "OLVERA LARA VICTOR HUGO",
+    "categoria": "DIBUJANTE AUTOCAD",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "DIBUJANTE AUTOCAD · DESARROLLO URBANO"
+  },
+  {
+    "numero": 205,
+    "clave": "00294",
+    "nombre": "OLVERA MENDEZ JESUS RAUL",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 206,
+    "clave": "00330",
+    "nombre": "OLVERA VAZQUEZ JANETH EUNICE",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · DESARROLLO URBANO"
+  },
+  {
+    "numero": 207,
+    "clave": "00127",
+    "nombre": "ORDOÑEZ CRUZ MA. BERENICE",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "CAPTURISTA DE DATOS · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 208,
+    "clave": "00222",
+    "nombre": "ORTA HERRERA MARGARITA ALICIA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "CONTRALORIA",
+    "adscripcion": "CAPTURISTA DE DATOS · CONTRALORIA"
+  },
+  {
+    "numero": 209,
+    "clave": "00401",
+    "nombre": "ORTA MARTINEZ SANTA BARBARITA",
+    "categoria": "INTENDENTE",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "INTENDENTE · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 210,
+    "clave": "00215",
+    "nombre": "ORTEGA OBREGÓN ROSA ELISA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "ALBERCA MUNICIPAL",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · ALBERCA MUNICIPAL"
+  },
+  {
+    "numero": 211,
+    "clave": "00413",
+    "nombre": "ORTEGA OBREGON NORMA ALICIA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "EDUCACION",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · EDUCACION"
+  },
+  {
+    "numero": 212,
+    "clave": "00420",
+    "nombre": "ORTEGA SANCHEZ JACOB",
+    "categoria": "OPERADOR DE RETROEXCAVADORA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE RETROEXCAVADORA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 213,
     "clave": "00444",
-    "nombre": "MARIA ANGELICA ORTIZ SOSA",
-    "adscripcion": "08 02 DIRECCION DE SERVICIOS PUBLICOS"
+    "nombre": "ORTIZ SOSA MARIA ANGELICA",
+    "categoria": "INTENDENTE",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "INTENDENTE · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 214,
+    "clave": "00417",
+    "nombre": "PADILLA MARTIN DEL CAMPO CHRISTHIAN ALFONSO",
+    "categoria": "ELECTRICO AUTOMOTRIZ",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "ELECTRICO AUTOMOTRIZ · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 215,
+    "clave": "00423",
+    "nombre": "PADILLA MATA ROBERTO",
+    "categoria": "VIGILANTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "VIGILANTE · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 216,
+    "clave": "00180",
+    "nombre": "PECINA PECINA JOSÉ LUIS",
+    "categoria": "CAPTURISTA",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "CAPTURISTA · DESARROLLO URBANO"
+  },
+  {
+    "numero": 217,
+    "clave": "00321",
+    "nombre": "PEREZ BADILLO JUANA",
+    "categoria": "INTENDENTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "INTENDENTE · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 218,
+    "clave": "00157",
+    "nombre": "PEREZ CAMPOS JOSE ALFREDO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 219,
+    "clave": "00211",
+    "nombre": "PEREZ CASTILLO JORGE ANTONIO",
+    "categoria": "ENCARGADO",
+    "departamento": "PANTEÓN PEDRERA",
+    "adscripcion": "ENCARGADO · PANTEÓN PEDRERA"
+  },
+  {
+    "numero": 220,
+    "clave": "00302",
+    "nombre": "PEREZ GONZALEZ JUAN MIGUEL",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 221,
+    "clave": "00112",
+    "nombre": "PEREZ JACOBO ALEJANDRINA",
+    "categoria": "INTENDENTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "INTENDENTE · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 222,
+    "clave": "00315",
+    "nombre": "PEREZ MUÑIZ LORENA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "JUNTA MPAL. DE RECLUTAMIENTO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · JUNTA MPAL. DE RECLUTAMIENTO"
+  },
+  {
+    "numero": 223,
+    "clave": "00340",
+    "nombre": "PEREZ RAMIREZ ODILON",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 224,
+    "clave": "00436",
+    "nombre": "PUGA CASTRO RAUL",
+    "categoria": "DIBUJANTE AUTOCAD",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "DIBUJANTE AUTOCAD · DESARROLLO URBANO"
+  },
+  {
+    "numero": 225,
+    "clave": "00205",
+    "nombre": "QUIROZ PEREZ MARIA GABRIELA",
+    "categoria": "CABO DE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CABO DE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 226,
+    "clave": "00253",
+    "nombre": "RAMÍREZ JUÁREZ SOCORRO",
+    "categoria": "INTENDENTE",
+    "departamento": "SERV. PUB.ZONA NORTE",
+    "adscripcion": "INTENDENTE · SERV. PUB.ZONA NORTE"
+  },
+  {
+    "numero": 227,
+    "clave": "00160",
+    "nombre": "RAMIREZ MARTINEZ FERNANDO",
+    "categoria": "CHOFER MATERIALISTA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CHOFER MATERIALISTA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 228,
+    "clave": "00268",
+    "nombre": "RAMÍREZ MARTINEZ MARCO POLO",
+    "categoria": "CHOFER MATERIALISTA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CHOFER MATERIALISTA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 229,
+    "clave": "00009",
+    "nombre": "RAMIREZ MORALES FLORENCIA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "DELEGACION ZONA SUR",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · DELEGACION ZONA SUR"
+  },
+  {
+    "numero": 230,
+    "clave": "00252",
+    "nombre": "RAMÍREZ RODRÍGUEZ MIGUEL ANGEL",
+    "categoria": "CHOFER MATERIALISTA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CHOFER MATERIALISTA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 231,
+    "clave": "00359",
+    "nombre": "RAMIREZ RODRIGUEZ MIRNA PATRICIA",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 232,
+    "clave": "00011",
+    "nombre": "RAMIREZ RODRIGUEZ REYES",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 233,
+    "clave": "00263",
+    "nombre": "RAMOS JIMÉNEZ FAUSTINO",
+    "categoria": "ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 234,
+    "clave": "00379",
+    "nombre": "RAMOS TURRUBIATES EDUARDO MISAEL",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 235,
+    "clave": "00343",
+    "nombre": "REBOLLOSO GALLEGOS HILARIO",
+    "categoria": "OFICAL ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICAL ELECTRICO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 236,
+    "clave": "00177",
+    "nombre": "REYES BERLAJE EDNA LUCIA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CAPTURISTA DE DATOS · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 237,
+    "clave": "00361",
+    "nombre": "REYES GONZALEZ JUAN",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 238,
+    "clave": "00238",
+    "nombre": "REYES MENDO ROSALÍA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "DESARROLLO ECONOMICO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · DESARROLLO ECONOMICO"
+  },
+  {
+    "numero": 239,
+    "clave": "00308",
+    "nombre": "REYES MENDO XOCHILT",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 240,
+    "clave": "00060",
+    "nombre": "REYES REYES ESMERALDA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "ARCHIVO MUERTO",
+    "adscripcion": "CAPTURISTA DE DATOS · ARCHIVO MUERTO"
+  },
+  {
+    "numero": 241,
+    "clave": "00088",
+    "nombre": "REYNOSO GAMEZ JOSE LUIS",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 242,
+    "clave": "00229",
+    "nombre": "RIVAS MEDINA JORGE",
+    "categoria": "MECANICO GASOLINA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "MECANICO GASOLINA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 243,
+    "clave": "00397",
+    "nombre": "RIVERA CASTRO SUGEY",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "CULTURA",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · CULTURA"
+  },
+  {
+    "numero": 244,
+    "clave": "00230",
+    "nombre": "RIVERA CASTRO VICTOR MANUEL",
+    "categoria": "OPERADOR DE BOMBA ALTA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE BOMBA ALTA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 245,
+    "clave": "00113",
+    "nombre": "RIVERA HERNÁNDEZ ERNESTO",
+    "categoria": "VIGILANTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "VIGILANTE · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 246,
+    "clave": "00331",
+    "nombre": "RIVERA PEÑA ERIKA JANET",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · DESARROLLO URBANO"
+  },
+  {
+    "numero": 247,
+    "clave": "00407",
+    "nombre": "RIVERA RIVAS ALBINO RICARDO",
+    "categoria": "OPERADOR DE RETROEXCAVADORA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE RETROEXCAVADORA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 248,
+    "clave": "00360",
+    "nombre": "ROCHA CHABACANO MARCO ANTONIO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 249,
+    "clave": "00286",
+    "nombre": "ROCHA GUZMAN DAVID",
+    "categoria": "OFICAL ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICAL ELECTRICO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 250,
+    "clave": "00066",
+    "nombre": "RODRIGUEZ DELGADO J GUADALUPE",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "PROTECCION CIVIL",
+    "adscripcion": "CAPTURISTA DE DATOS · PROTECCION CIVIL"
+  },
+  {
+    "numero": 251,
+    "clave": "00133",
+    "nombre": "RODRIGUEZ ESPINOZA MIGUEL ANGEL",
+    "categoria": "OFICIAL TUBERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL TUBERO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 252,
+    "clave": "00221",
+    "nombre": "RODRÍGUEZ GUERRERO CARLOS ESTEBAN",
+    "categoria": "OFICAL ELECTRICO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICAL ELECTRICO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 253,
+    "clave": "00345",
+    "nombre": "RODRIGUEZ HERNANDEZ FRANCISCO JAVIER",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 254,
+    "clave": "00173",
+    "nombre": "RODRIGUEZ HERNANDEZ LUCIA",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "PEA",
+    "adscripcion": "CAPTURISTA DE DATOS · PEA"
+  },
+  {
+    "numero": 255,
+    "clave": "00151",
+    "nombre": "RODRIGUEZ MARTINEZ MARGARITA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 256,
+    "clave": "00435",
+    "nombre": "RODRIGUEZ MUÑOZ TALHIA ILIANA",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "SALA DE REGIDORES",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · SALA DE REGIDORES"
+  },
+  {
+    "numero": 257,
+    "clave": "00187",
+    "nombre": "ROMAN BLANCO FLORENTINO",
+    "categoria": "CADENERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CADENERO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 258,
+    "clave": "00414",
+    "nombre": "ROSALES CASTILLO ENRIQUE",
+    "categoria": "OP. EXCAVADORA DE ORUGA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OP. EXCAVADORA DE ORUGA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 259,
+    "clave": "00012",
+    "nombre": "RUBIO SILVA DULCE MA. DE JESUS",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "DESARROLLO ECONOMICO",
+    "adscripcion": "CAPTURISTA DE DATOS · DESARROLLO ECONOMICO"
+  },
+  {
+    "numero": 260,
+    "clave": "00237",
+    "nombre": "RUIZ HERNANDEZ EVARISTA",
+    "categoria": "INTENDENTE",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "INTENDENTE · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 261,
+    "clave": "00251",
+    "nombre": "SALAZAR RAMÍREZ MARTHA LETICIA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "CULTURA",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · CULTURA"
+  },
+  {
+    "numero": 262,
+    "clave": "00165",
+    "nombre": "SALVADOR SALVADOR AURORA",
+    "categoria": "CABO DE PARQUES Y JARDINES",
+    "departamento": "VIVERO MUNICIPAL",
+    "adscripcion": "CABO DE PARQUES Y JARDINES · VIVERO MUNICIPAL"
+  },
+  {
+    "numero": 263,
+    "clave": "00108",
+    "nombre": "SAN MARTIN SANTIAGO ALEJANDRO",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "DELEGACION ZONA SUR",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · DELEGACION ZONA SUR"
+  },
+  {
+    "numero": 264,
+    "clave": "00347",
+    "nombre": "SANCHEZ AVILA FELIPE DE JESUS",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 265,
+    "clave": "00168",
+    "nombre": "SÁNCHEZ MANCILLA TEODULO",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 266,
+    "clave": "00227",
+    "nombre": "SANCHEZ PEREZ ENEIDA GUADALUPE",
+    "categoria": "INTENDENTE",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "INTENDENTE · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 267,
+    "clave": "00183",
+    "nombre": "SANCHEZ SANCHEZ ALMA LUZ",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "CATASTRO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · CATASTRO"
+  },
+  {
+    "numero": 268,
+    "clave": "00396",
+    "nombre": "SAUCEDO BORJAS SILVIA SUGEY",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 269,
+    "clave": "00336",
+    "nombre": "SAUCEDO YERA SERGIO ANTONIO",
+    "categoria": "OFICIAL MECANICO GASOLINA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICIAL MECANICO GASOLINA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 270,
+    "clave": "00332",
+    "nombre": "SIFUENTES LEAL FELIX ROBERTO",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "DESARROLLO URBANO",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · DESARROLLO URBANO"
+  },
+  {
+    "numero": 271,
+    "clave": "00179",
+    "nombre": "SOSA CARRIZALES MARTÍN",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 272,
+    "clave": "00214",
+    "nombre": "SOSA CRUZ ORALIA",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 273,
+    "clave": "00236",
+    "nombre": "SOSA CRUZ DANIA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 274,
+    "clave": "00203",
+    "nombre": "SOSA DEL ANGEL FRANCO",
+    "categoria": "CADENERO",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CADENERO · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 275,
+    "clave": "00309",
+    "nombre": "TADEO ROMÁN FLORINDA",
+    "categoria": "INTENDENTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "INTENDENTE · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 276,
+    "clave": "00185",
+    "nombre": "TELLO J. JUAN",
+    "categoria": "OPERADOR DE RETROEXCAVADORA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE RETROEXCAVADORA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 277,
+    "clave": "00443",
+    "nombre": "TOBIAS MARTINEZ MIGUEL ANGEL",
+    "categoria": "TECNICO EN SISTEMAS",
+    "departamento": "SISTEMA DIF",
+    "adscripcion": "TECNICO EN SISTEMAS · SISTEMA DIF"
+  },
+  {
+    "numero": 278,
+    "clave": "00267",
+    "nombre": "TORRES AMARO EDUARDO",
+    "categoria": "CAPTURISTA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CAPTURISTA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 279,
+    "clave": "00317",
+    "nombre": "TORRES MARTINEZ MARIA DEL CARMEN",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "SECRETARIA DEL AYTO.",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · SECRETARIA DEL AYTO."
+  },
+  {
+    "numero": 280,
+    "clave": "00031",
+    "nombre": "TORRES VAZQUEZ JOSE LUIS",
+    "categoria": "OFICIAL ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "OFICIAL ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 281,
+    "clave": "00250",
+    "nombre": "TORRES VEGA ELVIA NOHEMÍ",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "SALA DE REGIDORES",
+    "adscripcion": "CAPTURISTA DE DATOS · SALA DE REGIDORES"
+  },
+  {
+    "numero": 282,
+    "clave": "00114",
+    "nombre": "TORRES YAÑEZ INES",
+    "categoria": "OFICIAL CARPINTERO EBANISTA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICIAL CARPINTERO EBANISTA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 283,
+    "clave": "00293",
+    "nombre": "TORRES YAÑEZ JOSE MANUEL",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "TRANSITO",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · TRANSITO"
+  },
+  {
+    "numero": 284,
+    "clave": "00195",
+    "nombre": "TREVIÑO TREJO JOAQUIN ANTONIO",
+    "categoria": "OPERADOR DE RETROEXCAVADORA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE RETROEXCAVADORA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 285,
+    "clave": "00416",
+    "nombre": "VALDEZ CUELLAR LUIS ERNESTO",
+    "categoria": "AYUDANTE PARQUES Y JARDINES",
+    "departamento": "DELEGACION ZONA SUR",
+    "adscripcion": "AYUDANTE PARQUES Y JARDINES · DELEGACION ZONA SUR"
+  },
+  {
+    "numero": 286,
+    "clave": "00338",
+    "nombre": "VARGAS LOREDO MERCED",
+    "categoria": "OPERADOR DE MINI",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE MINI · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 287,
+    "clave": "00176",
+    "nombre": "VARGAS MARTINEZ ADRIAN",
+    "categoria": "CHOFER MATERIALISTA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CHOFER MATERIALISTA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 288,
+    "clave": "00197",
+    "nombre": "VAZQUEZ AGUILAR JOSE CARLOS",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 289,
+    "clave": "00272",
+    "nombre": "VÁZQUEZ AGUILAR JOSÉ LUIS",
+    "categoria": "CHOFER MATERIALISTA",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "CHOFER MATERIALISTA · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 290,
+    "clave": "00354",
+    "nombre": "VAZQUEZ CASTRO ERNESTO",
+    "categoria": "OPERADOR DE BOMBA ALTA",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE BOMBA ALTA · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 291,
+    "clave": "00169",
+    "nombre": "VAZQUEZ HERNÁNDEZ MA AMPARO",
+    "categoria": "CAPTURISTA DE DATOS",
+    "departamento": "DESARROLLO ECONOMICO",
+    "adscripcion": "CAPTURISTA DE DATOS · DESARROLLO ECONOMICO"
+  },
+  {
+    "numero": 292,
+    "clave": "00243",
+    "nombre": "VELAZQUEZ CASTILLO ARNOLDO",
+    "categoria": "AYUDANTE",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 293,
+    "clave": "00281",
+    "nombre": "VILLAFUERTE BEDOLLA MARIA ELENA",
+    "categoria": "OFICIAL ADMINISTRATIVO",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "OFICIAL ADMINISTRATIVO · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 294,
+    "clave": "00380",
+    "nombre": "VILLAFUERTE PANTOJA JORGE ARMANDO",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 295,
+    "clave": "00402",
+    "nombre": "VILLESCAS DE LA CRUZ MANUEL UBER",
+    "categoria": "AYUDANTE ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "AYUDANTE ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 296,
+    "clave": "00311",
+    "nombre": "VITE VICTOR HUGO",
+    "categoria": "OPERADOR DE TRACTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OPERADOR DE TRACTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 297,
+    "clave": "00265",
+    "nombre": "ZALETA NICASIO ERNESTO",
+    "categoria": "AYUDANTE ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "AYUDANTE ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 298,
+    "clave": "00275",
+    "nombre": "ZEPEDA DEMIS CYNTHIA ADRIANA",
+    "categoria": "CAPTURISTA",
+    "departamento": "SALA DE REGIDORES",
+    "adscripcion": "CAPTURISTA · SALA DE REGIDORES"
+  },
+  {
+    "numero": 299,
+    "clave": "00257",
+    "nombre": "ZUÑIGA CASTILLO MIGUEL ANGEL",
+    "categoria": "AYUDANTE ALBAÑIL",
+    "departamento": "OBRAS PUBLICAS",
+    "adscripcion": "AYUDANTE ALBAÑIL · OBRAS PUBLICAS"
+  },
+  {
+    "numero": 300,
+    "clave": "00178",
+    "nombre": "ZUÑIGA FREGOSO EDER IVAN",
+    "categoria": "OFICIAL SOLDADOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICIAL SOLDADOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 301,
+    "clave": "00408",
+    "nombre": "ZUÑIGA HERNANDEZ LILIA MABEL",
+    "categoria": "AUXILIAR ADMINISTRATIVO",
+    "departamento": "BIBLIOTECA MPAL.",
+    "adscripcion": "AUXILIAR ADMINISTRATIVO · BIBLIOTECA MPAL."
+  },
+  {
+    "numero": 302,
+    "clave": "00206",
+    "nombre": "ZUÑIGA MARTINEZ RAMON",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 303,
+    "clave": "00121",
+    "nombre": "ZUÑIGA MARTINEZ RUBEN",
+    "categoria": "AYUDANTE DE RECOLECCION",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "AYUDANTE DE RECOLECCION · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 304,
+    "clave": "00048",
+    "nombre": "ZUÑIGA VAZQUEZ JOSE",
+    "categoria": "OFICIAL SOLDADOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "OFICIAL SOLDADOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 305,
+    "clave": "00184",
+    "nombre": "ZUÑIGA VILLANUEVA AGUSTIN",
+    "categoria": "CHOFER RECOLECTOR",
+    "departamento": "SERVICIOS PUBLICOS",
+    "adscripcion": "CHOFER RECOLECTOR · SERVICIOS PUBLICOS"
+  },
+  {
+    "numero": 306,
+    "clave": "00023",
+    "nombre": "ASCENCION VILLAREAL ISRAEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 307,
+    "clave": "00086",
+    "nombre": "BAEZ AMARO MIGUEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 308,
+    "clave": "00040",
+    "nombre": "BAEZ DOMINGUEZ MIGUEL ANGEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 309,
+    "clave": "00046",
+    "nombre": "BALDERAS ZUÑIGA FRANCISCO RAFAEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 310,
+    "clave": "PS015",
+    "nombre": "BARON CRUZ PATRICIO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 311,
+    "clave": "00019",
+    "nombre": "BARTOLO ALONSO JUANA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 312,
+    "clave": "PS001",
+    "nombre": "BLANCO TAVERA TERESA DE JESUS",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 313,
+    "clave": "00008",
+    "nombre": "CABRIALES OVIEDO AGUSTIN",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 314,
+    "clave": "00055",
+    "nombre": "CALDERON COLORADO SELZO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 315,
+    "clave": "00017",
+    "nombre": "CARREON RAMOS LUZ VICTORIA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 316,
+    "clave": "00033",
+    "nombre": "CARRIZALES JUAREZ GILBERTO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 317,
+    "clave": "00065",
+    "nombre": "CARRIZALES QUILANTAN JUANA GUADALUPE",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 318,
+    "clave": "PS008",
+    "nombre": "CASTELLANOS TORRES ALFREDO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 319,
+    "clave": "00104",
+    "nombre": "CASTILLO SUASTE FELIPE DE JESUS",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 320,
+    "clave": "00081",
+    "nombre": "CASTRO MORALES ABUNDIO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 321,
+    "clave": "00085",
+    "nombre": "CEBALLOS PASTRANA VICTOR MANUEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 322,
+    "clave": "00109",
+    "nombre": "CERVANTES CEPEDA GRACIELA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 323,
+    "clave": "00050",
+    "nombre": "CORONA FAJARDO CATALINA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 324,
+    "clave": "00089",
+    "nombre": "GABRIEL SANTIAGO LAZARO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 325,
+    "clave": "00056",
+    "nombre": "GARCIA CHAVEZ FRANCISCO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 326,
+    "clave": "00191",
+    "nombre": "GÓMEZ CASTRO RAYMUNDO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 327,
+    "clave": "PS021",
+    "nombre": "GUTIERREZ SOBREVILLA CARMEN LIDIA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 328,
+    "clave": "00007",
+    "nombre": "HERNÁNDEZ ALVAREZ ARTURO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 329,
+    "clave": "00037",
+    "nombre": "HERNÁNDEZ BALDERAS BERTHA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 330,
+    "clave": "PS022",
+    "nombre": "HERNÁNDEZ BAUTISTA MARIA SILVANA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 331,
+    "clave": "00084",
+    "nombre": "HERNÁNDEZ CERVANTES GUADALUPE",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 332,
+    "clave": "00194",
+    "nombre": "HERNÁNDEZ MENDOZA JULIAN",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 333,
+    "clave": "00096",
+    "nombre": "HERNÁNDEZ TURRUBIATES JULIAN",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 334,
+    "clave": "PS017",
+    "nombre": "HERNÁNDEZ VEGA MARIA DEL CARMEN",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 335,
+    "clave": "00106",
+    "nombre": "LARA GUZMAN MA. GUADALUPE",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 336,
+    "clave": "00064",
+    "nombre": "LARA VILLARREAL GLORIA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 337,
+    "clave": "00098",
+    "nombre": "LEDEZMA JAQUIS RUBEN",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 338,
+    "clave": "00062",
+    "nombre": "LEON LARRAGA AGUSTINA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 339,
+    "clave": "00074",
+    "nombre": "LOPEZ CARRERA AMADO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 340,
+    "clave": "00095",
+    "nombre": "MARQUEZ GARCIA JOSE MANUEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 341,
+    "clave": "PS010",
+    "nombre": "MARTINEZ CHAVEZ TERESA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 342,
+    "clave": "00002",
+    "nombre": "MARTINEZ GARCIA HERIBERTO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 343,
+    "clave": "PS004",
+    "nombre": "MARTINEZ HERNÁNDEZ ROSA CARMINA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 344,
+    "clave": "PS002",
+    "nombre": "MATA OLAVIDE CRISTINA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 345,
+    "clave": "00071",
+    "nombre": "MOLINA CAMACHO ADELA DIANA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 346,
+    "clave": "00020",
+    "nombre": "MONTES SANCHEZ FELIPE",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 347,
+    "clave": "00102",
+    "nombre": "MORALES CARETA FRANCISCO LEONEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 348,
+    "clave": "00027",
+    "nombre": "NORIEGA SALAZAR CARLOS",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 349,
+    "clave": "00022",
+    "nombre": "ORTA BALDERAS GUSTAVO MANUEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 350,
+    "clave": "00003",
+    "nombre": "ORTA PACHECO GERARDO ANTONIO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 351,
+    "clave": "00100",
+    "nombre": "PEREZ BANDA FEDERICO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 352,
+    "clave": "00059",
+    "nombre": "PEREZ DEL ANGEL RAYMUNDO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 353,
+    "clave": "00014",
+    "nombre": "PEREZ MATA EUSEBIA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 354,
+    "clave": "00141",
+    "nombre": "PORTES JUAREZ AMBROSIO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 355,
+    "clave": "00038",
+    "nombre": "PUGA MACIAS RAUL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 356,
+    "clave": "00018",
+    "nombre": "QUINTERO MACIAS MIGUEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 357,
+    "clave": "PS016",
+    "nombre": "RAMIREZ PEÑA CELINA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 358,
+    "clave": "00078",
+    "nombre": "RAMOS BAUTISTA RAYMUNDO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 359,
+    "clave": "00053",
+    "nombre": "RANGEL CRUZ MA. DEL SOCORRO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 360,
+    "clave": "00013",
+    "nombre": "REYES REYES NORA ALICIA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 361,
+    "clave": "PS025",
+    "nombre": "REYES RUIZ JUAN",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 362,
+    "clave": "00052",
+    "nombre": "RIVERA CELVERA CONCEPCION",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 363,
+    "clave": "PS018",
+    "nombre": "RODRIGUEZ BARTOLO OLIVIA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 364,
+    "clave": "PS003",
+    "nombre": "RODRIGUEZ GONZALEZ IGNACIA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 365,
+    "clave": "00028",
+    "nombre": "RUIZ DIAZ RAFAEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 366,
+    "clave": "00075",
+    "nombre": "SALAZAR ARMANDO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 367,
+    "clave": "00024",
+    "nombre": "SALAZAR HERNANDEZ GUADALUPE",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 368,
+    "clave": "00001",
+    "nombre": "SALINAS CONTRERAS ENRIQUE",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 369,
+    "clave": "00047",
+    "nombre": "SANCHEZ LOPEZ JORGE ALFREDO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 370,
+    "clave": "00016",
+    "nombre": "SILVA MAYA RIGOBERTO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 371,
+    "clave": "PS014",
+    "nombre": "TORRES VAZQUEZ JUAN",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 372,
+    "clave": "00120",
+    "nombre": "VARGAS GARCES JOSE MANUEL",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 373,
+    "clave": "00097",
+    "nombre": "VAZQUEZ AGUILAR ERNESTO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 374,
+    "clave": "00061",
+    "nombre": "VEGA DELGADO ANTONIO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 375,
+    "clave": "00021",
+    "nombre": "WBOLESTANO REYES ADRIANA",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
+  },
+  {
+    "numero": 376,
+    "clave": "PS005",
+    "nombre": "YAÑEZ REYES FILIBERTO",
+    "categoria": "PENSIONADO",
+    "departamento": "PENSIONADO",
+    "adscripcion": "PENSIONADO · PENSIONADO"
   }
 ];
 
@@ -3507,7 +4615,7 @@
     const casinoLights = document.getElementById('casinoLights');
     const flashNamesLayer = document.getElementById('flashNamesLayer');
 
-    const STORAGE_KEY = 'rifadora_sutra_380_revelacion_final_limpia_v1';
+    const STORAGE_KEY = 'rifadora_sutra_padron_actualizado_junio_2026_376_v1';
     let winners = loadWinners();
     let spinning = false;
     let tickTimer = null;
@@ -3930,7 +5038,7 @@
       updateStats();
       displayClave.textContent = '-----';
       displayName.textContent = 'Presiona “Girar ruleta”';
-      displayArea.textContent = 'La ruleta elegirá un registro aleatorio de la base depurada para este sorteo.';
+      displayArea.textContent = 'La ruleta elegirá un registro aleatorio del padrón actualizado para rifa.';
       showToast('Sorteo reiniciado.');
     }
 
